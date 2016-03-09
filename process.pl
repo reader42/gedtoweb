@@ -38,12 +38,12 @@ my $addedPeople   = 0;
 #------------------------------------------------------------------
 # Standard locations for this User
 #------------------------------------------------------------------
-my $userprofile = %*ENV<USERPROFILE>;
-my $dropbox = $userprofile ~~ 'Dropbox';
-my $googledrive = $userprofile ~~ 'Google Drive';
-my $onedrive = $userprofile ~~ 'OneDrive';
-my $desktop = $userprofile ~~ 'Desktop';
-my $documents = $userprofile ~~ 'Documents';
+my $userprofile = $ENV{USERPROFILE};
+my $dropbox = $userprofile . '/Dropbox/';
+my $googledrive = $userprofile . '/Google Drive/';
+my $onedrive = $userprofile . '/OneDrive/';
+my $desktop = $userprofile . '/Desktop/';
+my $documents = $userprofile . '/Documents/';
 
 #-------------------------------------------------------------------------------
 #  Set up logging
@@ -87,7 +87,7 @@ my $logger = Log::Log4perl::get_logger("");
 
 my $template = Template->new( { INCLUDE_PATH => 'Templates', PRE_CHOMP => 1, POST_CHOMP => 1 } );
 my $outDir =
-  'C:/Users/langb/OneDrive/Family Historian Projects/Family/Public/FH Website';
+  $onedrive . 'Family Historian Projects/Family/Public/FH Website';
 $outDir .= "\\";
 
 #-------------------------------------------------------------------------------
@@ -96,7 +96,7 @@ $outDir .= "\\";
 #-------------------------------------------------------------------------------
 
 my $IN_file_name =
-'C:/Users/langb/OneDrive/Family Historian Projects/Family/Family.fh_data/Family.ged'
+$onedrive . 'Family Historian Projects/Family/Family.fh_data/Family.ged'
   ;    # input file name
 
 open my $IN, '<encoding(UTF-16LE)', $IN_file_name
