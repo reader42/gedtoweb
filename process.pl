@@ -37,7 +37,7 @@ my $skippedNoFlag = 0;
 my $addedPeople   = 0;
 
 #------------------------------------------------------------------
-# Standard locations for this User
+# Standard locations for this User (perl 5)
 #------------------------------------------------------------------
 my $userprofile = $ENV{USERPROFILE};
 my $dropbox = $userprofile . '/Dropbox/';
@@ -183,9 +183,7 @@ my $pageLimit = 40;
 my @references = qw/I125 I129 I191 I1319 I277 I159 I192 I276 I170 I130 I58/;
 while ( my $ref = shift @references ) {
     my $person = $ged->get_individual($ref);
-    $logger->info( "Build loop on page ",
-        $page, " processing ",
-        $person->xref . ' ' . $person->given_names . ' ' . $person->surname );
+    # $logger->info( "Build loop on page ", $page, " processing ", $person->xref . ' ' . $person->given_names . ' ' . $person->surname );
 
 #-------------------------------------------------------------------------------
 # Store details for index and add to processing queue if not present: person,
@@ -243,8 +241,7 @@ $template->process( 'personpagehead.tt', $vars, $RPT )
 foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
 
     my $person = $people{$key};
-    $logger->info( "Process loop on page ",
-        $page, " processing $key $person" );
+    # $logger->info( "Process loop on page ", $page, " processing $key $person" );
 
     # get the page number
     $person =~ s/\[(\d+)\] //;
