@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Some Wiggin Trees</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+  <link rel="stylesheet" href="css/assets/css/custom.min.css">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
+    <script src="../bower_components/respond/dest/respond.min.js"></script>
+  <![endif]-->
+  <script>
+
+   var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23019901-1']);
+    _gaq.push(['_setDomainName', "bootswatch.com"]);
+      _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+   (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+   })();
+
+  </script>
+</head>
+
+<body id="mainpage">
+  <div class="container">
+    [% INCLUDE navbar.tt %]
+    <div class="jumbotron">
+      <p>This site contains details of my family history research. At great
+      grandparent level my lines are Barlow, Andrew, Hall, Stevenson, Morgan,
+      McNamara, Ratcliffe, and Woodcock. Most of the people were living in and
+      around Wigan, Lancashire. The Morgans and McNamaras were of Irish descent,
+      the Halls were Irish on the maternal side, the Andrews came from Yorkshire,
+      the rest seem to have been native Lancastrians.</p>
+      <p>But there are lots of other names to be found here - families my distant
+      relatives married into, witnessess of various events, and various people
+      they shared accomodation with.</p>
+      <p>Use the menu above to navigate the site - you can look for names, view
+      the descendancy charts, or look at the images. Send me an email using the
+      link below if you think you are related to any of these lines, or have any
+      views or comments.</p>
+      <p>The Wiggin Tree is better known as the rowan or mountain ash - it
+      features on the arms of the Borough of Wigan. In the local accent the name
+      of the town sounds like "Wiggin".</p>
+    </div>
+    <table class="table">
+      <tr>
+        <td><img src="images/coat.png" width="200px"></td>
+        <td><i>The Coat of arms of Wigan Metropolitan Borough Council, the local
+        government authority for the Metropolitan Borough of Wigan, in Greater
+        Manchester, England. The blazon is: ARMS: Lozengy Or and Sable each
+        Lozenge Or charged with a Rose Gules barbed and seeded proper on a Chief
+        Sable a Lion couchant guardant Or. CREST: On a Wreath of the Colours in
+        front of a Mountain Ash (Wiggin Tree) fructed proper a Castle triple
+        towered Argent the centre tower ensigned by an Ancient Crown Or.
+        SUPPORTERS: On the dexter side a Lion crowned with an Ancient Crown Or
+        and on the sinister side a Sparrowhawk close proper belled Or the whole
+        upon a Compartment representing a Grassy Mount proper.</i></td>
+      </tr>
+    </table>
+  </div>
+  [% INCLUDE footer.tt %]
+</body>
+</html>

@@ -1,0 +1,54 @@
+<br>
+<h4>Marriage Details</h4>
+<table class="table">
+  <tr>
+    <th>Husband</th>
+    <th>Wife</th>
+    <th>Date</th>
+    <th>Place</th>
+    <th>Witnesses</th>
+  </tr>
+  [% FOREACH marriage = marriages %]
+  <tr>
+    <td>
+      [% IF marriage.husband.page %]
+        <a href="P[% marriage.husband.page %].htm#[% marriage.husband.ref %]">
+          [% marriage.husband.givennames %]&nbsp;[% marriage.husband.surname %]</a>
+      [% ELSE %]
+        [% marriage.husband.givennames %]&nbsp;[% marriage.husband.surname %]
+      [% END %]
+    </td>
+    <td>
+      [% IF marriage.wife.page %]
+        <a href="P[% marriage.wife.page %].htm#[% marriage.wife.ref %]">
+          [% marriage.wife.givennames %]&nbsp;[% marriage.wife.surname %]</a>
+      [% ELSE %]
+        [% marriage.wife.givennames %]&nbsp;[% marriage.wife.surname %]
+      [% END %]
+    </td>
+    <td>
+      [% marriage.date %]
+    </td>
+    <td>
+      [% marriage.place %]
+    </td>
+    <td>
+      [% FOREACH witness = marriage.witnesses %]
+        [% IF loop.first %]
+          [% IF witness.page %]
+            <a href="P[% witness.page %].htm#[% witness.ref %]">
+              [% witness.givennames %]&nbsp;[% witness.surname %]</a>
+          [% ELSE %]
+            [% witness.givennames %]&nbsp;[% witness.surname %]
+          [% END %]
+        [% ELSE %]
+          [% IF witness.page %], <a href="P[% witness.page %].htm#[% witness.ref %]">
+              [% witness.givennames %]&nbsp;[% witness.surname %]</a>
+          [% ELSE %], [% witness.givennames %]&nbsp;[% witness.surname %]
+          [% END %]
+        [% END %]
+      [% END %]
+    </td>
+  </tr>
+  [% END %]
+</table>

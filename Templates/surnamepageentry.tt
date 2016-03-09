@@ -1,0 +1,4 @@
+    <tr>
+      <td><a href="[% href %]">[% givennames %]</a></td>
+      <td>[% dates %]</td>
+    </tr>

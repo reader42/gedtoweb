@@ -1,0 +1,29 @@
+<div class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="index.htm" class="navbar-brand">Some Wiggin Trees</a>
+      </div>
+      <div class="navbar-collapse collapse" id="navbar-main">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="index.htm">Main Page</a>
+          </li>
+          <li>
+            <a href="surname_index.htm">Surname Index</a>
+          </li>
+          <li>
+            <a href="TODO.htm">Charts</a>
+          </li>
+          <li>
+            <a href="TODO.htm">Master Place Index</a>
+          </li>
+          <li>
+            <a href="TODO.htm">Location Maps</a>
+          </li>
+          <li>
+            <a href="about.htm">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

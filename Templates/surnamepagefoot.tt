@@ -1,0 +1,5 @@
+    </tbody>
+  </table>
+  [% INCLUDE footer.tt %]
+</body>
+</html>

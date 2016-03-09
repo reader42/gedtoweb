@@ -1,0 +1,3 @@
+  [% INCLUDE footer.tt %]
+  </body>
+</html>

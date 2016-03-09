@@ -1,0 +1,33 @@
+  <div>
+  [% FOREACH event = events %]
+    [% IF event.sex == 'M' %]
+      He&nbsp;
+    [% ELSE %]
+      She&nbsp;
+    [% END %]
+    [% event.verb %]&nbsp;[% event.place %]&nbsp;[% event.date %]
+    [% IF event.witnesses %]
+      [% SWITCH event.verb %]
+        [% CASE "died" %], informant:
+        [% CASE "was baptised" %], sponsors:
+        [% CASE %], witnesses:
+      [% END %]
+      [% FOREACH witness = event.witnesses %]
+        [% IF loop.first %]
+          [% IF witness.page %]
+            &nbsp;
+            <a href="P[% witness.page %].htm#[% witness.ref %]">
+              [% witness.givennames %]&nbsp;[% witness.surname %]</a>
+          [% ELSE %]
+            &nbsp;[% witness.givennames %]&nbsp;[% witness.surname %]
+          [% END %]
+        [% ELSE %]
+          [% IF witness.page %], <a href="P[% witness.page %].htm#[% witness.ref %]">
+              [% witness.givennames %]&nbsp;[% witness.surname %]</a>
+          [% ELSE %], [% witness.givennames %]&nbsp;[% witness.surname %]
+          [% END %]
+        [% END %]
+      [% END %]
+    [% END %].
+  [% END %]
+  </div>

@@ -1,0 +1,12 @@
+[% USE date %]
+<div class="panel panel-danger">
+    <div class="panel-heading text-center">
+
+      <small>Last updated on [% date.format(date.now, '%a %d %b %y') %]<br/> Copyright
+      &copy; Peter Barlow - 2016<br/> Please contact <a
+      href="mailto:langbard@gmail.com" target="_blank">me</a> if you have any comments or questions</a></small>
+  		<h5>
+  		<small>This site is based on Bootswatch v3.3.6</small>
+  		</h5>
+    </div>
+</div>

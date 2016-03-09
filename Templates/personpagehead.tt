@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  [% INCLUDE header.tt
+    title = "Person Page"
+  %]
+<body id="personpages">
+  <div class="container">
+    [% INCLUDE navbar.tt %]
+  <div class="page-header">
+    <h1><small>Person Page - [% page %]</small></h1>
+  </div>
+  <div class="jumbotron">
+    <p>This page contains the details of individuals.</p>
+  </div>

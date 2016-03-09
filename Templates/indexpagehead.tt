@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  [% INCLUDE header.tt
+    title = "Surname Index Page"
+  %]
+<body id="indexpages">
+  <div class="container">
+    [% INCLUDE navbar.tt %]
+    <div class="jumbotron">
+      <p>This page is an index to all of the surnames that appear in the web site.
+      The number of entries for each surname is given.</p>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Surname</th>
+          <th>Number of Entries</th>
+        </tr>
+      </thead>
+      <tbody>

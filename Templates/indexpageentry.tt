@@ -1,0 +1,4 @@
+<tr>
+  <td><a href="[% href %]">[% surname %]</a></td>
+  <td>[% namecount %] entries</td>
+</tr>

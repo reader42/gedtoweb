@@ -1,0 +1,34 @@
+  <table class="table">
+    <tr>
+      <td>Children with</td>
+      <td>
+      [% IF spouse.page %]
+        <a href="P[% spouse.page %].htm#[% spouse.ref %]">[% spouse.givennames %]&nbsp;
+        [% spouse.surname %]</a>
+      [% ELSE %]
+        <td>[% spouse.givennames %]&nbsp;[% spouse.surname %]
+      [% END %]
+      [% notBlank(' born ', spouse.born) %][% notBlank(', died ', spouse.died) %]
+      </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>
+        <div>
+	      <ul class="list-group">
+		    [% FOREACH child = children %]
+          <li class="list-group-item">
+          [% IF child.page %]
+            <a href="P[% child.page %].htm#[% child.ref %]">[% child.givennames %]&nbsp;
+            [% child.surname %]</a>
+		      [% ELSE %]
+            [% child.givennames %]&nbsp;[% child.surname %]
+		      [% END %]
+          [% notBlank(' born ', child.born) %][% notBlank(', died ', child.died) %]
+          </li>
+		    [% END %]
+	      </ul>
+	    </div>
+      </td>
+    </tr>
+  </table>

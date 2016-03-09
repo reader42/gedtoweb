@@ -1,0 +1,16 @@
+  <br>
+  <h4>Census Details</h4>
+  <table class="table">
+    <tr>
+      <th>Date</th>
+      <th>Age</th>
+      <th>Place</th>
+    </tr>
+    [% FOREACH census = censuses %]
+    <tr>
+      <td> [% census.date %] </td>
+      <td> [% census.age %] </td>
+      <td> [% census.place %] </td>
+    </tr>
+    [% END %]
+  </table>
