@@ -86,7 +86,9 @@ my $logger = Log::Log4perl::get_logger("");
 #  TODO clean up the output directory
 #-------------------------------------------------------------------------------
 
-my $template = Template->new( { INCLUDE_PATH => 'Templates', PRE_CHOMP => 1, POST_CHOMP => 1 } );
+my $template = Template->new( { INCLUDE_PATH => 'Templates',
+                                PRE_CHOMP => 1,
+                                POST_CHOMP => 1 } );
 my $outDir =
   $onedrive . 'Family Historian Projects/Family/Public/FH Website';
 $outDir .= "\\";
