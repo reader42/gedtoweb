@@ -86,11 +86,13 @@ my $logger = Log::Log4perl::get_logger("");
 #  TODO clean up the output directory
 #-------------------------------------------------------------------------------
 
+my $fhbase = 'Family Historian Projects/Family/'
+
 my $template = Template->new( { INCLUDE_PATH => 'Templates',
                                 PRE_CHOMP => 1,
                                 POST_CHOMP => 1 } );
 my $outDir =
-  $onedrive . 'Family Historian Projects/Family/Public/FH Website/';
+  $onedrive . $fhbase . 'Public/FH Website/';
 
 #-------------------------------------------------------------------------------
 #  Get the GEDCOM and turn it into a local ASCII version, note that the input
@@ -98,7 +100,7 @@ my $outDir =
 #-------------------------------------------------------------------------------
 
 my $IN_file_name =
-$onedrive . 'Family Historian Projects/Family/Family.fh_data/Family.ged'
+$onedrive . $fhbase . 'Family.fh_data/Family.ged'
   ;    # input file name
 
 open my $IN, '<encoding(UTF-16LE)', $IN_file_name
