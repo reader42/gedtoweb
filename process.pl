@@ -90,8 +90,7 @@ my $template = Template->new( { INCLUDE_PATH => 'Templates',
                                 PRE_CHOMP => 1,
                                 POST_CHOMP => 1 } );
 my $outDir =
-  $onedrive . 'Family Historian Projects/Family/Public/FH Website';
-$outDir .= "\\";
+  $onedrive . 'Family Historian Projects/Family/Public/FH Website/';
 
 #-------------------------------------------------------------------------------
 #  Get the GEDCOM and turn it into a local ASCII version, note that the input
