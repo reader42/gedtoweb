@@ -15,6 +15,7 @@
 #      VERSION: 1.0
 #      CREATED: 19/06/2015 12:48:25
 #     REVISION: 03/03/2016 to use bootstrap
+#               09/03/2016 beta testing phase
 #===============================================================================
 
 use Modern::Perl;
@@ -36,7 +37,7 @@ my $skippedNoFlag = 0;
 my $addedPeople   = 0;
 
 #------------------------------------------------------------------
-# Standard locations for this User
+# Standard locations for this User (perl 5)
 #------------------------------------------------------------------
 my $userprofile = $ENV{USERPROFILE};
 my $dropbox = $userprofile . '/Dropbox/';
@@ -85,10 +86,11 @@ my $logger = Log::Log4perl::get_logger("");
 #  TODO clean up the output directory
 #-------------------------------------------------------------------------------
 
-my $template = Template->new( { INCLUDE_PATH => 'Templates', PRE_CHOMP => 1, POST_CHOMP => 1 } );
+my $template = Template->new( { INCLUDE_PATH => 'Templates',
+                                PRE_CHOMP => 1,
+                                POST_CHOMP => 1 } );
 my $outDir =
-  $onedrive . 'Family Historian Projects/Family/Public/FH Website';
-$outDir .= "\\";
+  $onedrive . 'Family Historian Projects/Family/Public/FH Website/';
 
 #-------------------------------------------------------------------------------
 #  Get the GEDCOM and turn it into a local ASCII version, note that the input
@@ -182,9 +184,7 @@ my $pageLimit = 40;
 my @references = qw/I125 I129 I191 I1319 I277 I159 I192 I276 I170 I130 I58/;
 while ( my $ref = shift @references ) {
     my $person = $ged->get_individual($ref);
-    $logger->info( "Build loop on page ",
-        $page, " processing ",
-        $person->xref . ' ' . $person->given_names . ' ' . $person->surname );
+    # $logger->info( "Build loop on page ", $page, " processing ", $person->xref . ' ' . $person->given_names . ' ' . $person->surname );
 
 #-------------------------------------------------------------------------------
 # Store details for index and add to processing queue if not present: person,
@@ -242,8 +242,7 @@ $template->process( 'personpagehead.tt', $vars, $RPT )
 foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
 
     my $person = $people{$key};
-    $logger->info( "Process loop on page ",
-        $page, " processing $key $person" );
+    # $logger->info( "Process loop on page ", $page, " processing $key $person" );
 
     # get the page number
     $person =~ s/\[(\d+)\] //;
