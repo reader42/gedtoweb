@@ -82,10 +82,6 @@ log4perl.appender.AppInfo.Filter = MatchInfo);
 Log::Log4perl::init( \$conf );
 my $logger = Log::Log4perl::get_logger("");
 
-#-------------------------------------------------------------------------------
-#  TODO clean up the output directory
-#-------------------------------------------------------------------------------
-
 my $fhbase = 'Family Historian Projects/Family/';
 
 my $template = Template->new( { INCLUDE_PATH => 'Templates',
@@ -187,6 +183,11 @@ my $pageLimit = 40;
 #  list and also their details to the people index.
 #-------------------------------------------------------------------------------
 my @references = qw/I125 I129 I191 I1319 I277 I159 I192 I276 I170 I130 I58/;
+#-----------------------------------------------------------------------------
+#  Turn on debugging for nominated person I???
+#-----------------------------------------------------------------------------
+my $debugPerson = 'I???';
+
 while ( my $ref = shift @references ) {
     my $person = $ged->get_individual($ref);
 
@@ -434,46 +435,49 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
         my @bastards;
 
         foreach my $spouse ( $person->spouse ) {
-            foreach my $child ( $person->children ) {
-                my $childParent = '';
-                if ( uc( $spouse->sex ) eq 'M' ) {
-                    if ( $child->father ) {
-                        $childParent = $child->father->xref;
-                    }
+          foreach my $child ( $person->children ) {
+              my $childParent = '';
+              if ( uc( $spouse->sex ) eq 'M' ) {
+                if ( $child->father ) {
+                    $childParent = $child->father->xref;
                 }
-                else {
-                    if ( $child->mother ) {
-                        $childParent = $child->mother->xref;
-                    }
+              } else {
+                if ( $child->mother ) {
+                    $childParent = $child->mother->xref;
                 }
-                if ( $childParent eq $spouse->xref ) {
-                    push @children, basicDetails($child);
+              }
+              if ( $childParent eq $spouse->xref ) {
+                debug($ref, "Child",$child->given_names, $child->xref,
+                "added to spouse", $spouse->given_names, $spouse->xref);
+                push @children, basicDetails($child);
+              } else {
+                # Natural children have no recorded father or mother
+                if (!$child->father || !$child->mother) {
+                  debug($ref, "Natural Child",$child->given_names, $child->xref,
+                  "added");
+                  push @bastards, basicDetails($child);
                 }
-                else {
-                    push @bastards, basicDetails($child);
-                }
+              }
             }
 
             $vars = {
-                spouse   => basicDetails($spouse),
-                children => \@children,
-                notBlank => \&notBlank
+              spouse   => basicDetails($spouse),
+              children => \@children,
+              notBlank => \&notBlank
             };
-
             $template->process( 'children.tt', $vars, $RPT )
               || $logger->logdie( $template->error() );
             @children = ();
         }
         if (@bastards) {
-            $vars = {
-                spouse   => { surname => 'Unknown', page => undef },
-                children => \@bastards,
-                notBlank => \&notBlank
-            };
-
-            $template->process( 'children.tt', $vars, $RPT )
-              || $logger->logdie( $template->error() );
-            @bastards = ();
+          $vars = {
+            spouse   => { surname => 'Unknown', page => undef },
+            children => \@bastards,
+            notBlank => \&notBlank
+          };
+          $template->process( 'children.tt', $vars, $RPT )
+            || $logger->logdie( $template->error() );
+          @bastards = ();
         }
         $template->process( 'indifoot.tt', $vars, $RPT )
           || $logger->logdie( $template->error() );
@@ -939,4 +943,13 @@ sub notBlank {
     return $text . $item;
   }
   return;
+}
+
+sub debug {
+  my $ref = shift;
+  my @data = @_;
+
+  if ($ref eq $debugPerson) {
+    say 'Debugging '. $ref . ' ' . join(' ', @data);
+  }
 }
