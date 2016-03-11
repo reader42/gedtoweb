@@ -63,7 +63,7 @@ log4perl.filter.MatchWarn.AcceptOnMatch = true
 log4perl.filter.MatchInfo = Log::Log4perl::Filter::LevelMatch
 log4perl.filter.MatchInfo.LevelToMatch = INFO
 log4perl.filter.MatchInfo.AcceptOnMatch = true
-# Error appender
+# Error appender messages go to the screen
 log4perl.appender.AppError = Log::Log4perl::Appender::Screen
 log4perl.appender.AppError.layout = SimpleLayout
 log4perl.appender.AppError.Filter = MatchError
@@ -86,7 +86,7 @@ my $logger = Log::Log4perl::get_logger("");
 #  TODO clean up the output directory
 #-------------------------------------------------------------------------------
 
-my $fhbase = 'Family Historian Projects/Family/'
+my $fhbase = 'Family Historian Projects/Family/';
 
 my $template = Template->new( { INCLUDE_PATH => 'Templates',
                                 PRE_CHOMP => 1,
@@ -124,10 +124,10 @@ while (<$IN>) {
 }
 
 close $OUT
-  or $logger->logwarn("$0 : failed to close output file '$OUT_file_name' : $!");
+  or $logger->logerror("$0 : failed to close output file '$OUT_file_name' : $!");
 
 close $IN
-  or $logger->logwarn("$0 : failed to close input file '$IN_file_name' : $!");
+  or $logger->logerror("$0 : failed to close input file '$IN_file_name' : $!");
 
 my $ged = Gedcom->new( gedcom_file => 'Family.ged' );
 
@@ -135,7 +135,10 @@ my $ged = Gedcom->new( gedcom_file => 'Family.ged' );
 #  Clean up the output directory and move in the fixed files
 #-------------------------------------------------------------------------------
 
-# unlink glob "$outDir/*.htm";
+foreach my $htmFile (glob qq("${outDir}*.htm")) {
+  unlink $htmFile;
+}
+
 my $RPT_file_name = $outDir . 'index.htm';    # output file name
 
 open my $RPT, '>', $RPT_file_name
@@ -144,7 +147,7 @@ my $vars = { };
 $template->process( 'index.tt', $vars, $RPT )
   || $logger->logdie( $template->error() );
 close $RPT
-    or $logger->logwarn(
+    or $logger->logerror(
       "$0 : failed to close output file '$RPT_file_name' : $!");
 
 $RPT_file_name = $outDir . 'todo.htm';    # output file name
@@ -155,7 +158,7 @@ $vars = { };
 $template->process( 'todo.tt', $vars, $RPT )
   || $logger->logdie( $template->error() );
 close $RPT
-    or $logger->logwarn(
+    or $logger->logerror(
       "$0 : failed to close output file '$RPT_file_name' : $!");
 
 $RPT_file_name = $outDir . 'about.htm';    # output file name
@@ -166,7 +169,7 @@ $vars = { };
 $template->process( 'about.tt', $vars, $RPT )
   || $logger->logdie( $template->error() );
 close $RPT
-    or $logger->logwarn(
+    or $logger->logerror(
       "$0 : failed to close output file '$RPT_file_name' : $!");
 
 #-------------------------------------------------------------------------------
@@ -259,7 +262,7 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
             $template->process( 'personpagefoot.tt', undef, $RPT )
               || $logger->logdie( $template->error() );
             close $RPT
-              or $logger->logwarn(
+              or $logger->logerror(
                 "$0 : failed to close output file '$RPT_file_name' : $!");
         }
         $currentPage = $page;
@@ -283,15 +286,13 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
         if ( !$person->flags->web ) {
             removeIndex($person);
             $skippedNoWeb++;
-            $logger->warn( $person->cased_name,
-                ' not processed because Web flag not set' );
+            # $logger->info( $person->cased_name, ' not processed because Web flag not set' );
             next;
         }
         if ( $person->flags->living ) {
             removeIndex($person);
             $skippedLiving++;
-            $logger->warn( $person->cased_name,
-                ' not processed because Living flag set' );
+            # $logger->info( $person->cased_name, ' not processed because Living flag set' );
             next;
         }
 
@@ -304,7 +305,8 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
             person => basicDetails($person),
             father => basicDetails( $person->father ),
             mother => basicDetails( $person->mother ),
-            notBlank => \&notBlank
+            notBlank => \&notBlank,
+            indiref => $ref
         };
 
         $template->process( 'indihead.tt', $vars, $RPT )
@@ -312,23 +314,27 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
         $addedPeople++;
 
 #-------------------------------------------------------------------------------
-#  Details of their events
+#  Details of their events, eventCount also records marriages and censuses
 #-------------------------------------------------------------------------------
         my @events;
+        my $eventCount = 0;
 
 #-------------------------------------------------------------------------------
 #  Birth, etc.
 #-------------------------------------------------------------------------------
         if ( $person->birth ) {
+            $eventCount++;
             push @events,
               eventDetails( $person->sex, 'was born', 'on', $person->birth );
         }
         if ( $person->baptism ) {
+            $eventCount++;
             push @events,
               eventDetails( $person->sex, 'was baptised', 'on',
                 $person->baptism );
         }
         if ( $person->christening ) {
+            $eventCount++;
             push @events,
               eventDetails( $person->sex, 'was christened',
                 'on', $person->christening );
@@ -338,11 +344,13 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
 #  Later religious events
 #-------------------------------------------------------------------------------
         if ( $person->confirmation ) {
+            $eventCount++;
             push @events,
               eventDetails( $person->sex, 'was confirmed',
                 'on', $person->confirmation );
         }
         if ( $person->first_communion ) {
+            $eventCount++;
             push @events,
               eventDetails(
                 $person->sex, 'recieved first communion',
@@ -350,6 +358,7 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
               );
         }
         if ( $person->marriage_bann ) {
+            $eventCount++;
             push @events,
               eventDetails( $person->sex, 'had banns read',
                 'on', $person->marriage_bann );
@@ -360,7 +369,7 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
 #-------------------------------------------------------------------------------
         my @occs = $person->record('occupation');
         foreach my $occ (@occs) {
-
+            $eventCount++;
             push @events,
               eventDetails( $person->sex, 'was ' . $occ->get_value, 'in',
                 $occ );
@@ -370,10 +379,12 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
 #  Death, etc.
 #-------------------------------------------------------------------------------
         if ( $person->death ) {
+            $eventCount++;
             push @events,
               eventDetails( $person->sex, 'died', 'on', $person->death );
         }
         if ( $person->burial ) {
+            $eventCount++;
             push @events,
               eventDetails( $person->sex, 'was buried', 'on', $person->burial );
         }
@@ -390,6 +401,7 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
         my @censuses;
         my @cenevents = $person->record('census');
         foreach my $census (@cenevents) {
+            $eventCount++;
             push @censuses, censusDetails($census);
         }
         $vars = { censuses => \@censuses,
@@ -404,6 +416,7 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
         my @marriages;
         my @families = $person->record('family_spouse');
         foreach my $family (@families) {
+            $eventCount++;
             push @marriages, marriageDetails($family);
         }
         $vars = { marriages => \@marriages,
@@ -464,17 +477,20 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
         }
         $template->process( 'indifoot.tt', $vars, $RPT )
           || $logger->logdie( $template->error() );
+        if ($eventCount == 0) {
+          $logger->warn( $person->cased_name . ' ' . $ref . ' has no events' );
+        }
     }
     else {
         removeIndex($person);
-        $logger->warn( $person->cased_name . ' not processed because no flags set' );
+        # $logger->info( $person->cased_name . ' not processed because no flags set' );
         $skippedNoFlag++;
     }
 }
 $template->process( 'personpagefoot.tt', undef, $RPT )
   || $logger->logdie( $template->error() );
 close $RPT
-  or $logger->logwarn("$0 : failed to close output file '$RPT_file_name' : $!");
+  or $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
 
 #-------------------------------------------------------------------------------
 #  Open the master surname index
@@ -533,7 +549,7 @@ foreach my $key ( sort indexSort keys %people ) {
           || $logger->logdie( $template->error() );
 
         close $SURNAME
-          or $logger->logwarn(
+          or $logger->logerror(
             "$0 : failed to close output file '$SURNAME_file_name' : $!");
 
 #-------------------------------------------------------------------------------
@@ -578,7 +594,7 @@ $template->process( 'surnamepagefoot.tt', undef, $SURNAME )
   || $logger->logdie( $template->error() );
 
 close $SURNAME
-  or $logger->logwarn(
+  or $logger->logerror(
     "$0 : failed to close output file '$SURNAME_file_name' : $!");
 
 #-------------------------------------------------------------------------------
@@ -596,7 +612,7 @@ $template->process( 'indexpagefoot.tt', undef, $INDEX )
 
 close $INDEX
   or
-  $logger->logwarn("$0 : failed to close output file '$INDEX_file_name' : $!");
+  $logger->logerror("$0 : failed to close output file '$INDEX_file_name' : $!");
 
 say "Total people processed       $totalPeople";
 say "Skipped because Living       $skippedLiving";

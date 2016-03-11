@@ -5,6 +5,7 @@
         [% person.givennames %]&nbsp;[% person.surname %]
         ([% notBlank('', person.born) %] - [% notBlank('', person.died) %])
         <div class="pull-right">
+          [ [% indiref %] ]
           <a class="btn btn-default btn.sm" href="#TOP"><span class="glyphicon glyphicon-hand-up"> Top</span></a>
         </div>
       </div>
