@@ -110,6 +110,7 @@ open my $OUT, '>:encoding(UTF-8)', $OUT_file_name
 my $skipping = 0;
 while (<$IN>) {
     chomp;
+    chop; # needed because UTF-16LE?
     if (m/^0 \@P\d+\@ _PLAC/) {
         $skipping = 1;
     }
