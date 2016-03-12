@@ -10,5 +10,7 @@
     <h1><small>Person Page - [% page %]</small></h1>
   </div>
   <div class="jumbotron">
-    <p>This page contains the details of individuals.</p>
+    <p>This page contains the details of individuals. The reference in square
+    brackets at the right of the person header is used in Family Historian and
+    helps me in dealing with any queries. </p>
   </div>
