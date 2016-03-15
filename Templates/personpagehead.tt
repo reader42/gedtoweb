@@ -10,7 +10,15 @@
     <h1><small>Person Page - [% page %]</small></h1>
   </div>
   <div class="jumbotron">
+    <small>
     <p>This page contains the details of individuals. The reference in square
     brackets at the right of the person header is used in Family Historian and
-    helps me in dealing with any queries. </p>
+    helps me in dealing with any queries. Note that these pages are produced
+    automatically as my GEDCOM file is produced and so family members will be
+    scattered across multiple pages. The best way to find individuals is by
+    using the surname and index pages or by following the links provided rather
+    than scrolling through individual pages.</p>
+    <p>Note that in the relationships, for example, the husband of a great aunt is
+    shown is an great uncle, and the wife of a brother is shown as a sister</p>
+  </small>
   </div>
