@@ -71,6 +71,7 @@ I13 => 'Uncle',
 I6 => 'Daughter',
 I1717 => 'Husband of Sister',
 I116 => 'Wife of Great Great Uncle',
+I37 => 'Unknown'
 );
 
 # Global variables
@@ -81,8 +82,16 @@ my @downTrace = ();
 tie my %currentList, "Tie::IxHash";
 my %seenHashUp;
 my %seenHashDown;
+# shows that the person found is a spouse of an ancestor
 my $spouseFlag;
+# cumulative count of searches performed
+my $searchesPerformed = 0;
 my $DEBUGGING = 0;
+
+# TODO make it terminate when person isn't found
+# $DEBUGGING = 1;
+# say calculateRelationship('I37'); # I37 for Mary Robinson
+# exit;
 
 foreach my $testID (keys %tests) {
   my $trial = calculateRelationship($testID);
@@ -95,10 +104,6 @@ foreach my $testID (keys %tests) {
   }
 }
 
-# TODO make it terminate when person isn't found
-# $DEBUGGING = 1;
-# say calculateRelationship('I37');
-
 sub calculateRelationship {
   my $testID = shift;
 
@@ -108,16 +113,23 @@ sub calculateRelationship {
   %currentList = ();
   %seenHashUp = ();
   %seenHashDown = ();
+  my $lastSearches = 0;
 
   initLevel('I1');
   while (!$found) {
     foreach my $indi (keys %currentList) {
       searchDown($indi, $testID,0);
+
       last if $found;
     }
     last if $found;
     debug("Adding next level") if $DEBUGGING;
-    last if !nextLevelUp();
+    if ($searchesPerformed > $lastSearches) {
+      $lastSearches = $searchesPerformed;
+    } else {
+      return "Unknown";
+    }
+    nextLevelUp();
   }
   my ($minDepth, $maxDepth) = addFound();
   printLevel($minDepth) if $DEBUGGING;
@@ -192,13 +204,17 @@ sub searchDown {
   my $ref = shift;
   my $lookingFor = shift;
   my $isSpouse = shift;
+
   my $person = $ged->get_individual($ref);
 
   #----------------------------------------------------------------------------
   # don't process people more than once otherwise we will never terminate
   #----------------------------------------------------------------------------
 
-  return if alreadySeenDown($ref, $person);
+  if (alreadySeenDown($ref, $person)) {
+      return;
+  }
+  $searchesPerformed++;
 
   #----------------------------------------------------------------------------
   # don't process if we have already found who we're looking fo
@@ -210,6 +226,7 @@ sub searchDown {
   # record progress
   #----------------------------------------------------------------------------
   push @downTrace, $person->xref;
+
   debug("Searching down from", $person->cased_name, $person->xref) if $DEBUGGING;
 
   if ($person->xref eq $lookingFor) {
@@ -246,8 +263,6 @@ sub searchDown {
     # looking for in any of their children (and etc.) so we pop them off the
     # trace
     #--------------------------------------------------------------------------
-    # pop @downTrace;
-    # debug("Root Node popped", Dumper(%currentList)) if $DEBUGGING;
   } else {
     pop @downTrace;
     debug("Leaf Node popped", Dumper(%currentList)) if $DEBUGGING;
@@ -260,7 +275,7 @@ sub nextLevelUp {
   # from a person, add their father and mother - from a father and mother add
   # their fathers and mothers, etc.
   #----------------------------------------------------------------------------
-  my $added = 0;
+
   foreach my $indi ( keys %currentList ) {
     my $depth = $currentList{$indi}{depth};
     my $name = $currentList{$indi}{name};
@@ -268,23 +283,21 @@ sub nextLevelUp {
     my $person = $ged->get_individual($indi);
     if ($person->father) {
       my $father = $person->father;
-      if (!$currentList{$father}) {
+      if (!exists $currentList{$father}) {
         $currentList{$father->xref}{name} = $father->cased_name;
         $currentList{$father->xref}{depth} = $depth + 1;
-        $added++;
       }
     }
     if ($person->mother) {
       my $mother = $person->mother;
-      if (!$currentList{$mother}) {
+      if (!exists $currentList{$mother}) {
         $currentList{$mother->xref}{name} = $mother->cased_name;
         $currentList{$mother->xref}{depth} = $depth + 1;
-        $added++;
       }
     }
   }
   debug("Current List is", Dumper(%currentList)) if $DEBUGGING;
-  return $added;
+  return;
 }
 
 sub initLevel {
