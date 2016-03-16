@@ -65,11 +65,12 @@ I1449 => '4th Cousin',
 I176 => 'Great Great Great Aunt',
 I204 => 'Great Aunt',
 I1183 => '1st Cousin 2 times removed',
-I216 => 'Great Great Uncle',
-I45 => 'Uncle',
+I216 => 'Husband of Great Great Aunt',
+I45 => 'Husband of Aunt',
+I13 => 'Uncle',
 I6 => 'Daughter',
-I1717 => 'Brother',
-I116 => 'Great Great Aunt',
+I1717 => 'Husband of Sister',
+I116 => 'Wife of Great Great Uncle',
 );
 
 # Global variables
@@ -80,6 +81,7 @@ my @downTrace = ();
 tie my %currentList, "Tie::IxHash";
 my %seenHashUp;
 my %seenHashDown;
+my $spouseFlag;
 my $DEBUGGING = 0;
 
 foreach my $testID (keys %tests) {
@@ -87,6 +89,9 @@ foreach my $testID (keys %tests) {
 
   if ($tests{$testID} ne $trial) {
     say "$testID expected " . $tests{$testID} . " but got $trial";
+    say "Spouse flag is $spouseFlag";
+    say "Found person is " . sexID($testID,"Male","Female");
+    say ' ';
   }
 }
 
@@ -107,7 +112,7 @@ sub calculateRelationship {
   initLevel('I1');
   while (!$found) {
     foreach my $indi (keys %currentList) {
-      searchDown($indi, $testID);
+      searchDown($indi, $testID,0);
       last if $found;
     }
     last if $found;
@@ -147,12 +152,21 @@ sub nameRelationship {
       $prefix = 'Great ' x ($difference - 1);
       $relation = sexID($testID, 'Nephew', 'Niece');
     } else {
-      $relation = sexID($testID, 'Brother', 'Sister');
+      if ($spouseFlag) {
+        $relation = sexID($testID, 'Husband of Sister', 'Wife of Brother');
+      } else {
+        $relation = sexID($testID, 'Brother', 'Sister');
+      }
     }
   } elsif (($maxDepth + $difference) == 1) {
     # (Great) Uncle/Aunt
     $prefix = 'Great ' x ($maxDepth - 2);
-    $relation = sexID($testID, 'Uncle', 'Aunt');
+    if ($spouseFlag) {
+      $prefix = sexID($testID, 'Husband of ','Wife of ') . $prefix;
+      $relation = sexID($testID, 'Aunt', 'Uncle');
+    } else {
+      $relation = sexID($testID, 'Uncle', 'Aunt');
+    }
   } elsif ($difference == 0) {
     # (nth) Cousin
     $prefix = ORD($maxDepth - 1) . ' ';
@@ -166,7 +180,6 @@ sub nameRelationship {
     $prefix = ORD($maxDepth + $difference - 1) . ' ';
     $relation = 'Cousin ' . abs($difference) . ' times removed';
   }
-
   return $prefix . $relation;
 }
 
@@ -178,6 +191,7 @@ sub searchDown {
 
   my $ref = shift;
   my $lookingFor = shift;
+  my $isSpouse = shift;
   my $person = $ged->get_individual($ref);
 
   #----------------------------------------------------------------------------
@@ -199,9 +213,10 @@ sub searchDown {
   debug("Searching down from", $person->cased_name, $person->xref) if $DEBUGGING;
 
   if ($person->xref eq $lookingFor) {
-    # set the found flag and store the down trace
+    # set the found flag and store the down trace and the spouse status
     $found = 1;
     @foundDownTrace = @downTrace;
+    $spouseFlag = $isSpouse;
     debug("Found", $person->cased_name) if $DEBUGGING;
     return;
   }
@@ -214,7 +229,7 @@ sub searchDown {
   if ($person->children || $person->spouse) {
     if ($person->children) {
       foreach my $child ( $person->children ) {
-        searchDown($child->xref, $lookingFor);
+        searchDown($child->xref, $lookingFor,0);
       }
     }
     # TODO handle spouses differently otherwise they get treated as children
@@ -223,7 +238,7 @@ sub searchDown {
     debug("Root Node popped", Dumper(%currentList)) if $DEBUGGING;
     if ($person->spouse) {
       foreach my $spouse ( $person->spouse ) {
-        searchDown($spouse->xref, $lookingFor);
+        searchDown($spouse->xref, $lookingFor,1);
       }
     }
     #--------------------------------------------------------------------------
