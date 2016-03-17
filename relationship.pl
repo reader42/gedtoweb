@@ -71,7 +71,10 @@ my %tests = (
   I6    => 'Daughter',
   I1717 => 'Husband of Sister',
   I116  => 'Wife of Great Great Uncle',
-  I37   => 'Unknown'
+  I37   => 'Unknown',
+  I1120 => 'Great Great Grand Mother',
+  I1212 => 'Great Grand Mother',
+  I88 => 'Great Grand Mother',
 );
 
 # Global variables
@@ -82,6 +85,7 @@ my @downTrace      = ();
 tie my %currentList, "Tie::IxHash";
 my %seenHashUp;
 my %seenHashDown;
+my $weird = 0;
 
 # shows that the person found is a spouse of an ancestor
 my $spouseFlag;
@@ -92,7 +96,9 @@ my $DEBUGGING         = 0;
 
 # TODO make it terminate when person isn't found
 # $DEBUGGING = 1;
-# say calculateRelationship('I37'); # I37 for Mary Robinson
+# say calculateRelationship('I1212');
+# say calculateRelationship('I88');
+# say calculateRelationship('I1120');
 # exit;
 
 foreach my $testID ( keys %tests ) {
@@ -261,12 +267,12 @@ sub searchDown {
       }
     }
 
-    # TODO handle spouses differently otherwise they get treated as children
-    # of the other person
-    pop @downTrace;
-    debug( "Root Node popped", Dumper(%currentList) ) if $DEBUGGING;
+    # TODO multiple spouses cause problems becuse we pop the root too early
+    my $dummy = pop @downTrace;
+    debug( "Root Node $dummy popped", join(',', @downTrace) ) if $DEBUGGING;
     if ( $person->spouse ) {
       foreach my $spouse ( $person->spouse ) {
+        debug("Spouse", $spouse->cased_name) if $DEBUGGING;
         searchDown( $spouse->xref, $lookingFor, 1 );
       }
     }
@@ -277,8 +283,8 @@ sub searchDown {
     # trace
     #--------------------------------------------------------------------------
   } else {
-    pop @downTrace;
-    debug( "Leaf Node popped", Dumper(%currentList) ) if $DEBUGGING;
+    my $dummy = pop @downTrace;
+    debug( "Leaf Node $dummy popped", join(',', @downTrace) ) if $DEBUGGING;
   }
 }
 
@@ -340,6 +346,10 @@ sub addFound {
   my $maxDepth = 0;
   my $minDepth;
   my $depth;
+  $weird = 0;
+
+  debug("Found Down Trace is", join(',', @foundDownTrace)) if $DEBUGGING;
+
   foreach my $indi ( keys %currentList ) {
     $maxDepth = $currentList{$indi}{depth};
   }
@@ -349,7 +359,19 @@ sub addFound {
 
       # the first person we process should always be in %currentList already and
       # so we pick up the depth from here
-      $depth = $currentList{$indi}{depth};
+
+      if (exists $currentList{$indi}) {
+        $depth = $currentList{$indi}{depth};
+      } else {
+        # for multiple spouses this happens so try to use the depth of the last
+        # person in the list
+        foreach my $hope (keys %currentList) {
+          $depth = $currentList{$hope}{depth};
+        }
+        $depth++;
+        $weird = 1;
+        debug('Warning', $indi, 'not in current list, depth set to', $depth);
+      }
     }
 
     my $person = $ged->get_individual($indi);
@@ -357,6 +379,7 @@ sub addFound {
     if ( !exists $currentList{$indi} ) {
       $currentList{$indi}{name}  = $person->cased_name;
       $currentList{$indi}{depth} = --$depth;
+      debug("Adding $indi to current list") if $DEBUGGING;
     }
   }
   $minDepth = $depth;
@@ -384,7 +407,7 @@ sub alreadySeenDown {
     debug( $ref, "down skipped because already seen" ) if $DEBUGGING;
     return 1;
   } else {
-
+    debug( $ref, "added to down" ) if $DEBUGGING;
     # debug((caller(2))[3], $ref, $person->cased_name);
     $seenHashDown{$ref} = $person->cased_name;
     return 0;
