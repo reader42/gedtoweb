@@ -1069,6 +1069,12 @@ sub nameRelationship {
     $prefix   = ORD( $maxDepth + $difference - 1 ) . ' ';
     $relation = 'Cousin ' . abs($difference) . ' times removed';
   }
+  # fix n times to be better English
+  if ($relation =~ / times /) {
+    $relation =~ s/1 times/once/;
+    $relation =~ s/2 times/twice/;
+    $relation =~ s/3 times/thrice/;
+  }
   return $prefix . $relation;
 }
 
