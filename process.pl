@@ -152,12 +152,36 @@ close $RPT
   or
   $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
 
-$RPT_file_name = $outDir . 'todo.htm';        # output file name
+# currently dummy places for charts, maps, and places
+
+$RPT_file_name = $outDir . 'charts.htm';        # output file name
 
 open $RPT, '>', $RPT_file_name
   or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
 $vars = {};
-$template->process( 'todo.tt', $vars, $RPT )
+$template->process( 'charts.tt', $vars, $RPT )
+  || $logger->logdie( $template->error() );
+close $RPT
+  or
+  $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
+
+$RPT_file_name = $outDir . 'maps.htm';        # output file name
+
+open $RPT, '>', $RPT_file_name
+  or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
+$vars = {};
+$template->process( 'maps.tt', $vars, $RPT )
+  || $logger->logdie( $template->error() );
+close $RPT
+  or
+  $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
+
+$RPT_file_name = $outDir . 'places.htm';        # output file name
+
+open $RPT, '>', $RPT_file_name
+  or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
+$vars = {};
+$template->process( 'places.tt', $vars, $RPT )
   || $logger->logdie( $template->error() );
 close $RPT
   or
@@ -336,6 +360,10 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
       indiref      => $ref,
       relationship => calculateRelationship($ref)
     };
+
+    if ($$vars{relationship} eq '') {
+      debugPrint('WARN', 'No relationship for',$$vars{indiref});
+    }
 
     $template->process( 'indihead.tt', $vars, $RPT )
       || $logger->logdie( $template->error() );
@@ -595,7 +623,7 @@ foreach my $key ( sort indexSort keys %people ) {
       $lastName = 'Unknown';
     }
     $vars = {
-      href      => $SURNAME_file_name,
+      href      => terminalPart($SURNAME_file_name),
       surname   => $lastName,
       namecount => $lastNameCount,
     };
@@ -1294,6 +1322,12 @@ sub sexID {
   } else {
     return $phrases[1];
   }
+}
+
+sub terminalPart {
+  my $fileName = shift;
+  $fileName =~ s/.*\///;
+  return $fileName;
 }
 
 sub debugPrint {

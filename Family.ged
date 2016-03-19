@@ -4877,7 +4877,6 @@
 3 DATA
 4 TEXT RG14PN25222 RG78PN1443 RD475 SD4 ED23 SN25
 2 NOTE Witness: John WOODCOCK [[(I121)]]. Role: Member of Household.
-1 FAMC @F149@
 1 FAMS @F20@
 1 _FLGS
 2 __WEB Web
@@ -5300,7 +5299,7 @@
 2 DATE 3 MAR 2016
 3 TIME 16:43:05
 0 @I126@ INDI
-1 NAME Thomas /Andrew/
+1 NAME Thomas /Andrews/
 1 SEX M
 1 _ATTR 
 2 TYPE TODO
@@ -5365,8 +5364,8 @@
 1 _FLGS
 2 __WEB Web
 1 CHAN
-2 DATE 1 JUL 2015
-3 TIME 11:45:19
+2 DATE 17 MAR 2016
+3 TIME 09:48:29
 0 @I129@ INDI
 1 NAME Rodger /Morgan/
 1 SEX M
@@ -5494,7 +5493,7 @@
 2 DATE 23 JUN 2015
 3 TIME 08:38:35
 0 @I138@ INDI
-1 NAME Elizabeth /Andrew/
+1 NAME Elizabeth /Andrews/
 2 SOUR @S30@
 1 NAME Elizabeth /Andrews/
 1 SEX F
@@ -5645,8 +5644,8 @@
 1 _FLGS
 2 __WEB Web
 1 CHAN
-2 DATE 3 MAR 2016
-3 TIME 16:43:05
+2 DATE 17 MAR 2016
+3 TIME 09:48:36
 0 @I143@ INDI
 1 NAME Edward /Bithell/
 2 SOUR @S133@
@@ -5899,7 +5898,6 @@
 3 DATA
 4 TEXT Hall Catherine 62 yrs 21 Poolstock Lane 23-Feb 1921 B 356 R C
 2 NOTE Based on age and religion only - needs verification
-1 FAMC @F152@
 1 FAMS @F25@
 1 _FLGS
 2 __WEB Web
@@ -8049,7 +8047,6 @@
 2 SOUR @S95@
 3 DATA
 4 TEXT FHL Film 1342010 PRO Ref RG11 Piece 4221 Folio 106 Page 1
-1 FAMC @F154@
 1 FAMS @F31@
 1 _FLGS
 2 __WEB Web
@@ -8340,9 +8337,6 @@
 3 DATA
 4 TEXT 10 Apr 1900, death 06 Apr, aged 51 Woodcock’s grave
 1 FAMC @F155@
-1 FAMC @F19@
-2 _PEDI Step (father)
-2 _PEDI Birth (mother)
 1 _FLGS
 2 __WEB Web
 1 CHAN
@@ -9666,7 +9660,6 @@
 2 SOUR @S173@
 3 DATA
 4 TEXT Barlow Ellen 76 101 Clayton Street 21-Oct 1905  B 515  C of E
-1 FAMC @F159@
 1 FAMS @F37@
 1 _FLGS
 2 __WEB Web
@@ -9959,7 +9952,6 @@
 2 PLAC Orrell, Lancashire
 2 ADDR St. James' RC Church, St James' Road
 2 SOUR @S60@
-1 FAMC @F160@
 1 FAMS @F40@
 1 _FLGS
 2 __WEB Web
@@ -12140,31 +12132,6 @@
 1 CHAN
 2 DATE 3 MAR 2016
 3 TIME 16:43:05
-0 @I1058@ INDI
-1 NAME Henry /Matthews/
-2 SOUR @S89@
-1 SEX M
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1059@ INDI
-1 NAME John /Gore/
-1 SEX M
-1 OCCU a pointsman
-2 DATE 1880
-2 SOUR @S89@
-1 DEAT
-2 DATE 1880
-2 SOUR @S89@
-2 NOTE he was described as deceased on Catherine's marriage certificate
-1 FAMS @F152@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1060@ INDI
 1 NAME Christopher /Heaney/
 2 SOUR @S132@
@@ -12209,24 +12176,6 @@
 1 CHAN
 2 DATE 2 JUL 2015
 3 TIME 10:20:13
-0 @I1061@ INDI
-1 NAME Edmund /Ryan/
-2 SOUR @S13@
-1 SEX M
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1062@ INDI
-1 NAME Catherine /Connor/
-2 SOUR @S13@
-1 SEX F
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1066@ INDI
 1 NAME Edmund John /O'Connor/
 2 SOUR @S95@
@@ -12253,43 +12202,6 @@
 1 CHAN
 2 DATE 2 JUL 2015
 3 TIME 10:20:13
-0 @I1067@ INDI
-1 NAME Patrick /Griffin/
-2 SOUR @S12@
-3 QUAY 3
-1 SEX M
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1068@ INDI
-1 NAME Annie /Heaton/
-2 SOUR @S16@
-1 SEX F
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1069@ INDI
-1 NAME Thomas /Wilkinson/
-2 SOUR @S14@
-1 SEX M
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1070@ INDI
-1 NAME Emma /Anderson/
-2 SOUR @S14@
-1 SEX F
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1071@ INDI
 1 NAME Henry /Baron/
 2 SOUR @S35@
@@ -12298,77 +12210,6 @@
 4 TEXT Marriage entry number 143.
 1 SEX M
 1 NOTE See the note for Matthew Baron
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1072@ INDI
-1 NAME William /Bullin/
-2 SOUR @S38@
-3 DATA
-4 TEXT Entry 38 for 25 November 1839
-2 SOUR @S67@
-1 SEX M
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1073@ INDI
-1 NAME James /Pendlington/
-2 SOUR @S38@
-3 DATA
-4 TEXT Entry 38 for 25 November 1839
-2 SOUR @S67@
-1 SEX M
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1080@ INDI
-1 NAME Catherine /Baron/
-2 SOUR @S35@
-2 SOUR @S38@
-3 DATA
-4 TEXT Marriage entry number 143.
-1 SEX F
-1 NOTE perhaps she was Catherine Heaney married Henry Baron
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1082@ INDI
-1 NAME Matthew /Baron/
-2 SOUR @S39@
-3 DATA
-4 TEXT Entry for 1 August 1852
-1 SEX M
-1 NOTE In the 1841 census at Broom Street, Ince there is the following family:
-2 CONT 
-2 CONT Matthew Baron 55
-2 CONT Elizabeth Baron 55
-2 CONT Ann Baron 20
-2 CONT Margaret Baron 15
-2 CONT Henry Baron 14
-2 CONT Matthew Baron 12
-2 CONT Alice Baron 9
-2 CONT 
-2 CONT So James would probably have known this family well
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1085@ INDI
-1 NAME James /Lowe/
-2 SOUR @S54@
-3 DATA
-4 TEXT Page 298
-3 QUAY 1
-1 SEX M
 1 _FLGS
 2 __WEB Web
 1 CHAN
@@ -12858,18 +12699,6 @@
 1 CHAN
 2 DATE 23 JUN 2015
 3 TIME 08:37:42
-0 @I1104@ INDI
-1 NAME Thomas /Atherton/
-1 SEX M
-1 OCCU a labourer
-2 DATE 1849
-2 SOUR @S104@
-1 FAMS @F159@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1105@ INDI
 1 NAME Ellen /Barlow/
 1 NAME Ellen /Wood/
@@ -13302,7 +13131,6 @@
 3 DATA
 4 DATE 30 MAR 1851
 3 QUAY 2
-1 FAMC @F164@
 1 FAMS @F62@
 1 _FLGS
 2 __WEB Web
@@ -13310,7 +13138,7 @@
 2 DATE 23 JUN 2015
 3 TIME 08:37:42
 0 @I1121@ INDI
-1 NAME Hannah /Andrew/
+1 NAME Hannah /Andrews/
 1 SEX F
 1 BIRT
 2 DATE 1840
@@ -13363,10 +13191,10 @@
 1 _FLGS
 2 __WEB Web
 1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
+2 DATE 17 MAR 2016
+3 TIME 09:48:40
 0 @I1122@ INDI
-1 NAME Emma /Andrew/
+1 NAME Emma /Andrews/
 1 SEX F
 1 BIRT
 2 DATE BET 1842 AND 1844
@@ -13394,10 +13222,10 @@
 1 _FLGS
 2 __WEB Web
 1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
+2 DATE 17 MAR 2016
+3 TIME 09:48:44
 0 @I1123@ INDI
-1 NAME John /Andrew/
+1 NAME John /Andrews/
 1 SEX M
 1 BIRT
 2 DATE 1843
@@ -13429,10 +13257,10 @@
 1 _FLGS
 2 __WEB Web
 1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
+2 DATE 17 MAR 2016
+3 TIME 09:48:47
 0 @I1124@ INDI
-1 NAME Sarah /Andrew/
+1 NAME Sarah /Andrews/
 1 SEX F
 1 BIRT
 2 DATE BET 1845 AND 1847
@@ -13466,10 +13294,10 @@
 1 _FLGS
 2 __WEB Web
 1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
+2 DATE 17 MAR 2016
+3 TIME 09:48:50
 0 @I1125@ INDI
-1 NAME Harriet /Andrew/
+1 NAME Harriet /Andrews/
 1 NAME Hannah /Anders/
 2 SOUR @S135@
 3 DATA
@@ -13513,10 +13341,10 @@
 1 _FLGS
 2 __WEB Web
 1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
+2 DATE 17 MAR 2016
+3 TIME 09:48:54
 0 @I1126@ INDI
-1 NAME Henry /Andrew/
+1 NAME Henry /Andrews/
 1 SEX M
 1 BIRT
 2 DATE 1849
@@ -13555,8 +13383,8 @@
 1 _FLGS
 2 __WEB Web
 1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
+2 DATE 17 MAR 2016
+3 TIME 09:48:57
 0 @I1127@ INDI
 1 NAME Thomas /Dutton/
 1 SEX M
@@ -15379,44 +15207,6 @@
 1 CHAN
 2 DATE 22 JUN 2015
 3 TIME 15:31:37
-0 @I1173@ INDI
-1 NAME Mary Ann /Whittle/
-1 SEX F
-1 BIRT
-2 DATE BET 1843 AND 1845
-2 PLAC Shevington, Lancashire
-2 SOUR @S137@
-3 DATA
-4 TEXT Folio 42 Page 3
-3 NOTE age was recorded as 47
-2 SOUR @S95@
-3 DATA
-4 TEXT RG11 Piece / Folio   3758 / 148 Page Number   23
-3 NOTE age was recorded as 37
-1 OCCU a grocer's assistant
-2 DATE 1881
-2 SOUR @S95@
-3 DATA
-4 TEXT RG11 Piece / Folio   3758 / 148 Page Number   23
-1 CENS
-2 DATE 5 APR 1891
-2 PLAC Gathurst Lane, Shevington, Lancashire
-2 SOUR @S137@
-3 DATA
-4 TEXT Folio 42 Page 3
-3 NOTE Oddfellows House. Louisa was described as Mary Ann's niece
-2 NOTE Witness: Louisa RATCLIFFE [[(I1154)]]. Role: Member of Household.
-1 OCCU a grocer
-2 DATE 1891
-2 SOUR @S137@
-3 DATA
-4 TEXT Folio 42 Page 3
-1 FAMC @F115@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1175@ INDI
 1 NAME John Joseph /Hale/
 1 SEX M
@@ -15643,25 +15433,6 @@
 1 CHAN
 2 DATE 22 JUN 2015
 3 TIME 15:32:16
-0 @I1182@ INDI
-1 NAME Mary /Hodge/
-2 SOUR @S138@
-3 DATA
-4 TEXT Folio 84 Page 23
-1 SEX F
-1 BIRT
-2 DATE BET 1884 AND 1886
-2 PLAC Coppull, Lancashire
-2 SOUR @S138@
-3 DATA
-4 TEXT Folio 84 Page 23
-3 NOTE age was recorded as 6
-1 FAMC @F87@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1183@ INDI
 1 NAME Alice /Wilson/
 1 SEX F
@@ -16278,7 +16049,6 @@
 2 SOUR @S176@
 3 DATA
 4 TEXT 1866 HEANEY Grace 48 Wigan Wigan & Leigh WIG/61/420
-1 FAMC @F163@
 1 FAMS @F75@
 1 _FLGS
 2 __WEB Web
@@ -16309,43 +16079,11 @@
 1 CHAN
 2 DATE 2 JUL 2015
 3 TIME 10:20:13
-0 @I1208@ INDI
-1 NAME Patrick /Carbray/
-2 SOUR @S39@
-3 DATA
-4 TEXT Entry for 1855 Feb 4 Baptism of Julia Heeny
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1209@ INDI
 1 NAME Grace /Atherton/
 2 SOUR @S140@
 3 DATA
 4 TEXT Entry for May 14 1851
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1210@ INDI
-1 NAME George /Counsell/
-2 SOUR @S86@
-3 DATA
-4 TEXT Dated 14 January 2000 - edited text filed as exhibit ag1
-1 SEX M
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1211@ INDI
-1 NAME Esther /Hamill/
-2 SOUR @S86@
-3 DATA
-4 TEXT Dated 14 January 2000 - edited text filed as exhibit ag1
-1 SEX F
 1 _FLGS
 2 __WEB Web
 1 CHAN
@@ -17199,27 +16937,6 @@
 1 CHAN
 2 DATE 22 JUN 2015
 3 TIME 15:31:37
-0 @I1232@ INDI
-1 NAME George /Whittle/
-2 SOUR @S149@
-3 DATA
-4 TEXT Folio 113 Page 12
-1 BIRT
-2 DATE BET 1879 AND 1881
-2 PLAC Upholland, Lancashire
-2 SOUR @S149@
-3 DATA
-4 TEXT Folio 113 Page 12
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1341904 PRO Ref RG11 Piece 3782 Folio 49 Page 38
-2 NOTE as age in 1881 census was recorded as 1; as age in 1901 census was recorded as 21
-1 FAMC @F88@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1233@ INDI
 1 NAME John /McFay/
 1 SEX M
@@ -17753,102 +17470,6 @@
 1 CHAN
 2 DATE 3 MAR 2016
 3 TIME 16:47:08
-0 @I1245@ INDI
-1 NAME William /Barry/
-1 SEX M
-1 BIRT
-2 DATE BET 1864 AND 1866
-2 SOUR @S155@
-2 SOUR @S160@
-3 DATA
-4 TEXT Folio 168 Page 16
-2 NOTE as age at marriage was given as 22; as age in 1901 census was recorded as 37
-1 OCCU a coal dataller or coal miner, hewer
-2 DATE BET 1901 AND 1911
-2 SOUR @S160@
-3 DATA
-4 TEXT Folio 168 Page 16
-2 SOUR @S230@
-3 DATA
-4 TEXT Source Citation: Class: RG14; Piece: 22992
-1 CENS
-2 DATE 29 SEP 1939
-2 PLAC Wigan, Lancashire
-2 ADDR 115, Great George Street
-2 SOUR @S358@
-1 OCCU a retired general labourer
-2 DATE 29 SEP 1939
-2 PLAC Wigan, Lancashire
-2 SOUR @S358@
-1 DEAT
-2 DATE FEB 1943
-2 PLAC Great George Street, Wigan, Lancashire
-2 SOUR @S173@
-3 DATA
-4 TEXT Barry William 78 Yrs Gt George St 17-Feb 1943 H 236 R C
-3 QUAY 0
-1 BURI
-2 DATE 17 FEB 1943
-2 PLAC Wigan Cemetery, Lower Ince, Wigan, Lancashire
-2 SOUR @S215@
-2 SOUR @S173@
-3 DATA
-4 TEXT Barry William 78 Yrs Gt George St 17-Feb 1943 H 236 R C
-5 CONT Barry Mary Ellen 85 Yrs Gt George St 28-Feb 1951 H 236 R C
-5 CONT Morgan James 64 yrs 115 Great George St. 06-Jun 1957 H 236 R C
-5 CONT Morgan Ellen 66 yrs 115 Great George St. 15-Feb 1961 H 236 R C
-1 FAMS @F80@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 16 FEB 2016
-3 TIME 15:16:30
-0 @I1246@ INDI
-1 NAME Mary Ellen /Wood/
-1 NAME Mary Ellen /Barry/
-1 SEX F
-1 BIRT
-2 DATE BET 1865 AND 1867
-2 SOUR @S155@
-2 SOUR @S160@
-3 DATA
-4 TEXT Folio 168 Page 16
-2 SOUR @S230@
-3 DATA
-4 TEXT Source Citation: Class: RG14; Piece: 22992
-2 NOTE as age at marriage was given as 21; as age in 1901 census was recorded as 35, as age in 1911 census was recorded as 46
-1 CENS
-2 DATE 29 SEP 1939
-2 PLAC Wigan, Lancashire
-2 ADDR 115, Great George Street
-2 SOUR @S358@
-1 OCCU an unpaid domestic
-2 DATE 29 SEP 1939
-2 PLAC Wigan, Lancashire
-2 SOUR @S358@
-1 DEAT
-2 DATE FEB 1951
-2 PLAC Great George Street, Wigan, Lancashire
-2 SOUR @S173@
-3 DATA
-4 TEXT Barry Mary Ellen 85 Yrs Gt George St 28-Feb 1951 H 236 R C
-3 QUAY 0
-1 BURI
-2 DATE 28 FEB 1951
-2 PLAC Wigan Cemetery, Lower Ince, Wigan, Lancashire
-2 SOUR @S215@
-2 SOUR @S173@
-3 DATA
-4 TEXT Barry William 78 Yrs Gt George St 17-Feb 1943 H 236 R C
-5 CONT Barry Mary Ellen 85 Yrs Gt George St 28-Feb 1951 H 236 R C
-5 CONT Morgan James 64 yrs 115 Great George St. 06-Jun 1957 H 236 R C
-5 CONT Morgan Ellen 66 yrs 115 Great George St. 15-Feb 1961 H 236 R C
-1 FAMS @F80@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 16 FEB 2016
-3 TIME 15:16:30
 0 @I1249@ INDI
 1 NAME Mary Teresa /Morgan/
 1 SEX F
@@ -18197,147 +17818,6 @@
 1 CHAN
 2 DATE 3 MAR 2016
 3 TIME 16:43:05
-0 @I1260@ INDI
-1 NAME Sarah /Cooper/
-1 SEX F
-1 BIRT
-2 DATE BET 1817 AND 1819
-2 PLAC Charnock Richard, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1342010 PRO Ref RG11 Piece 4221 Folio 75 Page 32
-2 NOTE as age in 1881 census was recorded as 63
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC Coppull Moor, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1342010 PRO Ref RG11 Piece 4221 Folio 75 Page 32
-2 NOTE Witness: Edward COOPER [[(I1261)]]. Role: Member of Household.
-3 CONT Witness: Alice COOPER [[(I1262)]]. Role: Member of Household.
-3 CONT Witness: Thomas COOPER [[(I1263)]]. Role: Member of Household.
-3 CONT Witness: Jane COOPER [[(I116)]]. Role: Member of Household.
-1 OCCU a home keeper
-2 DATE 1881
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1342010 PRO Ref RG11 Piece 4221 Folio 75 Page 32
-1 FAMS @F149@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 12:06:46
-0 @I1261@ INDI
-1 NAME Edward /Cooper/
-1 SEX M
-1 BIRT
-2 DATE BET 1847 AND 1849
-2 PLAC Coppull, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1342010 PRO Ref RG11 Piece 4221 Folio 75 Page 32
-2 NOTE as age in 1881 census was recorded as 33
-1 OCCU a coal miner
-2 DATE 1881
-1 FAMC @F149@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1262@ INDI
-1 NAME Alice /Cooper/
-1 SEX F
-1 BIRT
-2 DATE BET 1851 AND 1853
-2 PLAC Coppull, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1342010 PRO Ref RG11 Piece 4221 Folio 75 Page 32
-2 SOUR @S159@
-3 DATA
-4 TEXT Folio 63 Page 6
-2 NOTE as age in 1881 census was recorded as 29; as age in 1901 census was recorded as 49
-1 OCCU a labourer in a calico print works
-2 DATE 1881
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1342010 PRO Ref RG11 Piece 4221 Folio 75 Page 32
-1 OCCU a sewer in a calico print works
-2 DATE 1881
-2 SOUR @S159@
-3 DATA
-4 TEXT Folio 63 Page 6
-1 CENS
-2 DATE 31 MAR 1901
-2 PLAC Wheat Sheaf Row, Coppull, Lancashire
-2 SOUR @S159@
-3 DATA
-4 TEXT Folio 63 Page 6
-2 OBJE @O133@
-3 _ASID 1
-2 NOTE Witness: Jane COOPER [[(I116)]]. Role: Member of Household.
-3 CONT Witness: Richard WOODCOCK [[(I119)]]. Role: Member of Household.
-3 CONT Witness: John WOODCOCK [[(I121)]]. Role: Member of Household.
-1 FAMC @F149@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1263@ INDI
-1 NAME Thomas /Cooper/
-1 SEX M
-1 BIRT
-2 DATE BET 1871 AND 1873
-2 PLAC Coppull, Lancashire
-2 NOTE as age in 1881 census was recorded as 9
-1 FAMC @F149@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1267@ INDI
-1 NAME Richard /McNally/
-1 SEX M
-1 BIRT
-2 DATE BET 1849 AND 1851
-2 PLAC Wigan, Lancashire
-2 SOUR @S161@
-3 DATA
-4 TEXT Folio 8 Page 8
-3 NOTE age was recorded as 51
-1 OCCU a bricklayer
-2 DATE 1881
-2 SOUR @S95@
-3 DATA
-4 TEXT RG11 3765 Folio 36 Page 8
-1 FAMS @F83@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 2 JUL 2015
-3 TIME 10:20:13
-0 @I1268@ INDI
-1 NAME Rebecca /Jones/
-1 NAME Rebecca /McNally/
-1 SEX F
-1 BIRT
-2 DATE BET 1854 AND 1856
-2 PLAC Shropshire
-2 SOUR @S161@
-3 DATA
-4 TEXT Folio 8 Page 8
-3 NOTE age was recorded as 46
-1 FAMC @F160@
-1 FAMS @F83@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1269@ INDI
 1 NAME Nicholas Bernard /Hall/
 1 SEX M
@@ -18725,272 +18205,6 @@
 1 CHAN
 2 DATE 23 JUN 2015
 3 TIME 08:37:42
-0 @I1283@ INDI
-1 NAME William /Harrison/
-1 SEX M
-1 BIRT
-2 DATE BET 1835 AND 1836
-2 PLAC Wigan, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1341901 PRO Ref RG11 Piece 3768 Folio 6 Page 5
-3 NOTE age was recorded as 45
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC Wigan, Lancashire
-2 ADDR 5, Pool Street
-2 AGE 45y
-2 SOUR @S275@
-1 OCCU a dairyman
-2 DATE 1881
-2 PLAC Wigan, Lancashire
-2 SOUR @S275@
-1 FAMS @F86@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 11:57:10
-0 @I1284@ INDI
-1 NAME Catherine /Dickinson/
-1 NAME Catherine /Harrison/
-1 SEX F
-1 BIRT
-2 DATE BET 1830 AND 1832
-2 PLAC Eccleston, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1341901 PRO Ref RG11 Piece 3768 Folio 6 Page 5
-2 NOTE as age in 1881 census was recorded as 50
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC Wigan, Lancashire
-2 ADDR 5, Pool Street
-2 AGE 50y
-2 SOUR @S275@
-1 FAMS @F86@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 11:57:10
-0 @I1285@ INDI
-1 NAME Roger /Harrison/
-1 SEX M
-1 BIRT
-2 DATE BET 1861 AND 1863
-2 PLAC Eccleston, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1341901 PRO Ref RG11 Piece 3768 Folio 6 Page 5
-3 NOTE age was recorded as 19
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC Wigan, Lancashire
-2 ADDR 5, Pool Street
-2 AGE 19y
-2 SOUR @S275@
-1 OCCU a painter
-2 DATE 1881
-2 PLAC Wigan, Lancashire
-2 SOUR @S275@
-1 FAMC @F86@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 11:57:10
-0 @I1286@ INDI
-1 NAME Benjamin T /Harrison/
-1 SEX M
-1 BIRT
-2 DATE BET 1869 AND 1871
-2 PLAC Eccleston, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1341901 PRO Ref RG11 Piece 3768 Folio 6 Page 5
-3 NOTE age was recorded as 11
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC Wigan, Lancashire
-2 ADDR 5, Pool Street
-2 AGE 11y
-2 SOUR @S275@
-1 DEAT
-2 DATE 1928
-2 SOUR @S176@
-3 DATA
-4 TEXT Harrison Benjamin 58 Yrs Standish >>> 14-Jul 1928 Heaton St E 30 Non Con
-1 BURI
-2 DATE 14 JUL 1928
-2 PLAC Wigan Cemetery, Lower Ince, Wigan, Lancashire
-2 SOUR @S176@
-3 DATA
-4 TEXT Harrison Benjamin 58 Yrs Standish >>> 14-Jul 1928 Heaton St E 30 Non Con
-1 FAMC @F86@
-1 NOTE In Wigan in 1891 Census "England and Wales Census, 1891," index, FamilySearch (https://familysearch.org/pal:/MM9.1.1/7W31-JZM : accessed 17 Nov 2012), Benjamin Harrison, England; citing (http://Findmypast.co.uk : 2010); PRO RG 12, Lancashire cou
-2 CONC nty, Wigan registration district, Wigan subdistrict, The National Archives, Kew, Surrey. In Standish in 1901 Census - Servant "England and Wales Census, 1901," index, FamilySearch https://familysearch.org/pal:/MM9.1.1/X9GZ-8H7 : accessed 17 No
-2 CONC v 2012), Benjamin Harrison, Standish With Langtree, Lancashire, England; citing (http://Findmypast.co.uk : 2011); PRO RG 13, county, Wigan registration district, Standish subdistrict, The National Archives, Kew, Surrey.
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 11:57:10
-0 @I1287@ INDI
-1 NAME Robert /Harrison/
-1 SEX M
-1 BIRT
-2 DATE BET 1872 AND 1874
-2 PLAC Eccleston, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1341901 PRO Ref RG11 Piece 3768 Folio 6 Page 5
-3 NOTE age was recorded as 8
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC Wigan, Lancashire
-2 ADDR 5, Pool Street
-2 AGE 8y
-2 SOUR @S275@
-1 FAMC @F86@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 11:57:10
-0 @I1288@ INDI
-1 NAME Peter /Harrison/
-1 SEX M
-1 BIRT
-2 DATE BET 1873 AND 1875
-2 PLAC Eccleston, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1341901 PRO Ref RG11 Piece 3768 Folio 6 Page 5
-3 NOTE age was recorded as 7
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC Wigan, Lancashire
-2 ADDR 5, Pool Street
-2 AGE 7y
-2 SOUR @S275@
-1 FAMC @F86@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 11:57:10
-0 @I1289@ INDI
-1 NAME Thomas /Hodge/
-1 SEX M
-1 BIRT
-2 DATE BET 1850 AND 1852
-2 PLAC Bretherton, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1342010 PRO Ref RG11 Piece 4221 Folio 94 Page 23
-3 NOTE age was recorded as 30
-1 OCCU a farmer of 32 acres
-2 DATE 1881
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1342010 PRO Ref RG11 Piece 4221 Folio 94 Page 23
-1 FAMS @F87@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1290@ INDI
-1 NAME Joanna //
-1 NAME Joanna /Hodge/
-1 SEX F
-1 BIRT
-2 DATE BET 1849 AND 1851
-2 PLAC Longton, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1342010 PRO Ref RG11 Piece 4221 Folio 94 Page 23
-2 NOTE as age in 1881 census was recorded as 31
-1 FAMS @F87@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1291@ INDI
-1 NAME John /Hodge/
-1 SEX M
-1 BIRT
-2 DATE BET 1873 AND 1875
-2 PLAC Leyland, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1342010 PRO Ref RG11 Piece 4221 Folio 94 Page 23
-3 NOTE age was recorded as 7
-1 FAMC @F87@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1292@ INDI
-1 NAME Margaret A /Hodge/
-1 SEX F
-1 BIRT
-2 DATE BET 1877 AND 1879
-2 PLAC Leyland, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1342010 PRO Ref RG11 Piece 4221 Folio 94 Page 23
-3 NOTE age was recorded as 3
-1 FAMC @F87@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1293@ INDI
-1 NAME Peter /Whittle/
-1 SEX M
-1 BIRT
-2 DATE BET 1848 AND 1850
-2 PLAC Orrell, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1341904 PRO Ref RG11 Piece 3782 Folio 49 Page 38
-2 NOTE as age in 1881 census was recorded as 32
-1 OCCU a collier
-2 DATE 1871
-2 SOUR @S205@
-3 DATA
-4 TEXT RG10 Piece: 3881  Folio: 128 Page: 4
-1 OCCU a coal miner
-2 DATE 1881
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1341904 PRO Ref RG11 Piece 3782 Folio 49 Page 38
-1 FAMC @F115@
-1 FAMS @F88@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1294@ INDI
-1 NAME Ann /Whitter/
-1 NAME Ann /Whittle/
-1 SEX F
-1 BIRT
-2 DATE BET 1852 AND 1854
-2 PLAC Shevington, Lancashire
-2 NOTE as age in 1881 census was recorded as 28
-1 FAMS @F88@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1295@ INDI
 1 NAME Edward /Holland/
 1 SEX M
@@ -19172,22 +18386,6 @@
 1 CHAN
 2 DATE 22 JUN 2015
 3 TIME 15:06:18
-0 @I1301@ INDI
-1 NAME Ann /Jones/
-1 SEX F
-1 BIRT
-2 DATE BET 1828 AND 1830
-2 PLAC Ireland
-2 SOUR @S164@
-3 DATA
-4 TEXT Folio 4 Page 1
-3 NOTE age was recorded as 62
-1 FAMS @F160@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1302@ INDI
 1 NAME John /Wood/
 1 SEX M
@@ -19707,19 +18905,6 @@
 1 CHAN
 2 DATE 23 JUN 2015
 3 TIME 08:37:42
-0 @I1320@ INDI
-1 NAME John /Brier/
-2 SOUR @S174@
-1 SEX M
-1 OCCU a weaver
-2 DATE 1839
-2 SOUR @S174@
-1 FAMS @F164@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1322@ INDI
 1 NAME Alfred James /Malkin/
 1 SEX M
@@ -20117,13 +19302,13 @@
 2 PLAC Lancashire
 2 SOUR @S176@
 3 DATA
-4 TEXT 1845 OLLERTON James Chorley OLLERTON [BOLD:]CHO/9/78[:BOLD]
+4 TEXT 1845 OLLERTON James Chorley OLLERTON CHO/9/78
 1 FAMC @F155@
 1 _FLGS
 2 __WEB Web
 1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
+2 DATE 16 MAR 2016
+3 TIME 09:19:09
 0 @I1369@ INDI
 1 NAME Richard /Hooton/
 1 SEX M
@@ -20545,42 +19730,6 @@
 1 CHAN
 2 DATE 11 MAR 2016
 3 TIME 09:45:55
-0 @I1391@ INDI
-1 NAME George /Cheetham/
-1 SEX M
-1 BIRT
-2 DATE 28 JUN 1841
-2 SOUR @S181@
-3 DATA
-4 TEXT 1841 Jul 4 George s of Joseph & Alice Cheetham born 28 ulto Sponsors Thomas & Jane Tomlinson
-1 BAPM
-2 DATE 4 JUL 1841
-1 FAMC @F105@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1393@ INDI
-1 NAME Richard /Cheetham/
-1 SEX M
-1 BIRT
-2 DATE 8 JUL 1843
-2 SOUR @S181@
-3 DATA
-4 TEXT 1843 Jul 9 Richard s of Joseph & Alice Cheetham born 8 inst Sponsors Thomas & Ellen Heaps
-1 BAPM
-2 DATE 9 JUL 1843
-2 PLAC Wrightington Hall RC Chapel, Wrightington, Lancashire
-2 SOUR @S181@
-3 DATA
-4 TEXT 1843 Jul 9 Richard s of Joseph & Alice Cheetham born 8 inst Sponsors Thomas & Ellen Heaps
-1 FAMC @F105@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1396@ INDI
 1 NAME Anne /Wilson/
 1 SEX F
@@ -20592,28 +19741,6 @@
 0 @I1399@ INDI
 1 NAME Richard /Swift/
 1 SEX M
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1400@ INDI
-1 NAME Anne /Cheetham/
-1 NAME Nancy /Cheetham/
-2 SOUR @S181@
-3 DATA
-4 TEXT 1831 Feb 20 Nancy d of Joseph & Alice Cheetham born 19 inst Sponsors John & Esther Tomlinson
-1 SEX F
-1 BIRT
-2 DATE 19 FEB 1831
-2 SOUR @S181@
-1 BAPM
-2 DATE 20 FEB 1831
-2 PLAC Wrightington Hall RC Chapel, Wrightington, Lancashire
-2 SOUR @S181@
-3 DATA
-4 TEXT 1831 Feb 20 Nancy d of Joseph & Alice Cheetham born 19 inst Sponsors John & Esther Tomlinson
-1 FAMC @F105@
 1 _FLGS
 2 __WEB Web
 1 CHAN
@@ -20667,76 +19794,6 @@
 2 SOUR @S81@
 3 DATA
 4 TEXT RG12 3052 Folio 85 Page 36
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1407@ INDI
-1 NAME John Samuel /McNally/
-1 SEX M
-1 BIRT
-2 DATE 1879
-2 SOUR @S176@
-3 DATA
-4 TEXT 1879 MCNALLY John Samuel Wigan Wigan & Leigh   WIG/129/280
-1 FAMC @F83@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1408@ INDI
-1 NAME Mary Monica /McNally/
-1 SEX F
-1 BIRT
-2 DATE 1880
-2 SOUR @S176@
-3 DATA
-4 TEXT 1880 MCNALLY Mary Monica Wigan Wigan & Leigh   WIG/135/176
-1 FAMC @F83@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1409@ INDI
-1 NAME Agnes Ann /McNally/
-1 SEX F
-1 BIRT
-2 DATE 1882
-2 SOUR @S176@
-3 DATA
-4 TEXT 1882 MCNALLY Agnes Ann Wigan Wigan & Leigh   WIG/140/253
-1 FAMC @F83@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1410@ INDI
-1 NAME Harriet Elizabeth /McNally/
-1 SEX F
-1 BIRT
-2 DATE 1883
-2 SOUR @S176@
-3 DATA
-4 TEXT 1883 MCNALLY Harriet Elizabeth Wigan Wigan & Leigh   WIG/147/180
-1 FAMC @F83@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1411@ INDI
-1 NAME Richard Alphonso /McNally/
-1 SEX M
-1 BIRT
-2 DATE 1886
-2 SOUR @S176@
-3 DATA
-4 TEXT 1886 MCNALLY Richard Alphonso Wigan Wigan & Leigh   WIG/161/2
-1 FAMC @F83@
 1 _FLGS
 2 __WEB Web
 1 CHAN
@@ -21310,27 +20367,6 @@
 1 CHAN
 2 DATE 2 JUL 2015
 3 TIME 10:20:13
-0 @I1435@ INDI
-1 NAME Hugh /Cunningham/
-1 SEX M
-1 OCCU a hatter
-2 SOUR @S187@
-1 FAMS @F101@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1436@ INDI
-1 NAME Bridget //
-1 NAME Bridget /Cunningham/
-1 SEX F
-1 FAMS @F101@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1437@ INDI
 1 NAME Joseph /Cunningham/
 1 SEX M
@@ -21780,84 +20816,6 @@
 1 CHAN
 2 DATE 4 MAR 2016
 3 TIME 11:03:46
-0 @I1453@ INDI
-1 NAME Joseph /Cheetham/
-1 SEX M
-1 FAMS @F105@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1454@ INDI
-1 NAME Alice /Rutter/
-1 NAME Alice /Cheetham/
-1 SEX F
-1 FAMS @F105@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 1 JUL 2015
-3 TIME 12:15:46
-0 @I1455@ INDI
-1 NAME James /Cheetham/
-1 SEX M
-1 BIRT
-2 DATE 4 JUN 1829
-2 SOUR @S181@
-3 DATA
-4 TEXT 1829 Jun 7 James s of Joseph & Alice Cheetham born 4 inst Sponsors James & Ellen Stopforth
-1 BAPM
-2 DATE 7 JUN 1829
-2 PLAC Wrightington Hall RC Chapel, Wrightington, Lancashire
-2 SOUR @S181@
-3 DATA
-4 TEXT 1829 Jun 7 James s of Joseph & Alice Cheetham born 4 inst Sponsors James & Ellen Stopforth
-1 FAMC @F105@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1456@ INDI
-1 NAME John /Cheetham/
-1 SEX M
-1 BIRT
-2 DATE 11 APR 1837
-2 SOUR @S181@
-3 DATA
-4 TEXT 1837 Apr 16 John s of Joseph & Alice Cheetham born 11 inst Sponsors Edward & Margaret Stopforth
-1 BAPM
-2 DATE 16 APR 1837
-2 PLAC Wrightington Hall RC Chapel, Wrightington, Lancashire
-2 SOUR @S181@
-3 DATA
-4 TEXT 1837 Apr 16 John s of Joseph & Alice Cheetham born 11 inst Sponsors Edward & Margaret Stopforth
-1 FAMC @F105@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1457@ INDI
-1 NAME Joseph /Cheetham/
-1 SEX M
-1 BIRT
-2 DATE 29 DEC 1833
-2 SOUR @S181@
-3 DATA
-4 TEXT 1833 Jan 6 Joseph s of Joseph & Alice Cheetham born 29 ulto Sponsors James Holcroft & Ann Berry
-1 BAPM
-2 PLAC Wrightington Hall RC Chapel, Wrightington, Lancashire
-2 SOUR @S181@
-3 DATA
-4 TEXT 1833 Jan 6 Joseph s of Joseph & Alice Cheetham born 29 ulto Sponsors James Holcroft & Ann Berry
-1 FAMC @F105@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1458@ INDI
 1 NAME William /Berry/
 1 SEX M
@@ -22174,20 +21132,6 @@
 1 CHAN
 2 DATE 8 NOV 2015
 3 TIME 12:04:11
-0 @I1476@ INDI
-1 NAME George /Wilson/
-1 SEX M
-1 OCCU a wheelwright
-2 DATE 1869
-2 SOUR @S191@
-3 DATA
-4 TEXT 20 Nov 1869 James WILSON aged 23 Bachelor Carpenter Burnley Father George Wilson Wheelwright Alice OLLERTON aged 22 Spinster Welch Whittle Father George Woodcock Farmer
-1 FAMS @F154@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1477@ INDI
 1 NAME Ellen /Woodcock/
 1 SEX F
@@ -22677,25 +21621,7 @@
 3 NOTE age was recorded as 23
 2 SOUR @S204@
 3 NOTE 1851 Census Joseph Hayes / Head / M / 24 / Coal Miner / Lancashire Wrightington
-1 FAMC @F172@
 1 FAMS @F113@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1494@ INDI
-1 NAME Henry /Hayes/
-1 SEX M
-1 BIRT
-2 DATE BET 1796 AND 1802
-2 PLAC Lancashire
-2 SOUR @S190@
-3 DATA
-4 TEXT HO107 Piece:526 Book/Folio: 4/13 Page: 21
-3 NOTE age was recorded as 40
-1 FAMS @F114@
-1 FAMS @F172@
 1 _FLGS
 2 __WEB Web
 1 CHAN
@@ -22728,104 +21654,6 @@
 0 @I1503@ INDI
 1 NAME John /Goodall/
 1 SEX M
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1505@ INDI
-1 NAME Peter /Whittle/
-1 SEX M
-1 BIRT
-2 DATE BET 1810 AND 1812
-2 PLAC Upholland, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT RG11 Piece / Folio   3758 / 148 Page Number   23
-3 NOTE age was recorded as 70
-2 SOUR @S205@
-3 DATA
-4 TEXT RG10 Piece: 3881  Folio: 128 Page: 4
-3 NOTE age was recorded as 60
-1 OCCU a shop keeper
-2 DATE 1871
-2 SOUR @S205@
-3 DATA
-4 TEXT RG10 Piece: 3881  Folio: 128 Page: 4
-1 OCCU a grocer
-2 DATE 1881
-2 SOUR @S95@
-3 DATA
-4 TEXT RG11 Piece / Folio   3758 / 148 Page Number   23
-1 FAMS @F115@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1506@ INDI
-1 NAME Mary //
-1 NAME Mary /Whittle/
-1 SEX F
-1 BIRT
-2 DATE BET 1811 AND 1813
-2 PLAC Orrell, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT RG11 Piece / Folio   3758 / 148 Page Number   23
-3 NOTE age was recorded as 69
-2 SOUR @S205@
-3 DATA
-4 TEXT RG10 Piece: 3881  Folio: 128 Page: 4
-3 NOTE age was recorded as 58
-1 FAMS @F115@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1507@ INDI
-1 NAME George /Whittle/
-1 SEX M
-1 BIRT
-2 DATE BET 1856 AND 1858
-2 PLAC Shevington, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT RG11 Piece / Folio   3758 / 148 Page Number   23
-3 NOTE age was recorded as 24
-1 OCCU a shop boy
-2 DATE 1871
-2 SOUR @S205@
-3 DATA
-4 TEXT RG10 Piece: 3881  Folio: 128 Page: 4
-1 OCCU a coal miner
-2 DATE 1881
-2 SOUR @S95@
-3 DATA
-4 TEXT RG11 Piece / Folio   3758 / 148 Page Number   23
-1 FAMC @F115@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1508@ INDI
-1 NAME John /Whittle/
-1 SEX M
-1 BIRT
-2 DATE BET 1834 AND 1836
-2 PLAC Upholland, Lancashire
-2 SOUR @S205@
-3 DATA
-4 TEXT RG10 Piece: 3881  Folio: 128 Page: 4
-3 NOTE age was recorded as 36
-1 OCCU a collier
-2 DATE 1871
-2 SOUR @S205@
-3 DATA
-4 TEXT RG10 Piece: 3881  Folio: 128 Page: 4
-1 FAMC @F115@
 1 _FLGS
 2 __WEB Web
 1 CHAN
@@ -23534,7 +22362,6 @@
 2 ADDR White Bull, 135 Market Street
 2 AGE 27y
 2 SOUR @S313@
-1 FAMC @F173@
 1 FAMS @F119@
 1 _FLGS
 2 __WEB Web
@@ -23579,40 +22406,6 @@
 1 CHAN
 2 DATE 22 JUN 2015
 3 TIME 15:32:16
-0 @I1531@ INDI
-1 NAME Thomas /Walmsley/
-1 SEX M
-1 BIRT
-2 DATE BET 1821 AND 1823
-2 PLAC Whittle Le Woods, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT RG11 Piece 4219 Folio 45 Page 49
-3 NOTE age was recorded as 59
-2 SOUR @S196@
-3 DATA
-4 TEXT RG12 Piece 3434 Folio 37 Page 10
-3 NOTE age was recorded as 69
-2 SOUR @S200@
-3 DATA
-4 TEXT RG13 piece 3948 folio 43 page 11
-3 NOTE age recorded as 79
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC Chorley, Lancashire
-2 ADDR White Bull, 135 Market Street
-2 AGE 59y
-2 SOUR @S313@
-1 OCCU a stationary engine tenter (driver)
-2 DATE 1881
-2 PLAC Chorley, Lancashire
-2 SOUR @S313@
-1 FAMS @F173@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 1 JUL 2015
-3 TIME 13:24:42
 0 @I1532@ INDI
 1 NAME John /Hurst/
 1 SEX M
@@ -24456,129 +23249,6 @@
 1 CHAN
 2 DATE 22 JUN 2015
 3 TIME 15:31:37
-0 @I1570@ INDI
-1 NAME Peter /Kenyon/
-1 SEX M
-1 BIRT
-2 DATE 1855
-1 OCCU a coal miner (hewer)
-2 DATE 1901
-2 SOUR @S144@
-3 DATA
-4 TEXT Folio 34 Page 22
-1 FAMS @F124@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1571@ INDI
-1 NAME Mary /Fairclough/
-1 NAME Mary /Kenyon/
-2 SOUR @S176@
-3 DATA
-4 TEXT 1873 KENYON Peter FAIRCLOUGH Mary St. Thomas, Upholland Preston CE20/2/289
-1 SEX F
-1 BIRT
-2 DATE 1855
-1 FAMS @F124@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1572@ INDI
-1 NAME William /Kenyon/
-1 SEX M
-1 BIRT
-2 DATE 1874
-1 OCCU a coal miner (drawer)
-2 DATE 1901
-2 SOUR @S144@
-3 DATA
-4 TEXT Folio 34 Page 22
-1 FAMC @F124@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1573@ INDI
-1 NAME Elizabeth Ellen /Kenyon/
-1 SEX F
-1 BIRT
-2 DATE 1885
-1 FAMC @F124@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1574@ INDI
-1 NAME John /Kenyon/
-1 SEX M
-1 BIRT
-2 DATE 1887
-1 OCCU a cattle boy on a farm
-2 DATE 1901
-2 SOUR @S144@
-3 DATA
-4 TEXT Folio 34 Page 22
-1 FAMC @F124@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1575@ INDI
-1 NAME Henry /Kenyon/
-1 SEX M
-1 BIRT
-2 DATE 1889
-1 FAMC @F124@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1576@ INDI
-1 NAME James /Kenyon/
-1 SEX M
-1 BIRT
-2 DATE 1893
-1 FAMC @F124@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1577@ INDI
-1 NAME Ernest /Kenyon/
-1 SEX M
-1 BIRT
-2 DATE 1900
-1 FAMC @F124@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1578@ INDI
-1 NAME Peter /Kenyon/
-1 SEX M
-1 BIRT
-2 DATE 1880
-1 OCCU a coal miner (drawer)
-2 DATE 1901
-2 SOUR @S144@
-3 DATA
-4 TEXT Folio 34 Page 22
-1 FAMC @F124@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1579@ INDI
 1 NAME Ann /Martland/
 1 NAME Ann /Ratcliffe/
@@ -24691,33 +23361,6 @@
 4 TEXT HO107 2176 413 28
 3 NOTE age was recorded as 45
 1 FAMS @F126@
-1 FAMS @F174@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1586@ INDI
-1 NAME Thomas /Culshaw/
-1 SEX M
-1 BIRT
-2 DATE BET 1832 AND 1835
-2 PLAC Ormskirk, Lancashire
-2 SOUR @S220@
-3 DATA
-4 TEXT HO107 2176 413 28
-3 NOTE age was recorded as 18
-1 OCCU an iron moulder
-2 DATE 1851
-2 SOUR @S220@
-3 DATA
-4 TEXT HO107 2176 413 28
-1 OCCU an iron moulder
-2 DATE 1861
-2 SOUR @S194@
-3 DATA
-4 TEXT RG09 2723 20 10
-1 FAMC @F174@
 1 _FLGS
 2 __WEB Web
 1 CHAN
@@ -24745,18 +23388,6 @@
 3 DATA
 4 TEXT Burial: 27 Oct 1813 St Wilfrids, Standish, Lancashire, England Charles Haggerston -     Age: 1 Abode: Standish Notes: Interred as a member of the Church of Rome Register: Burials 1813 - 1825, Page 12, Entry 92 Source: LDS Film 1526141
 1 FAMC @F96@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1590@ INDI
-1 NAME Henry /Booth/
-1 SEX M
-1 OCCU a weaver
-2 DATE 1853
-2 SOUR @S221@
-1 FAMS @F163@
 1 _FLGS
 2 __WEB Web
 1 CHAN
@@ -25848,7 +24479,6 @@
 2 SOUR @S173@
 3 DATA
 4 TEXT Woodcock Elizabeth 48 Yrs 59 Stanley St. Scholes 27-Dec 1866 C 324 *  R C
-1 FAMC @F197@
 1 FAMC @F198@
 1 FAMS @F134@
 1 NOTE Pat Hodson thinks Elizabeth is the daughter of Mary
@@ -26104,22 +24734,6 @@
 1 CHAN
 2 DATE 22 JUN 2015
 3 TIME 15:32:16
-0 @I1660@ INDI
-1 NAME Ann /Walmsley/
-1 SEX F
-1 BIRT
-2 DATE BET 1845 AND 1847
-2 PLAC Whittle-le-Woods, Lancashire
-2 SOUR @S200@
-3 DATA
-4 TEXT RG13 piece 3948 folio 43 page 11
-3 NOTE age was recorded as 55
-1 FAMC @F173@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1661@ INDI
 1 NAME Elizabeth Mary /Green/
 2 SOUR @S112@
@@ -26155,55 +24769,6 @@
 1 CHAN
 2 DATE 11 OCT 2015
 3 TIME 09:58:21
-0 @I1662@ INDI
-1 NAME Edith /Green/
-1 SEX F
-1 BIRT
-2 DATE 1890
-2 PLAC Bickershaw, Lancashire
-2 SOUR @S214@
-3 DATA
-4 TEXT RG14PN23027 RG78PN1346 RD458 SD4 ED12 SN90
-3 NOTE age was recorded as 21
-2 SOUR @S112@
-3 DATA
-4 TEXT 1890 GREEN Edith Hindley Wigan & Leigh GRUNDY HNDL/100/172
-1 OCCU a school teacher
-2 DATE 1911
-2 SOUR @S214@
-3 DATA
-4 TEXT RG14PN23027 RG78PN1346 RD458 SD4 ED12 SN90
-1 CENS
-2 DATE 2 APR 1911
-2 PLAC Hindley, Lancashire
-2 ADDR 77, Atherton Road
-2 AGE 21y
-2 SOUR @S350@
-1 OCCU a school teacher
-2 DATE 2 APR 1911
-2 PLAC Hindley, Lancashire
-2 SOUR @S350@
-1 FAMC @F140@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 11 OCT 2015
-3 TIME 09:20:25
-0 @I1663@ INDI
-1 NAME Mary /Grundy/
-1 NAME /Green/
-1 SEX F
-1 DEAT
-2 DATE 1903
-2 PLAC Abram, Lancashire
-2 ADDR 533, Bickershaw Lane
-2 AGE 36y
-1 FAMS @F140@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 11 OCT 2015
-3 TIME 09:40:16
 0 @I1664@ INDI
 1 NAME Roger /Morgan/
 1 SEX M
@@ -26463,20 +25028,6 @@
 1 CHAN
 2 DATE 22 JUN 2015
 3 TIME 15:31:37
-0 @I1677@ INDI
-1 NAME James /Green/
-1 SEX M
-1 DEAT
-2 DATE 1901
-2 PLAC Abram, Lancashire
-2 ADDR Bickershaw Lane
-2 AGE 35y
-1 FAMS @F140@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 11 OCT 2015
-3 TIME 09:39:35
 0 @I1678@ INDI
 1 NAME Elizabeth /BURNETT/
 1 NAME Elizabeth /Hall/
@@ -26752,7 +25303,7 @@
 2 DATE 2 JUL 2015
 3 TIME 10:20:13
 0 @I1694@ INDI
-1 NAME Thomas /Andrew/
+1 NAME Thomas /Andrews/
 1 SEX M
 1 BIRT
 2 DATE 1854
@@ -26764,8 +25315,8 @@
 1 _FLGS
 2 __WEB Web
 1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
+2 DATE 17 MAR 2016
+3 TIME 09:49:02
 0 @I1695@ INDI
 1 NAME Joseph /Bithell/
 1 SEX M
@@ -27189,15 +25740,6 @@
 1 CHAN
 2 DATE 3 MAR 2016
 3 TIME 16:47:08
-0 @I1710@ INDI
-1 NAME Alice /Dickinson/
-1 SEX F
-1 FAMS @F183@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1711@ INDI
 1 NAME Robert /Latham/
 1 SEX M
@@ -27851,115 +26393,6 @@
 1 CHAN
 2 DATE 17 FEB 2016
 3 TIME 13:45:28
-0 @I1741@ INDI
-1 NAME Mary Ann /Thornton/
-2 NICK Annie
-2 SOUR @S297@
-1 SEX F
-1 BIRT
-2 DATE CAL 1842
-2 PLAC Ingleton, Durham
-2 SOUR @S297@
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC Hindley, Lancashire
-2 ADDR 59, Bridgewater Street
-2 AGE 38y
-2 SOUR @S302@
-3 DATA
-4 DATE 3 APR 1881
-3 QUAY 2
-1 CENS
-2 DATE 31 MAR 1901
-2 PLAC Hindley, Lancashire
-2 ADDR 54, Liverpool Road
-2 AGE 58y
-2 SOUR @S326@
-3 DATA
-4 DATE 31 MAR 1901
-3 QUAY 2
-1 BURI
-2 DATE 6 NOV 1902
-2 PLAC Hindley, Lancashire
-2 ADDR Hindley Cemetery
-2 SOUR @S231@
-3 DATA
-4 TEXT Mortimer	Mary Ann	 60 yrs 58 Burnley Rd. Todmorden 06-Nov 1902 Widow Atherton Rd. Hindley C 6-206 C of E
-1 FAMS @F191@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 11:56:53
-0 @I1742@ INDI
-1 NAME Frederick Richard Thornton /Mortimer/
-2 SOUR @S297@
-1 SEX M
-1 BIRT
-2 DATE 1 NOV 1873
-2 PLAC Hindley, Lancashire
-2 SOUR @S297@
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC Hindley, Lancashire
-2 ADDR 59, Bridgewater Street
-2 AGE 7y
-2 SOUR @S302@
-3 DATA
-4 DATE 3 APR 1881
-3 QUAY 2
-1 OCCU an assistant mine surveyor
-2 DATE 1901
-2 PLAC Hindley, Lancashire
-2 SOUR @S297@
-1 CENS
-2 DATE 31 MAR 1901
-2 PLAC Hindley, Lancashire
-2 ADDR 54, Liverpool Road
-2 AGE 27y
-2 SOUR @S326@
-3 DATA
-4 DATE 31 MAR 1901
-3 QUAY 2
-1 OCCU an assistant mine surveyor
-2 DATE 31 MAR 1901
-2 PLAC Hindley, Lancashire
-2 AGE 27y
-2 SOUR @S326@
-3 DATA
-4 DATE 31 MAR 1901
-3 QUAY 2
-1 CENS
-2 DATE 2 APR 1911
-2 PLAC Hindley, Lancashire
-2 ADDR 43, Atherton Road
-2 AGE 37y
-2 SOUR @S303@
-3 DATA
-4 DATE 2 APR 1911
-3 QUAY 2
-1 OCCU a mining surveyor
-2 DATE 2 APR 1911
-2 PLAC Hindley, Lancashire
-2 AGE 37y
-2 SOUR @S303@
-3 DATA
-4 DATE 2 APR 1911
-3 QUAY 2
-1 DEAT
-2 DATE 1941
-2 PLAC Orrell, Lancashire
-2 AGE 67y
-2 SOUR @S176@
-3 DATA
-4 TEXT MORTIMER Frederick Richard Thornton 67 Orrell Wigan & Leigh ORRL/6A/210
-1 FAMC @F191@
-1 FAMS @F215@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 27 FEB 2016
-3 TIME 13:34:45
 0 @I1743@ INDI
 1 NAME Sabina Jane Thornton /Mortimer/
 2 SOUR @S297@
@@ -28035,58 +26468,12 @@
 2 SOUR @S365@
 2 NOTE To Robert Ratcliffe Thornton Mortimer, sanitary inspector and Claude Evarist Thornton Mortimer, school teacher. Effects £2909 11s 9d
 1 FAMC @F191@
+1 NOTE She was one of the children of Charles Dean Mortimer and Mary Ann Thornton
 1 _FLGS
 2 __WEB Web
 1 CHAN
-2 DATE 4 MAR 2016
-3 TIME 11:13:09
-0 @I1744@ INDI
-1 NAME Herbert James Thornton /Mortimer/
-2 SOUR @S297@
-1 SEX M
-1 BIRT
-2 DATE CAL 1877
-2 PLAC Hindley, Lancashire
-2 SOUR @S297@
-2 SOUR @S176@
-3 DATA
-4 TEXT MORTIMER Herbert James Thornton Hindley Wigan & Leigh THORNTON HNDL/61/370
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC Hindley, Lancashire
-2 ADDR 59, Bridgewater Street
-2 AGE 3y
-2 SOUR @S302@
-3 DATA
-4 DATE 3 APR 1881
-3 QUAY 2
-1 OCCU an assitant schoolmaster
-2 DATE 1901
-2 PLAC Hindley, Lancashire
-2 SOUR @S297@
-1 CENS
-2 DATE 31 MAR 1901
-2 PLAC Hindley, Lancashire
-2 ADDR 54, Liverpool Road
-2 AGE 23y
-2 SOUR @S326@
-3 DATA
-4 DATE 31 MAR 1901
-3 QUAY 2
-1 OCCU an assitant schoolmaster
-2 DATE 31 MAR 1901
-2 PLAC Hindley, Lancashire
-2 AGE 23y
-2 SOUR @S326@
-3 DATA
-4 DATE 31 MAR 1901
-3 QUAY 2
-1 FAMC @F191@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 11:56:53
+2 DATE 17 MAR 2016
+3 TIME 08:43:17
 0 @I1745@ INDI
 1 NAME Kate Emma /Poole/
 1 SEX F
@@ -28104,225 +26491,6 @@
 1 CHAN
 2 DATE 23 JUN 2015
 3 TIME 08:38:35
-0 @I1746@ INDI
-1 NAME Gertrude Maud Mary Thornton /Mortimer/
-1 SEX F
-1 BIRT
-2 DATE 1876
-2 PLAC Hindley, Lancashire
-2 SOUR @S176@
-3 DATA
-4 TEXT MORTIMER Gertrude Maud Mary Thornton Hindley Wigan & Leigh THORNTON HNDL/56/261
-1 FAMC @F191@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1747@ INDI
-1 NAME Norman Hector Thornton /Mortimer/
-1 SEX M
-1 BIRT
-2 DATE 1879
-2 PLAC Hindley, Lancashire
-2 SOUR @S176@
-3 DATA
-4 TEXT MORTIMER Norman Hector Thornton Hindley Wigan & Leigh THORNTON HNDL/66/445
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC Hindley, Lancashire
-2 ADDR 59, Bridgewater Street
-2 AGE 1y
-2 SOUR @S302@
-3 DATA
-4 DATE 3 APR 1881
-3 QUAY 2
-1 FAMC @F191@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 11:56:29
-0 @I1748@ INDI
-1 NAME Sullivan Dean /Mortimer/
-1 SEX M
-1 BIRT
-2 DATE 1883
-2 PLAC Hindley, Lancashire
-2 SOUR @S176@
-3 DATA
-4 TEXT MORTIMER Sullivan Dean Thornton Hindley Wigan & Leigh THORNTON HNDL/77/162
-1 BURI
-2 DATE 7 DEC 1966
-2 PLAC Hindley, Lancashire
-2 ADDR Hindley Cemetery
-2 SOUR @S231@
-3 DATA
-4 TEXT Mortimer	Sullivan Dean T. 83 yrs 39 Hampstead Rd. Brighton 07-Dec 1966 Retired C 6-206 C of E
-1 FAMC @F191@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1749@ INDI
-1 NAME Charles Dean /Mortimer/
-1 SEX M
-1 BIRT
-2 DATE CAL 1843
-2 PLAC Leeds, Yorkshire
-2 SOUR @S302@
-3 DATA
-4 DATE 3 APR 1881
-3 QUAY 2
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC Hindley, Lancashire
-2 ADDR 59, Bridgewater Street
-2 AGE 37y
-2 SOUR @S302@
-3 DATA
-4 DATE 3 APR 1881
-3 QUAY 2
-1 OCCU a professor of music
-2 DATE 1881
-2 PLAC Hindley, Lancashire
-2 AGE 37y
-2 SOUR @S302@
-3 DATA
-4 DATE 3 APR 1881
-3 QUAY 2
-1 DEAT
-2 DATE 1897
-2 PLAC Hindley, Lancashire
-2 AGE 54y
-2 SOUR @S301@
-3 DATA
-4 TEXT Name: Charles Dean Mortimer Event Type: Death Registration Quarter: Jul-Aug-Sep Registration Year: 1897 Registration District: Wigan County: Lancashire Event Place: Wigan, Lancashire, England Age (available after 1866): 54 Birth Year (Estimated)
-5 CONC : 1843 Volume: 8C Page: 52 Line Number: 91
-1 BURI
-2 DATE 27 JUL 1897
-2 PLAC Hindley, Lancashire
-2 ADDR Hindley Cemetery
-2 SOUR @S231@
-3 DATA
-4 TEXT Mortimer	Charles Dean 54 yrs 16 Atherton Rd. 27-Jul 1897 Professor of Music C 6-206 C of E
-1 FAMS @F191@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 11:56:29
-0 @I1750@ INDI
-1 NAME Horace Arthur Thornton /Mortimer/
-1 SEX M
-1 BIRT
-2 DATE 1872
-2 PLAC Leighton Buzzard, Bedfordshire
-2 SOUR @S301@
-3 DATA
-4 TEXT Name: Horace Arthur T Mortimer Event Type: Birth Registration Registration Quarter: Jan-Feb-Mar Registration Year: 1872 Registration District: Leighton Buzzard County: Bedfordshire Event Place: Leighton Buzzard, Bedfordshire, England Volume: 3
-5 CONC B Page: 418 Line Number: 160
-1 CHR
-2 DATE 29 DEC 1872
-2 PLAC St Andrew
-2 ADDR Leighton Buzzard, Bedfordshire
-2 SOUR @S301@
-3 DATA
-4 TEXT Name: Horace Arthur Thornton Mortimer Gender: Male Christening Date: 29 Dec 1872 Christening Place: SAINT ANDREW,LEIGHTON BUZZARD,BEDFORD,ENGLAND Father's Name: Charles Dean Mortimer Mother's Name: Mary Ann Indexing Project (Batch) Number: C1487
-5 CONC 2-1 , System Origin: England-ODM , GS Film number: 1279144
-1 DEAT
-2 DATE 1873
-2 PLAC Hindley, Lancashire
-2 SOUR @S176@
-3 DATA
-4 TEXT MORTIMER Horace Arthur Thornton 1 Hindley Wigan & Leigh HNDL/31/382
-1 FAMC @F191@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1751@ INDI
-1 NAME Clara L Thornton /Mortimer/
-1 SEX F
-1 BIRT
-2 DATE CAL 1866
-2 PLAC Staindrop, Durham
-2 SOUR @S302@
-3 DATA
-4 DATE 3 APR 1881
-3 QUAY 2
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC Hindley, Lancashire
-2 ADDR 59, Bridgewater Street
-2 AGE 14y
-2 SOUR @S302@
-3 DATA
-4 DATE 3 APR 1881
-3 QUAY 2
-1 FAMC @F191@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 11:56:29
-0 @I1752@ INDI
-1 NAME Charles Thornton /Mortimer/
-1 SEX M
-1 BIRT
-2 DATE CAL 1868
-2 PLAC Staindrop, Durham
-2 SOUR @S302@
-3 DATA
-4 DATE 3 APR 1881
-3 QUAY 2
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC Hindley, Lancashire
-2 ADDR 59, Bridgewater Street
-2 AGE 12y
-2 SOUR @S302@
-3 DATA
-4 DATE 3 APR 1881
-3 QUAY 2
-1 FAMC @F191@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 11:56:29
-0 @I1753@ INDI
-1 NAME Ann Beatrice Thornton /Mortimer/
-1 SEX F
-1 BIRT
-2 DATE CAL 1870
-2 PLAC Staindrop, Durham
-2 SOUR @S302@
-3 DATA
-4 DATE 3 APR 1881
-3 QUAY 2
-1 CHR
-2 DATE 29 DEC 1872
-2 PLAC Leighton Buzzard, Bedfordshire
-2 ADDR St Andrew
-2 SOUR @S301@
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC Hindley, Lancashire
-2 ADDR 59, Bridgewater Street
-2 AGE 10y
-2 SOUR @S302@
-3 DATA
-4 DATE 3 APR 1881
-3 QUAY 2
-1 FAMC @F191@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 11:56:29
 0 @I1754@ INDI
 1 NAME Elsie /Gerrard/
 1 SEX F
@@ -28489,15 +26657,6 @@
 1 CHAN
 2 DATE 3 MAR 2016
 3 TIME 16:43:05
-0 @I1768@ INDI
-1 NAME Elizabeth //
-1 SEX F
-1 FAMS @F159@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1769@ INDI
 1 NAME Richard /Barlow/
 1 SEX M
@@ -28751,18 +26910,6 @@
 1 CHAN
 2 DATE 11 MAR 2016
 3 TIME 08:44:47
-0 @I1781@ INDI
-1 NAME Thomas /Lever/
-1 SEX M
-1 OCCU a labourer
-2 DATE 1840
-2 SOUR @S337@
-1 FAMS @F197@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
 0 @I1783@ INDI
 1 NAME William /Darbyshire/
 1 SEX M
@@ -28867,23 +27014,7 @@
 3 DATA
 4 TEXT Marriage: 2 Nov 1847 All Saints, Wigan, Lancashire, England William Heyes - (X), full age Collier Bachelor of Haigh Ellen Woodcock - (X), full age Spinster of Haigh Groom's Father: Henry Heyes, Collier Bride's Father: Thomas Woodcock, dead Witne
 5 CONC ss: Seth Clarkson, (X); William Bancks Married by Banns by: R.Morewood Officg.Minister Register: Marriages 1846 - 1848, Page 194, Entry 387 Source: LDS Film 1885695
-1 FAMC @F200@
 1 FAMS @F199@
-1 _FLGS
-2 __WEB Web
-1 CHAN
-2 DATE 23 JUN 2015
-3 TIME 08:37:42
-0 @I1789@ INDI
-1 NAME Henry /Heyes/
-1 SEX M
-1 OCCU a collier
-2 DATE 1847
-2 SOUR @S234@
-3 DATA
-4 TEXT Marriage: 2 Nov 1847 All Saints, Wigan, Lancashire, England William Heyes - (X), full age Collier Bachelor of Haigh Ellen Woodcock - (X), full age Spinster of Haigh Groom's Father: Henry Heyes, Collier Bride's Father: Thomas Woodcock, dead Witne
-5 CONC ss: Seth Clarkson, (X); William Bancks Married by Banns by: R.Morewood Officg.Minister Register: Marriages 1846 - 1848, Page 194, Entry 387 Source: LDS Film 1885695
-1 FAMS @F200@
 1 _FLGS
 2 __WEB Web
 1 CHAN
@@ -29395,36 +27526,6 @@
 1 CHAN
 2 DATE 15 MAR 2016
 3 TIME 11:09:52
-0 @I1858@ INDI
-1 NAME James /Green/
-1 SEX M
-1 BIRT
-2 DATE 1895
-1 DEAT
-2 DATE 1895
-2 AGE 5m
-1 FAMC @F140@
-1 CHAN
-2 DATE 11 OCT 2015
-3 TIME 10:02:42
-0 @I1859@ INDI
-1 NAME Mary Jane /Green/
-1 SEX F
-1 BIRT
-2 DATE 1888
-1 FAMC @F140@
-1 CHAN
-2 DATE 11 OCT 2015
-3 TIME 10:04:41
-0 @I1860@ INDI
-1 NAME Catherine Annie /Green/
-1 SEX F
-1 BIRT
-2 DATE 1899
-1 FAMC @F140@
-1 CHAN
-2 DATE 11 OCT 2015
-3 TIME 10:05:15
 0 @I1861@ INDI
 1 NAME Fred /Unsworth/
 1 SEX M
@@ -29638,53 +27739,12 @@
 2 SOUR @S176@
 3 DATA
 4 TEXT 1888 COWAP Mary Lilian Wigan Wigan & Leigh HALL WIG/168/60
-1 FAMC @F214@
 1 FAMS @F213@
 1 _FLGS
 2 __WEB Web
 1 CHAN
 2 DATE 3 MAR 2016
 3 TIME 16:43:05
-0 @I1876@ INDI
-1 NAME William /Cowap/
-1 SEX M
-1 DEAT
-2 DATE 1928
-2 AGE 74y
-2 SOUR @S173@
-3 DATA
-4 TEXT Cowap William 74 Yrs Leigh Rd >>> 07-Dec 1928 Ellesmere St, Leigh A 160 C of E
-1 BURI
-2 DATE 7 DEC 1928
-2 PLAC Wigan, Lancashire
-2 ADDR Wigan Cemetery (at Lower Ince)
-2 SOUR @S173@
-3 DATA
-4 TEXT Cowap William 74 Yrs Leigh Rd >>> 07-Dec 1928 Ellesmere St, Leigh A 160 C of E
-1 FAMS @F214@
-1 CHAN
-2 DATE 27 FEB 2016
-3 TIME 13:11:50
-0 @I1877@ INDI
-1 NAME Mary /Hall/
-1 SEX F
-1 DEAT
-2 DATE 1927
-2 AGE 76y
-2 SOUR @S173@
-3 DATA
-4 TEXT Cowap Mary 76 Yrs Leigh >>> 23-Mar 1927 Ellesmere St A 160 C of E
-1 BURI
-2 DATE 23 MAR 1927
-2 PLAC Wigan, Lancashire
-2 ADDR Wigan Cemetery (at Lower Ince)
-2 SOUR @S173@
-3 DATA
-4 TEXT Cowap Mary 76 Yrs Leigh >>> 23-Mar 1927 Ellesmere St A 160 C of E
-1 FAMS @F214@
-1 CHAN
-2 DATE 27 FEB 2016
-3 TIME 13:12:25
 0 @I1878@ INDI
 1 NAME Lilian Alice /Barlow/
 1 SEX F
@@ -29700,13 +27760,6 @@
 1 CHAN
 2 DATE 3 MAR 2016
 3 TIME 16:47:08
-0 @I1879@ INDI
-1 NAME Martha /Davies/
-1 SEX F
-1 FAMS @F215@
-1 CHAN
-2 DATE 27 FEB 2016
-3 TIME 13:34:49
 0 @I1880@ INDI
 1 NAME David /Shoben/
 1 SEX M
@@ -29871,7 +27924,7 @@
 1 MARR
 2 _SHAR @I102@
 3 ROLE Witness
-2 _SHAR @I1068@
+2 _SHAN Annie Heaton
 3 ROLE Witness
 2 DATE 9 FEB 1875
 2 PLAC St. Joseph's RC, Caroline Street, Wigan, Lancashire
@@ -29890,8 +27943,8 @@
 1 CHIL @I1216@
 1 CHIL @I1217@
 1 CHAN
-2 DATE 4 MAR 2016
-3 TIME 10:28:44
+2 DATE 17 MAR 2016
+3 TIME 09:23:07
 0 @F10@ FAM
 1 MARR
 2 DATE 1981
@@ -29908,9 +27961,9 @@
 3 TIME 10:20:13
 0 @F11@ FAM
 1 MARR
-2 _SHAR @I1067@
-3 ROLE Witness
 2 _SHAR @I82@
+3 ROLE Witness
+2 _SHAN Patrick Griffin
 3 ROLE Witness
 2 DATE 17 JAN 1911
 2 PLAC St. Joseph's RC, Caroline Street, Wigan, Lancashire
@@ -29925,13 +27978,13 @@
 1 CHIL @I31@
 1 CHIL @I33@
 1 CHAN
-2 DATE 19 NOV 2015
-3 TIME 10:54:25
+2 DATE 17 MAR 2016
+3 TIME 09:22:29
 0 @F12@ FAM
 1 MARR
-2 _SHAR @I1070@
+2 _SHAN Thomas Wilkinson
 3 ROLE Witness
-2 _SHAR @I1069@
+2 _SHAN Emma Anderson
 3 ROLE Witness
 2 DATE 2 JUN 1861
 2 PLAC St. George's, Water Street, Wigan, Lancashire
@@ -29950,13 +28003,13 @@
 1 CHIL @I11@
 1 CHIL @I98@
 1 CHAN
-2 DATE 29 APR 2015
-3 TIME 17:16:47
+2 DATE 17 MAR 2016
+3 TIME 09:29:24
 0 @F13@ FAM
 1 MARR
-2 _SHAR @I1062@
+2 _SHAN Edmund Ryan
 3 ROLE Witness
-2 _SHAR @I1061@
+2 _SHAN Catherine Connor
 3 ROLE Witness
 2 DATE 2 MAY 1885
 2 PLAC Wigan, Lancashire
@@ -29994,8 +28047,8 @@
 1 CHIL @I81@
 1 CHIL @I80@
 1 CHAN
-2 DATE 2 MAR 2016
-3 TIME 13:26:10
+2 DATE 17 MAR 2016
+3 TIME 08:47:26
 0 @F14@ FAM
 1 MARR
 2 DATE 1902
@@ -30084,12 +28137,13 @@
 3 TIME 15:56:39
 0 @F18@ FAM
 1 MARR
-2 _SHAR @I1080@
-3 ROLE Witness
 2 _SHAR @I1071@
 3 ROLE Witness
 2 _SHAR @I190@
 3 ROLE Witness
+2 _SHAN Catherine Baron
+3 ROLE Witness
+3 NOTE Perhaps she was Catherine Heaney married Henry Baron
 2 DATE 18 MAY 1846
 2 PLAC Wigan, Lancashire
 2 ADDR St. Mary's RC Church, Standishgate
@@ -30112,8 +28166,8 @@
 1 CHIL @I107@
 1 CHIL @I108@
 1 CHAN
-2 DATE 9 NOV 2015
-3 TIME 17:29:24
+2 DATE 17 MAR 2016
+3 TIME 09:27:19
 0 @F19@ FAM
 1 MARR
 2 DATE 1849
@@ -30160,7 +28214,6 @@
 3 CONT Witness: John WOODCOCK [[(I226)]]. Role: Member of Household.
 1 HUSB @I109@
 1 WIFE @I110@
-1 CHIL @I222@
 1 CHIL @I111@
 1 CHIL @I224@
 1 CHIL @I225@
@@ -30170,8 +28223,8 @@
 1 CHIL @I113@
 1 CHIL @I114@
 1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 12:06:46
+2 DATE 16 MAR 2016
+3 TIME 09:18:29
 0 @F20@ FAM
 1 MARR
 2 DATE SEP 1883
@@ -30208,13 +28261,13 @@
 3 TIME 16:05:05
 0 @F21@ FAM
 1 MARR
-2 _SHAR @I1072@
-3 ROLE Witness
-2 _SHAR @I1073@
-3 ROLE Witness
 2 _SHAR @I292@
 3 ROLE Witness
 2 _SHAR @I314@
+3 ROLE Witness
+2 _SHAN William Bullin
+3 ROLE Witness
+2 _SHAN James Pendlington
 3 ROLE Witness
 2 DATE 25 NOV 1839
 2 PLAC St. Mary's RC, Standishgate, Wigan, Lancashire
@@ -30261,8 +28314,8 @@
 1 CHIL @I221@
 1 CHIL @I72@
 1 CHAN
-2 DATE 7 NOV 2015
-3 TIME 11:57:25
+2 DATE 17 MAR 2016
+3 TIME 09:25:22
 0 @F22@ FAM
 1 MARR
 2 SOUR @S5@
@@ -30309,7 +28362,7 @@
 1 MARR
 2 _SHAR @I105@
 3 ROLE Witness
-2 _SHAR @I1058@
+2 _SHAN Henry Matthews
 3 ROLE Witness
 2 DATE 25 OCT 1880
 2 PLAC Ashton-in-Makerfield, Lancashire
@@ -30325,8 +28378,8 @@
 1 CHIL @I1256@
 1 CHIL @I1777@
 1 CHAN
-2 DATE 29 APR 2015
-3 TIME 15:15:54
+2 DATE 17 MAR 2016
+3 TIME 08:44:56
 0 @F26@ FAM
 1 MARR
 2 DATE 26 MAR 1799
@@ -30488,7 +28541,7 @@
 3 TIME 12:04:53
 0 @F32@ FAM
 1 MARR
-2 _SHAR @I1085@
+2 _SHAN James Lowe
 3 ROLE Witness
 2 DATE 19 JAN 1823
 2 PLAC Wigan, Lancashire
@@ -30509,8 +28562,8 @@
 1 CHIL @I232@
 1 CHIL @I233@
 1 CHAN
-2 DATE 2 JUL 2015
-3 TIME 10:20:13
+2 DATE 17 MAR 2016
+3 TIME 09:28:30
 0 @F33@ FAM
 1 MARR
 2 DATE JUN 1871
@@ -31072,9 +29125,9 @@
 3 TIME 12:06:46
 0 @F52@ FAM
 1 MARR
-2 _SHAR @I1210@
+2 _SHAN George Counsell
 3 ROLE Witness
-2 _SHAR @I1211@
+2 _SHAN Esther Hamill
 3 ROLE Witness
 2 DATE 24 FEB 1868
 2 PLAC St. Thomas, Wigan, Lancashire
@@ -31120,8 +29173,8 @@
 1 CHIL @I835@
 1 CHIL @I836@
 1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 10:16:54
+2 DATE 17 MAR 2016
+3 TIME 09:32:16
 0 @F53@ FAM
 1 MARR
 2 DATE 1 OCT 1854
@@ -31738,8 +29791,6 @@
 2 NOTE Children born 9, children who have died 3
 3 CONT Witness: Ellen BARRY [[(I1167)]]. Role: Member of Household.
 3 CONT Witness: William BARRY [[(I1266)]]. Role: Member of Household.
-1 HUSB @I1245@
-1 WIFE @I1246@
 1 CHIL @I1167@
 1 CHAN
 2 DATE 29 APR 2015
@@ -31801,41 +29852,6 @@
 1 CHAN
 2 DATE 27 FEB 2016
 3 TIME 11:44:15
-0 @F83@ FAM
-1 MARR
-2 DATE 1878
-2 PLAC Wigan, Lancashire
-2 SOUR @S176@
-3 DATA
-4 TEXT JONES Rebecca MCNALLY Richard Wigan, Register Office or Registrar Attended Wigan & Leigh ROW/48/21
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC 177 & 179, Hardybutts, Wigan, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT RG11 3765 Folio 36 Page 8
-2 NOTE Witness: John Samuel MCNALLY [[(I1407)]]. Role: Head of Household.
-3 CONT Witness: Mary Monica MCNALLY [[(I1408)]]. Role: Member of Household.
-1 CENS
-2 DATE 31 MAR 1901
-2 PLAC 12, Wigan Lane, Wigan, Lancashire
-2 SOUR @S161@
-3 DATA
-4 TEXT Folio 8 Page 8
-2 OBJE @O78@
-3 _ASID 1
-2 NOTE Witness: Henry Jones HALL [[(I279)]]. Role: Member of Household.
-3 CONT Witness: Nicholas Bernard HALL [[(I1269)]]. Role: Member of Household.
-1 HUSB @I1267@
-1 WIFE @I1268@
-1 CHIL @I1407@
-1 CHIL @I1408@
-1 CHIL @I1409@
-1 CHIL @I1410@
-1 CHIL @I1411@
-1 CHAN
-2 DATE 2 JUL 2015
-3 TIME 10:20:13
 0 @F84@ FAM
 1 MARR
 2 DATE DEC 1875
@@ -31875,13 +29891,7 @@
 4 TEXT HARRISON William DICKINSON Catharine St Mary The Virgin, Eccleston Chorley C15/1/246
 5 CONT 
 5 CONT [:CR:]
-1 HUSB @I1283@
-1 WIFE @I1284@
-1 CHIL @I1285@
 1 CHIL @I1057@
-1 CHIL @I1286@
-1 CHIL @I1287@
-1 CHIL @I1288@
 1 CHAN
 2 DATE 20 OCT 2014
 3 TIME 20:45:19
@@ -31897,36 +29907,10 @@
 2 NOTE Witness: Catherine HODGE [[(I1181)]]. Role: Member of Household.
 3 CONT Witness: John HODGE [[(I1291)]]. Role: Member of Household.
 3 CONT Witness: Margaret A HODGE [[(I1292)]]. Role: Member of Household.
-1 HUSB @I1289@
-1 WIFE @I1290@
 1 CHIL @I1181@
-1 CHIL @I1291@
-1 CHIL @I1292@
-1 CHIL @I1182@
 1 CHAN
 2 DATE 22 JUN 2015
 3 TIME 16:21:56
-0 @F88@ FAM
-1 MARR
-2 DATE 1878
-2 PLAC St. Wilfrid, Standish, Lancashire
-2 SOUR @S176@
-3 DATA
-4 TEXT WHITTLE Peter WHITTER Ann St. Wilfred,Standish Wigan & Leigh C28/3/445
-1 CENS
-2 DATE 3 APR 1881
-2 PLAC Tawd Bridge, Upholland, Lancashire
-2 SOUR @S95@
-3 DATA
-4 TEXT FHL Film 1341904 PRO Ref RG11 Piece 3782 Folio 49 Page 38
-2 NOTE also in the house were Mary WHITTER (Step Daughter) and John WHITTLE (Lodger)
-3 CONT Witness: George WHITTLE [[(I1232)]]. Role: Member of Household.
-1 HUSB @I1293@
-1 WIFE @I1294@
-1 CHIL @I1232@
-1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:39
 0 @F89@ FAM
 1 MARR
 2 DATE JUN 1853
@@ -32201,8 +30185,6 @@
 0 @F101@ FAM
 1 MARR
 2 DATE BEF 1833
-1 HUSB @I1435@
-1 WIFE @I1436@
 1 CHIL @I1434@
 1 CHAN
 2 DATE 22 JUN 2015
@@ -32256,15 +30238,7 @@
 2 DATE 26 AUG 1828
 2 PLAC Leigh, Lancashire
 2 SOUR @S336@
-1 HUSB @I1453@
-1 WIFE @I1454@
-1 CHIL @I1455@
-1 CHIL @I1400@
-1 CHIL @I1457@
-1 CHIL @I1456@
 1 CHIL @I1136@
-1 CHIL @I1391@
-1 CHIL @I1393@
 1 CHAN
 2 DATE 1 JUL 2015
 3 TIME 12:15:28
@@ -32479,11 +30453,6 @@
 1 CHAN
 2 DATE 8 NOV 2015
 3 TIME 11:32:10
-0 @F114@ FAM
-1 HUSB @I1494@
-1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 11:34:20
 0 @F115@ FAM
 1 MARR
 2 DATE BEF 1834
@@ -32505,13 +30474,7 @@
 4 TEXT RG11 Piece / Folio   3758 / 148 Page Number   23
 2 NOTE Witness: Mary Ann WHITTLE [[(I1173)]]. Role: Member of Household.
 3 CONT Witness: George WHITTLE [[(I1507)]]. Role: Member of Household.
-1 HUSB @I1505@
-1 WIFE @I1506@
-1 CHIL @I1508@
-1 CHIL @I1173@
-1 CHIL @I1293@
 1 CHIL @I1152@
-1 CHIL @I1507@
 1 CHAN
 2 DATE 22 JUN 2015
 3 TIME 16:28:28
@@ -32738,16 +30701,7 @@
 3 CONT Witness: Henry KENYON [[(I1575)]]. Role: Member of Household.
 3 CONT Witness: James KENYON [[(I1576)]]. Role: Member of Household.
 3 CONT Witness: Ernest KENYON [[(I1577)]]. Role: Member of Household.
-1 HUSB @I1570@
-1 WIFE @I1571@
-1 CHIL @I1572@
 1 CHIL @I84@
-1 CHIL @I1578@
-1 CHIL @I1573@
-1 CHIL @I1574@
-1 CHIL @I1575@
-1 CHIL @I1576@
-1 CHIL @I1577@
 1 CHAN
 2 DATE 2 SEP 2014
 3 TIME 16:05:07
@@ -33096,13 +31050,7 @@
 2 SOUR @S176@
 3 DATA
 4 TEXT 1887 GREEN James GRUNDY Mary Wigan, Register Office or Registrar Attended Wigan & Leigh ROW/70/107
-1 HUSB @I1677@
-1 WIFE @I1663@
-1 CHIL @I1859@
-1 CHIL @I1662@
-1 CHIL @I1858@
 1 CHIL @I1661@
-1 CHIL @I1860@
 1 CHAN
 2 DATE 11 OCT 2015
 3 TIME 10:05:37
@@ -33226,15 +31174,6 @@
 1 CHAN
 2 DATE 11 OCT 2015
 3 TIME 10:05:37
-0 @F149@ FAM
-1 WIFE @I1260@
-1 CHIL @I1261@
-1 CHIL @I1262@
-1 CHIL @I116@
-1 CHIL @I1263@
-1 CHAN
-2 DATE 22 JUN 2015
-3 TIME 15:53:13
 0 @F150@ FAM
 1 HUSB @I1319@
 1 CHIL @I126@
@@ -33248,12 +31187,6 @@
 1 CHAN
 2 DATE 22 JUN 2015
 3 TIME 15:54:14
-0 @F152@ FAM
-1 HUSB @I1059@
-1 CHIL @I148@
-1 CHAN
-2 DATE 22 JUN 2015
-3 TIME 15:55:00
 0 @F153@ FAM
 1 WIFE @I163@
 1 CHIL @I168@
@@ -33261,12 +31194,6 @@
 1 CHAN
 2 DATE 22 JUN 2015
 3 TIME 15:49:09
-0 @F154@ FAM
-1 HUSB @I1476@
-1 CHIL @I216@
-1 CHAN
-2 DATE 22 JUN 2015
-3 TIME 15:56:42
 0 @F155@ FAM
 1 WIFE @I110@
 1 CHIL @I1368@
@@ -33294,20 +31221,6 @@
 1 CHAN
 2 DATE 22 JUN 2015
 3 TIME 15:52:36
-0 @F159@ FAM
-1 HUSB @I1104@
-1 WIFE @I1768@
-1 CHIL @I269@
-1 CHAN
-2 DATE 22 APR 2015
-3 TIME 16:02:26
-0 @F160@ FAM
-1 WIFE @I1301@
-1 CHIL @I278@
-1 CHIL @I1268@
-1 CHAN
-2 DATE 22 JUN 2015
-3 TIME 15:52:13
 0 @F161@ FAM
 1 HUSB @I170@
 1 CHIL @I440@
@@ -33321,18 +31234,6 @@
 1 CHAN
 2 DATE 22 JUN 2015
 3 TIME 15:51:46
-0 @F163@ FAM
-1 HUSB @I1590@
-1 CHIL @I1206@
-1 CHAN
-2 DATE 22 JUN 2015
-3 TIME 15:54:29
-0 @F164@ FAM
-1 HUSB @I1320@
-1 CHIL @I1120@
-1 CHAN
-2 DATE 22 JUN 2015
-3 TIME 15:54:40
 0 @F165@ FAM
 1 HUSB @I1159@
 1 CHIL @I1157@
@@ -33358,25 +31259,6 @@
 1 CHAN
 2 DATE 22 JUN 2015
 3 TIME 15:49:32
-0 @F172@ FAM
-1 HUSB @I1494@
-1 CHIL @I1493@
-1 CHAN
-2 DATE 8 NOV 2015
-3 TIME 11:34:27
-0 @F173@ FAM
-1 HUSB @I1531@
-1 CHIL @I1660@
-1 CHIL @I1529@
-1 CHAN
-2 DATE 22 JUN 2015
-3 TIME 15:56:17
-0 @F174@ FAM
-1 WIFE @I1585@
-1 CHIL @I1586@
-1 CHAN
-2 DATE 22 JUN 2015
-3 TIME 15:53:03
 0 @F175@ FAM
 1 HUSB @I1642@
 1 CHIL @I1602@
@@ -33447,7 +31329,6 @@
 3 DATA
 4 TEXT LATHAM	Robert DICKINSON Alice Wigan, Register Office or Registrar Attended	Wigan & Leigh ROW/87/33
 1 HUSB @I1711@
-1 WIFE @I1710@
 1 CHIL @I21@
 1 CHIL @I156@
 1 CHAN
@@ -33544,18 +31425,7 @@
 2 SOUR @S336@
 3 DATA
 4 TEXT 1866 CHARLES D MORTIMER married one of these people MARY A THORNTON, ELIZABETH BOUSFIELD
-1 HUSB @I1749@
-1 WIFE @I1741@
-1 CHIL @I1751@
-1 CHIL @I1752@
-1 CHIL @I1753@
-1 CHIL @I1750@
-1 CHIL @I1742@
 1 CHIL @I1743@
-1 CHIL @I1746@
-1 CHIL @I1744@
-1 CHIL @I1747@
-1 CHIL @I1748@
 1 CHIL @I1594@
 1 CHAN
 2 DATE 27 FEB 2016
@@ -33604,12 +31474,6 @@
 1 CHAN
 2 DATE 22 JUN 2015
 3 TIME 15:53:53
-0 @F197@ FAM
-1 HUSB @I1781@
-1 CHIL @I1641@
-1 CHAN
-2 DATE 22 JUN 2015
-3 TIME 15:55:27
 0 @F198@ FAM
 1 WIFE @I1786@
 1 CHIL @I1643@
@@ -33633,12 +31497,6 @@
 1 CHAN
 2 DATE 17 JUN 2015
 3 TIME 15:50:08
-0 @F200@ FAM
-1 HUSB @I1789@
-1 CHIL @I1788@
-1 CHAN
-2 DATE 22 JUN 2015
-3 TIME 15:55:17
 0 @F201@ FAM
 1 HUSB @I1779@
 1 CHIL @I1801@
@@ -33804,24 +31662,6 @@
 1 CHAN
 2 DATE 27 FEB 2016
 3 TIME 13:13:49
-0 @F214@ FAM
-1 HUSB @I1876@
-1 WIFE @I1877@
-1 CHIL @I1875@
-1 CHAN
-2 DATE 27 FEB 2016
-3 TIME 13:03:00
-0 @F215@ FAM
-1 MARR
-2 DATE 1917
-2 SOUR @S176@
-3 DATA
-4 TEXT 1917 MORTIMER Frederick R Thornton DAVIES Martha Christ Church, Ince Wigan & Leigh C19/8/375
-1 HUSB @I1742@
-1 WIFE @I1879@
-1 CHAN
-2 DATE 27 FEB 2016
-3 TIME 13:35:54
 0 @F216@ FAM
 1 MARR
 2 DATE 1970
@@ -34555,11 +32395,9 @@
 1 TITL RG13_3558_8_8
 1 _FILE Media\RG13_3558_8_8.png
 1 _KEYS Picture
-1 NOTE 
-2 _ASID 1
 1 CHAN
-2 DATE 4 SEP 2014
-3 TIME 15:17:31
+2 DATE 19 MAR 2016
+3 TIME 09:30:34
 0 @O79@ OBJE
 1 FORM jpeg
 1 TITL RG09 piece 3122 folio 79 page
@@ -35087,11 +32925,9 @@
 1 TITL RG13_3939_63_6
 1 _FILE Media\RG13_3939_63_6.png
 1 _KEYS Picture
-1 NOTE 
-2 _ASID 1
 1 CHAN
-2 DATE 4 SEP 2014
-3 TIME 15:17:31
+2 DATE 19 MAR 2016
+3 TIME 09:25:14
 0 @O134@ OBJE
 1 FORM jpeg
 1 TITL 1911EnglandCensusForEdwardHall
@@ -36585,22 +34421,22 @@
 1 _TYPE Certificate: Marriage - Copy GRO
 1 REPO @R2@
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:32
+2 DATE 17 MAR 2016
+3 TIME 09:22:34
 0 @S13@ SOUR
 1 ABBR MC Rodger Morgan (1885)
 1 _TYPE Certificate: Marriage - Copy GRO
 1 REPO @R2@
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:32
+2 DATE 17 MAR 2016
+3 TIME 08:47:33
 0 @S14@ SOUR
 1 ABBR MC Richard Barlow
 1 _TYPE Certificate: Marriage - Copy GRO
 1 REPO @R2@
 1 CHAN
-2 DATE 23 APR 2015
-3 TIME 09:00:39
+2 DATE 17 MAR 2016
+3 TIME 09:29:29
 0 @S15@ SOUR
 1 ABBR MC Joseph Ratcliffe (1882)
 1 _TYPE Certificate: Marriage - Copy GRO
@@ -36613,8 +34449,8 @@
 1 _TYPE Certificate: Marriage - Copy GRO
 1 REPO @R2@
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 17 MAR 2016
+3 TIME 09:23:12
 0 @S17@ SOUR
 1 ABBR MC Peter Barlow
 1 _TYPE Certificate: Marriage - Copy GRO
@@ -36746,8 +34582,8 @@
 1 _TYPE Certificate: Marriage - Copy GRO
 1 REPO @R2@
 1 CHAN
-2 DATE 9 NOV 2015
-3 TIME 17:11:17
+2 DATE 17 MAR 2016
+3 TIME 09:27:25
 0 @S36@ SOUR
 1 TITL Kelly's Directory of Lancashire 1924
 1 ABBR Kelly 1924
@@ -36770,16 +34606,16 @@
 1 _TYPE Parish Register (Filmed)
 1 REPO @R7@
 1 CHAN
-2 DATE 17 SEP 2015
-3 TIME 18:24:24
+2 DATE 17 MAR 2016
+3 TIME 09:27:25
 0 @S39@ SOUR
 1 TITL St. Mary's Baptisms
 1 ABBR Baptisms (St. Mary's)
 1 _TYPE Parish Register (Filmed)
 1 REPO @R7@
 1 CHAN
-2 DATE 11 MAR 2016
-3 TIME 10:05:31
+2 DATE 17 MAR 2016
+3 TIME 09:31:12
 0 @S40@ SOUR
 1 TITL Boyd's Marriage Index
 1 ABBR BMI
@@ -36886,8 +34722,8 @@
 1 _TYPE Parish Register (Filmed)
 1 REPO @R7@
 1 CHAN
-2 DATE 9 NOV 2015
-3 TIME 17:23:54
+2 DATE 17 MAR 2016
+3 TIME 09:28:36
 0 @S55@ SOUR
 1 TITL Standish 1851
 1 ABBR 1851 Standish
@@ -36967,8 +34803,8 @@
 1 _TYPE Certificate: Marriage - Copy GRO
 1 REPO @R2@
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 17 MAR 2016
+3 TIME 09:25:26
 0 @S68@ SOUR
 1 ABBR BC Martha Barlow 1841
 1 _TYPE Certificate: Birth - Copy GRO
@@ -37084,8 +34920,8 @@
 1 ABBR Anne Good
 1 _TYPE E-Mail Message
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 17 MAR 2016
+3 TIME 09:32:21
 0 @S87@ SOUR
 1 ABBR Gravestone Alice Barlow
 1 _TYPE Monumental Inscription - Graveyard
@@ -37107,8 +34943,8 @@
 1 _TYPE Certificate: Marriage - Copy GRO
 1 REPO @R2@
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 17 MAR 2016
+3 TIME 08:46:59
 0 @S90@ SOUR
 1 ABBR DC Judith Heaney
 1 _TYPE Certificate: Death - Copy GRO
@@ -37146,8 +34982,8 @@
 1 _TYPE Census: 1881 UK
 1 REPO @R2@
 1 CHAN
-2 DATE 17 SEP 2015
-3 TIME 17:35:40
+2 DATE 19 MAR 2016
+3 TIME 09:31:14
 0 @S96@ SOUR
 1 ABBR DC Mary Harrison (1847)
 1 _TYPE Certificate: Death - Copy GRO
@@ -37197,8 +35033,8 @@
 1 _TYPE Certificate: Marriage - Copy GRO
 1 REPO @R2@
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 19 MAR 2016
+3 TIME 09:32:22
 0 @S106@ SOUR
 1 TITL Wigan 1881
 1 ABBR 1881 Wigan 3768
@@ -37249,8 +35085,8 @@
 1 ABBR Free BMD
 1 _TYPE Web Site
 1 CHAN
-2 DATE 22 APR 2015
-3 TIME 13:00:00
+2 DATE 17 MAR 2016
+3 TIME 08:51:27
 0 @S113@ SOUR
 1 ABBR BC Lilian Morgan 1914
 1 _TYPE Certificate: Birth - Copy GRO
@@ -37418,8 +35254,8 @@
 1 REPO @R2@
 1 NOTE Lancashire 1891 Census published by S&N British Data Archive Ltd
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 19 MAR 2016
+3 TIME 09:17:48
 0 @S138@ SOUR
 1 TITL Coppull 1891
 1 ABBR 1891 Coppull 3426
@@ -37427,8 +35263,8 @@
 1 REPO @R2@
 1 NOTE Lancashire 1891 Census published by S&N British Data Archive Ltd
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 19 MAR 2016
+3 TIME 09:27:16
 0 @S139@ SOUR
 1 TITL All Saint's Baptisms 1830-1838
 1 ABBR Baptisms (All Saint's) 1830-1838
@@ -37475,8 +35311,8 @@
 1 _TYPE Census: 1901 UK
 1 REPO @R10@
 1 CHAN
-2 DATE 13 NOV 2014
-3 TIME 15:39:53
+2 DATE 19 MAR 2016
+3 TIME 09:23:22
 0 @S145@ SOUR
 1 TITL Pemberton 1891
 1 ABBR 1891 Pemberton 3063
@@ -37515,8 +35351,8 @@
 1 _TYPE Census: 1901 UK
 1 REPO @R10@
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 19 MAR 2016
+3 TIME 09:31:05
 0 @S150@ SOUR
 1 TITL Wigan 1901
 1 ABBR 1901 Wigan 3557
@@ -37563,8 +35399,8 @@
 1 REPO @R2@
 1 NOTE Photocopy of copy certificate supplied by Marie Morgan
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 17 MAR 2016
+3 TIME 11:18:28
 0 @S156@ SOUR
 1 ABBR Marie Morgan
 1 _TYPE Personal information
@@ -37593,24 +35429,24 @@
 1 _TYPE Census: 1901 UK
 1 REPO @R10@
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 19 MAR 2016
+3 TIME 09:25:14
 0 @S160@ SOUR
 1 TITL Wigan 1901
 1 ABBR 1901 Wigan 3554
 1 _TYPE Census: 1901 UK
 1 REPO @R10@
 1 CHAN
-2 DATE 15 MAR 2016
-3 TIME 11:23:22
+2 DATE 17 MAR 2016
+3 TIME 11:18:28
 0 @S161@ SOUR
 1 TITL Wigan 1901
 1 ABBR 1901 Wigan 3558
 1 _TYPE Census: 1901 UK
 1 REPO @R10@
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 19 MAR 2016
+3 TIME 09:30:34
 0 @S163@ SOUR
 1 TITL History, Topography, and Directory of Mid-Lancashire, with an essay on geology / by Mannex & Co.
 1 ABBR History and Directory of Mid Lancashire 1854
@@ -37625,8 +35461,8 @@
 1 _TYPE Census: 1891 UK
 1 REPO @R3@
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 19 MAR 2016
+3 TIME 09:16:37
 0 @S165@ SOUR
 1 TITL Horwich 1891
 1 ABBR 1891 Horwich 3104
@@ -37704,8 +35540,8 @@
 1 _TYPE Web Site
 1 PUBL http://www.wiganworld.co.uk/stuff/cemetery.php?opt=cemetery
 1 CHAN
-2 DATE 15 MAR 2016
-3 TIME 11:23:22
+2 DATE 17 MAR 2016
+3 TIME 11:18:28
 0 @S174@ SOUR
 1 ABBR MC Thomas Andrews (1839)
 1 _TYPE Certificate: Marriage - Copy GRO
@@ -37713,8 +35549,8 @@
 1 OBJE @O87@
 2 _ASID 1
 1 CHAN
-2 DATE 27 JUN 2015
-3 TIME 12:43:50
+2 DATE 19 MAR 2016
+3 TIME 09:32:50
 0 @S175@ SOUR
 1 ABBR MC Albert Barlow (1926)
 1 _TYPE Certificate: Marriage - Copy GRO
@@ -37730,8 +35566,8 @@
 1 _TYPE Web Site
 1 PUBL http://www.lancashirebmd.org.uk
 1 CHAN
-2 DATE 16 FEB 2016
-3 TIME 14:54:36
+2 DATE 19 MAR 2016
+3 TIME 09:31:14
 0 @S177@ SOUR
 1 ABBR DC Elizabeth Andrew (1901)
 1 _TYPE Certificate: Death - Copy GRO
@@ -37771,8 +35607,8 @@
 1 _TYPE Parish Register - Transcript
 1 REPO @R4@
 1 CHAN
-2 DATE 4 MAR 2016
-3 TIME 09:54:48
+2 DATE 19 MAR 2016
+3 TIME 09:13:14
 0 @S182@ SOUR
 1 TITL Wigan 1891
 1 ABBR 1891 Wigan 3050
@@ -37808,8 +35644,8 @@
 1 ABBR Angela Cunningham
 1 _TYPE E-mails: Multiple
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 17 MAR 2016
+3 TIME 08:49:10
 0 @S188@ SOUR
 1 TITL The Preston Guardian
 1 ABBR The Preston Guardian
@@ -37831,16 +35667,16 @@
 1 _TYPE Census: 1841 UK
 1 REPO @R17@
 1 CHAN
-2 DATE 9 NOV 2015
-3 TIME 17:11:22
+2 DATE 19 MAR 2016
+3 TIME 09:34:37
 0 @S191@ SOUR
 1 TITL CHARNOCK RICHARD (Christ Church), Chorley : M(I) 1860-1900 [Microfiche.]
 1 ABBR Marriages Charnock Richard (Christ Church)
 1 _TYPE Parish Register - Index
 1 REPO @R7@
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 19 MAR 2016
+3 TIME 09:37:37
 0 @S192@ SOUR
 1 ABBR BC Elizabeth Woodcock 1840
 1 _TYPE Certificate: Birth - Copy RD
@@ -37861,16 +35697,16 @@
 1 _TYPE Census Online
 1 REPO @R16@
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 19 MAR 2016
+3 TIME 09:37:07
 0 @S196@ SOUR
 1 TITL 1891 UK Census
 1 ABBR 1891 UK Census (Online)
 1 _TYPE Census Online
 1 REPO @R16@
 1 CHAN
-2 DATE 1 JUL 2015
-3 TIME 13:24:40
+2 DATE 19 MAR 2016
+3 TIME 09:24:24
 0 @S197@ SOUR
 1 TITL 1891 Census Online
 1 ABBR 1891 Census Online
@@ -37893,8 +35729,8 @@
 1 _TYPE Census Online
 1 REPO @R14@
 1 CHAN
-2 DATE 1 JUL 2015
-3 TIME 13:24:42
+2 DATE 19 MAR 2016
+3 TIME 09:24:24
 0 @S201@ SOUR
 1 ABBR DC Thomas Woodcock (1841)
 1 _TYPE Certificate: Death - Copy RD
@@ -37934,8 +35770,8 @@
 1 _TYPE Census Online
 1 REPO @R16@
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 19 MAR 2016
+3 TIME 09:19:32
 0 @S206@ SOUR
 1 TITL Familyrelatives.com
 1 ABBR Familyrelatives.com
@@ -38000,16 +35836,16 @@
 1 _TYPE Census Online
 1 REPO @R14@
 1 CHAN
-2 DATE 2 MAR 2016
-3 TIME 13:53:33
+2 DATE 17 MAR 2016
+3 TIME 08:51:27
 0 @S215@ SOUR
 1 TITL Grave Remains Morgan and Barry
 1 ABBR Grave Remains Morgan and Barry
 1 _TYPE Gravestone
 1 REPO @R12@
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 17 MAR 2016
+3 TIME 11:18:28
 0 @S216@ SOUR
 1 TITL Gravestone Ellen Morgan
 1 ABBR Gravestone Ellen Morgan
@@ -38034,15 +35870,15 @@
 1 _TYPE Census Online
 1 REPO @R16@
 1 CHAN
-2 DATE 5 SEP 2014
-3 TIME 09:31:24
+2 DATE 19 MAR 2016
+3 TIME 09:37:07
 0 @S221@ SOUR
 1 ABBR MC Christopher Heaney (1853)
 1 _TYPE Certificate: Marriage - Copy RD
 1 REPO @R2@
 1 CHAN
-2 DATE 2 SEP 2014
-3 TIME 15:56:33
+2 DATE 19 MAR 2016
+3 TIME 09:36:00
 0 @S222@ SOUR
 1 ABBR DC Nicholas Heaney
 1 _TYPE Certificate: Death - Copy GRO
@@ -38160,24 +35996,24 @@
 1 _TYPE Census Online
 1 REPO @R14@
 1 CHAN
-2 DATE 15 MAR 2016
-3 TIME 11:23:08
+2 DATE 17 MAR 2016
+3 TIME 11:18:28
 0 @S231@ SOUR
 1 TITL Hindley Cemetery Index
 1 ABBR Hindley Cemetery Index
 1 _TYPE Web Site
 1 PUBL http://www.wiganworld.co.uk/stuff/hindleycemetery.php?opt=hindleycemetery
 1 CHAN
-2 DATE 29 APR 2015
-3 TIME 16:04:46
+2 DATE 17 MAR 2016
+3 TIME 08:43:28
 0 @S234@ SOUR
 1 TITL Lancashire OnLine Parish Clerk Project
 1 ABBR LOPC
 1 _TYPE Web Site
 1 NOTE Baptisms are available between 1654 and 1840. Marriages are available between 1653 and 1840. Burials are available between 1653 and 1840
 1 CHAN
-2 DATE 27 FEB 2016
-3 TIME 10:56:49
+2 DATE 19 MAR 2016
+3 TIME 09:36:28
 0 @S235@ SOUR
 1 TITL Find A Grave
 1 ABBR Find A Grave
@@ -38704,8 +36540,8 @@
 2 CONT Robert HARRISON		Son	Unm	M	8			Eccleston, Lancashire	
 2 CONT Peter HARRISON		Son	Unm	M	7			Eccleston, Lancashire	
 1 CHAN
-2 DATE 20 OCT 2014
-3 TIME 20:44:51
+2 DATE 17 MAR 2016
+3 TIME 09:35:27
 0 @S276@ SOUR
 1 TITL Census 1881 Wigan, Lancashire RG11 3767 96 11 (HALL, Christopher)
 1 _TYPE Census
@@ -39016,8 +36852,8 @@
 1 OBJE @O181@
 2 _ASID 1
 1 CHAN
-2 DATE 13 NOV 2014
-3 TIME 15:20:01
+2 DATE 17 MAR 2016
+3 TIME 08:43:21
 0 @S298@ SOUR
 1 TITL Census 1901 Upholland, Lancashire RG13 3569 41 36 (RATCLIFFE, Joseph)
 1 _TYPE Census
@@ -39067,8 +36903,8 @@
 1 _TYPE Web Site
 1 PUBL http://familsearch.org
 1 CHAN
-2 DATE 14 NOV 2014
-3 TIME 14:20:25
+2 DATE 17 MAR 2016
+3 TIME 08:43:28
 0 @S302@ SOUR
 1 TITL Census 1881 Hindley, Lancashire RG11 3772 71 32 (MORTIMER, Charles Dean)
 1 _TYPE Census
@@ -39084,8 +36920,8 @@
 2 CONT Herbert J T Mortimer	Son	Unm	M	3				Hindley, Lancashire	
 2 CONT Norman H T Mortimer	Son	Unm	M	1				Hindley, Lancashire	
 1 CHAN
-2 DATE 16 NOV 2014
-3 TIME 11:37:26
+2 DATE 17 MAR 2016
+3 TIME 08:43:28
 0 @S303@ SOUR
 1 TITL Census 1911 Hindley, Lancashire RG14 23027 (MORTIMER, Sabrina J Thornton)
 1 _TYPE Census
@@ -39097,8 +36933,8 @@
 1 OBJE @O185@
 2 _ASID 1
 1 CHAN
-2 DATE 16 NOV 2014
-3 TIME 12:51:41
+2 DATE 17 MAR 2016
+3 TIME 08:38:47
 0 @S304@ SOUR
 1 TITL Census 1911 Wigan, Lancashire RG14 22992 (HALL, Alice)
 1 _TYPE Census
@@ -39242,8 +37078,8 @@
 2 CONT John Woodcock	Son		Unm	M	0					Chorley, Lancashire	
 2 CONT Thomas Walmsley	Father-in-law	Unm	M	59	a stationary engine tenter (driver)	Whittle Le Woods, Lancashire	
 1 CHAN
-2 DATE 19 NOV 2014
-3 TIME 20:28:22
+2 DATE 19 MAR 2016
+3 TIME 09:24:24
 0 @S314@ SOUR
 1 TITL Census 1881 Wigan, Lancashire RG11 3768 93 35 (McNAMARA, John)
 1 _TYPE Census
@@ -39429,8 +37265,8 @@
 1 OBJE @O197@
 2 _ASID 1
 1 CHAN
-2 DATE 22 APR 2015
-3 TIME 19:19:43
+2 DATE 17 MAR 2016
+3 TIME 08:43:21
 0 @S327@ SOUR
 1 TITL Census 1901 Upholland, Lancashire RG13 3569
 1 _TYPE Census
@@ -39566,8 +37402,8 @@
 1 OBJE @O208@
 2 _ASID 2
 1 CHAN
-2 DATE 17 JUN 2015
-3 TIME 15:23:11
+2 DATE 19 MAR 2016
+3 TIME 09:35:06
 0 @S338@ SOUR
 1 TITL St Mary's Euxton Baptisms
 1 PUBL http://www.stmarys-euxton.com/1821-1865.html
@@ -39709,8 +37545,8 @@
 1 OBJE @O227@
 2 _ASID 1
 1 CHAN
-2 DATE 11 OCT 2015
-3 TIME 09:20:25
+2 DATE 17 MAR 2016
+3 TIME 08:51:27
 0 @S351@ SOUR
 1 TITL Yorkshire Marriages Transcription
 1 ABBR Yorkshire Marriages Transcription
@@ -39813,8 +37649,8 @@
 2 _ASID 1
 1 NOTE 4 closed entries
 1 CHAN
-2 DATE 16 FEB 2016
-3 TIME 11:40:20
+2 DATE 17 MAR 2016
+3 TIME 11:18:28
 0 @S359@ SOUR
 1 TITL Census 1939 Wigan, Lancashire RG101/4671C/003/9 (DUTTON, George Samuel)
 1 _TYPE Census
