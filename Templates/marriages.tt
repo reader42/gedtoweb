@@ -13,17 +13,17 @@
     <td>
       [% IF marriage.husband.page %]
         <a href="P[% marriage.husband.page %].htm#[% marriage.husband.ref %]">
-          [% marriage.husband.givennames %]&nbsp;[% marriage.husband.surname %]</a>
+          [% marriage.husband.casedname %]</a>
       [% ELSE %]
-        [% marriage.husband.givennames %]&nbsp;[% marriage.husband.surname %]
+        [% marriage.husband.casedname %]
       [% END %]
     </td>
     <td>
       [% IF marriage.wife.page %]
         <a href="P[% marriage.wife.page %].htm#[% marriage.wife.ref %]">
-          [% marriage.wife.givennames %]&nbsp;[% marriage.wife.surname %]</a>
+          [% marriage.wife.casedname %]</a>
       [% ELSE %]
-        [% marriage.wife.givennames %]&nbsp;[% marriage.wife.surname %]
+        [% marriage.wife.casedname %]
       [% END %]
     </td>
     <td>
@@ -37,14 +37,14 @@
         [% IF loop.first %]
           [% IF witness.page %]
             <a href="P[% witness.page %].htm#[% witness.ref %]">
-              [% witness.givennames %]&nbsp;[% witness.surname %]</a>
+              [% witness.casedname %]</a>
           [% ELSE %]
-            [% witness.givennames %]&nbsp;[% witness.surname %]
+            [% witness.casedname %]
           [% END %]
         [% ELSE %]
           [% IF witness.page %], <a href="P[% witness.page %].htm#[% witness.ref %]">
-              [% witness.givennames %]&nbsp;[% witness.surname %]</a>
-          [% ELSE %], [% witness.givennames %]&nbsp;[% witness.surname %]
+              [% witness.casedname %]</a>
+          [% ELSE %], [% witness.casedname %]
           [% END %]
         [% END %]
       [% END %]

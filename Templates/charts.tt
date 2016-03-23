@@ -33,7 +33,38 @@
   <div class="container">
     [% INCLUDE navbar.tt %]
     <div class="jumbotron">
-      <p>This page is under development, please check back later</p>
+      <p>These charts are very large, you will need to zoom in and scroll around
+      to be able to see them properly.</p>
+      <p>
+        <a href="images/PeterBarlow.png" target="_blank">
+          Ancestors of Peter Barlow
+          <img src="images/ancestorssmall.png" attributes="#"\>
+        </a>
+      </p>
+      <p>
+        <a href="images/JamesBarlow.png" target="_blank">
+          Descendants of James Barlow (my Great Great Grandfather)
+          <img src="images/descendantssmall.png" attributes="#"\>
+        </a>
+      </p>
+      <p>
+        <a href="images/GeorgeHall.png" target="_blank">
+          Descendants of George Hall (my Great Great Great Grandfather)
+          <img src="images/descendantssmall.png" attributes="#"\>
+        </a>
+      </p>
+      <p>
+        <a href="images/RodgerMorgan.png" target="_blank">
+          Descendants of Rodger Morgan (my Great Great Grandfather)
+          <img src="images/descendantssmall.png" attributes="#"\>
+        </a>
+      </p>
+      <p>
+        <a href="images/JohnRatcliffe.png" target="_blank">
+          Descendants of John Ratcliffe (my Great Great Great Grandfather)
+          <img src="images/descendantssmall.png" attributes="#"\>
+        </a>
+      </p>
     </div>
   </div>
   [% INCLUDE footer.tt %]
