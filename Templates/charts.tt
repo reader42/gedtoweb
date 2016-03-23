@@ -1,33 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Some Wiggin Trees</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <link rel="stylesheet" href="css/bootstrap.css" media="screen">
-  <link rel="stylesheet" href="css/assets/css/custom.min.css">
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-    <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
-    <script src="../bower_components/respond/dest/respond.min.js"></script>
-  <![endif]-->
-  <script>
-
-   var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-23019901-1']);
-    _gaq.push(['_setDomainName', "bootswatch.com"]);
-      _gaq.push(['_setAllowLinker', true]);
-    _gaq.push(['_trackPageview']);
-
-   (function() {
-     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-   })();
-
-  </script>
-</head>
+<html lang="en">
+  [% INCLUDE header.tt
+    title = "Ancestor and Descendant Charts"
+  %]
 
 <body id="todo">
   <div class="container">
@@ -35,36 +10,18 @@
     <div class="jumbotron">
       <p>These charts are very large, you will need to zoom in and scroll around
       to be able to see them properly.</p>
-      <p>
-        <a href="images/PeterBarlow.png" target="_blank">
-          Ancestors of Peter Barlow
-          <img src="images/ancestorssmall.png" attributes="#"\>
-        </a>
-      </p>
-      <p>
-        <a href="images/JamesBarlow.png" target="_blank">
-          Descendants of James Barlow (my Great Great Grandfather)
-          <img src="images/descendantssmall.png" attributes="#"\>
-        </a>
-      </p>
-      <p>
-        <a href="images/GeorgeHall.png" target="_blank">
-          Descendants of George Hall (my Great Great Great Grandfather)
-          <img src="images/descendantssmall.png" attributes="#"\>
-        </a>
-      </p>
-      <p>
-        <a href="images/RodgerMorgan.png" target="_blank">
-          Descendants of Rodger Morgan (my Great Great Grandfather)
-          <img src="images/descendantssmall.png" attributes="#"\>
-        </a>
-      </p>
-      <p>
-        <a href="images/JohnRatcliffe.png" target="_blank">
-          Descendants of John Ratcliffe (my Great Great Great Grandfather)
-          <img src="images/descendantssmall.png" attributes="#"\>
-        </a>
-      </p>
+      [% FOREACH chart = charts %]
+        <p>
+          <a href="images/[% chart %]" target="_blank">
+            [% chart FILTER remove("\.png") %]
+            [% IF (matches = chart.match('Ancestors')) %]
+              <img src="images/ancestorssmall.png" attributes="#"\>
+            [% ELSE %]
+              <img src="images/descendantssmall.png" attributes="#"\>
+            [% END %]
+          </a>
+        </p>
+      [% END %]
     </div>
   </div>
   [% INCLUDE footer.tt %]

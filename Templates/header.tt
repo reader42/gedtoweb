@@ -1,6 +1,9 @@
   <head>
     <meta charset="utf-8">
     <title>[% title %]</title>
+    <meta name="Author" content="Peter Barlow">
+    <meta name="Description" content="Family History mainly in the Wigan area">
+    <meta name="Keywords" content="Barlow, Hall, Heaney, Stephenson, Woodcock, Worrall, Ratcliffe, Morgan, Unsworth, Andrews, Ollerton">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="css/bootstrap.css" media="screen">

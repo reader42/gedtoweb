@@ -95,9 +95,11 @@ my $template = Template->new(
   }
 );
 my $outDir = $onedrive . $fhbase . 'Public/FH Website/';
+my $chartDir = 'Charts/';
 
 createGEDCOM();
 cleanOutput();
+processCharts();
 
 my $ged = Gedcom->new( gedcom_file => 'Family.ged' );
 
@@ -680,18 +682,7 @@ sub cleanOutput {
     or
     $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
 
-  # currently dummy places for charts, maps, and places
-
-  $RPT_file_name = $outDir . 'charts.htm';        # output file name
-
-  open $RPT, '>', $RPT_file_name
-    or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
-  $vars = {};
-  $template->process( 'charts.tt', $vars, $RPT )
-    || $logger->logdie( $template->error() );
-  close $RPT
-    or
-    $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
+  # currently dummy places for maps, and places
 
   $RPT_file_name = $outDir . 'maps.htm';        # output file name
 
@@ -728,7 +719,22 @@ sub cleanOutput {
 }
 
 sub processCharts {
-  
+  my @charts = ();
+  foreach my $pngFile ( glob qq("${chartDir}*.png") ) {
+    copy($pngFile,"$outDir/images")
+      or $logger->logdie("Copy of $pngFile failed: $!");
+      push @charts, terminalPart($pngFile);
+  }
+  $RPT_file_name = $outDir . 'charts.htm';        # output file name
+
+  open $RPT, '>', $RPT_file_name
+    or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
+  $vars = { charts => \@charts };
+  $template->process( 'charts.tt', $vars, $RPT )
+    || $logger->logdie( $template->error() );
+  close $RPT
+    or
+    $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
 }
 #===  FUNCTION  ================================================================
 #         NAME: basicDetails
@@ -754,7 +760,6 @@ sub basicDetails {
     }
     $details{page}       = $page;
     $details{casedname} = $person->cased_name;
-
 #-------------------------------------------------------------------------------
 # Remove page for living persons to stop invalid links being produced, this is
 # needed because we might not have processed them and removed them from the index
@@ -1042,8 +1047,6 @@ sub checkAdd {
   return;
 }
 
-sub indexSort {
-
 #===  FUNCTION  ================================================================
 #         NAME: indexSort
 #      PURPOSE: Just sort on names
@@ -1054,6 +1057,7 @@ sub indexSort {
 #     COMMENTS: none
 #     SEE ALSO: n/a
 #===============================================================================
+sub indexSort {
   my $name1 = $people{$a};
   my $name2 = $people{$b};
   $name1 =~ s/\[\d+\] //;
@@ -1062,8 +1066,6 @@ sub indexSort {
   $name2 =~ s/#.*#//;
   return $name1 cmp $name2;
 }
-
-sub notBlank {
 
 #===  FUNCTION  ================================================================
 #         NAME: notBlank
@@ -1075,10 +1077,9 @@ sub notBlank {
 #     COMMENTS: Note that spacing is the responsibility of the caller
 #     SEE ALSO: n/a
 #===============================================================================
-
+sub notBlank {
   my $text = shift;
   my $item = shift;
-
   if ($item) {
     return $text . $item;
   }
