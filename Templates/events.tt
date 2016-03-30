@@ -10,8 +10,9 @@
     [% IF event.witnesses %]
       [% SWITCH event.verb %]
         [% CASE "died" %], informant:
-        [% CASE "was baptised" %], sponsors:
+        [% CASE "was baptised" %], godparent(s)
         [% CASE "was adopted" %], by
+        [% CASE "lived" %], with
         [% CASE %], witnesses:
       [% END %]
       [% FOREACH witness = event.witnesses %]

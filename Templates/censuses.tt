@@ -5,12 +5,30 @@
       <th>Date</th>
       <th>Age</th>
       <th>Place</th>
+      <th>With</th>
     </tr>
     [% FOREACH census = censuses %]
     <tr>
       <td> [% census.date %] </td>
       <td> [% census.age %] </td>
       <td> [% census.place %] </td>
+      <td>
+      [% FOREACH witness = census.witnesses %]
+        [% IF loop.first %]
+          [% IF witness.page %]
+            <a href="P[% witness.page %].htm#[% witness.ref %]">
+              [% witness.casedname %]</a>
+          [% ELSE %]
+            [% witness.casedname %]
+          [% END %]
+        [% ELSE %]
+          [% IF witness.page %], <a href="P[% witness.page %].htm#[% witness.ref %]">
+              [% witness.casedname %]</a>
+          [% ELSE %], [% witness.casedname %]
+          [% END %]
+        [% END %]
+      [% END %]
+      </td>
     </tr>
     [% END %]
   </table>

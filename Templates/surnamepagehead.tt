@@ -5,6 +5,7 @@
 %]
 
 <body id="personpages">
+  [% INCLUDE analytics.tt %]
   <div class="container">
   [% INCLUDE navbar.tt %]
   <div class="page-header">

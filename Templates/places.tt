@@ -5,6 +5,7 @@
   %]
 
 <body id="todo">
+  [% INCLUDE analytics.tt %]
   <div class="container">
     [% INCLUDE navbar.tt %]
     <div class="jumbotron">

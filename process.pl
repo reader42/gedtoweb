@@ -94,7 +94,7 @@ my $template = Template->new(
     POST_CHOMP   => 1
   }
 );
-my $outDir = $onedrive . $fhbase . 'Public/FH Website/';
+my $outDir   = $onedrive . $fhbase . 'Public/FH Website/';
 my $chartDir = 'Charts/';
 
 createGEDCOM();
@@ -161,7 +161,8 @@ while ( my $ref = shift @references ) {
   foreach my $child ( $person->children ) {
     checkAdd($child);
   }
-# TODO witness to death and other events
+
+  # TODO witness to death and other events
   if ( $person->baptism ) {
     if ( $person->baptism->sharedref ) {
       my @shared = $person->baptism->record('sharedref');
@@ -184,7 +185,7 @@ while ( my $ref = shift @references ) {
 }
 
 my $currentPage = 1;
-$page          = 1;
+$page = 1;
 my $RPT_file_name = $outDir . 'P0001.htm';    # output file name
 
 open my $RPT, '>', $RPT_file_name
@@ -266,8 +267,9 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
       relationship => calculateRelationship($ref)
     };
 
-    if ($$vars{relationship} eq '') {
-      debugPrint('WARN', 'No relationship for',$$vars{indiref}) if $DEBUGGING;
+    if ( $$vars{relationship} eq '' ) {
+      debugPrint( 'WARN', 'No relationship for', $$vars{indiref} )
+        if $DEBUGGING;
     }
 
     $template->process( 'indihead.tt', $vars, $RPT )
@@ -278,15 +280,16 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
 #  Notes - N.B. commas in notes causing problems
 #------------------------------------------------------------------------------
 
-if ($person->note) {
-  my $note = encode_entities($person->note);
-  $vars = {notes => $note};
-  if (length($note) > 255) {
-    say "Long note for ", $person->xref;
-  }
-  $template->process( 'notes.tt', $vars, $RPT )
-    || $logger->logdie( $template->error() );
-}
+    if ( $person->note ) {
+      my $note = encode_entities( $person->note );
+      $vars = { notes => $note };
+      if ( length($note) > 255 ) {
+        say "Note length = ", length($note), " for ", $person->xref;
+      }
+      $template->process( 'notes.tt', $vars, $RPT )
+        || $logger->logdie( $template->error() );
+    }
+
 #-------------------------------------------------------------------------------
 #  Details of their events, eventCount also records marriages and censuses
 #-------------------------------------------------------------------------------
@@ -312,14 +315,15 @@ if ($person->note) {
         eventDetails( $person->sex, 'was christened',
         'on', $person->christening );
     }
-#------------------------------------------------------------------------------
-#  Later life events
-#------------------------------------------------------------------------------
 
-    if ($person->adoption) {
+ #------------------------------------------------------------------------------
+ #  Later life events
+ #------------------------------------------------------------------------------
+
+    if ( $person->adoption ) {
       $eventCount++;
-      push @events, eventDetails( $person->sex, 'was adopted',
-      'on', $person->adoption );
+      push @events,
+        eventDetails( $person->sex, 'was adopted', 'on', $person->adoption );
     }
 
 #-------------------------------------------------------------------------------
@@ -351,20 +355,34 @@ if ($person->note) {
     }
 
 #-------------------------------------------------------------------------------
+#  Residences - not ones with witnesses though, as these should go with the
+#  census entries
+#-------------------------------------------------------------------------------
+    my @resis = $person->record('residence');
+    foreach my $resi (@resis) {
+      $eventCount++;
+      if ( !$resi->sharedref && !$resi->sharedname ) {
+        push @events, eventDetails( $person->sex, 'lived', 'in', $resi );
+      }
+    }
+
+#-------------------------------------------------------------------------------
 #  Attributes - e.g. Military Service
 #-------------------------------------------------------------------------------
     my @attrs = $person->record('attributes');
     foreach my $attr (@attrs) {
-      if (($attr->type ne 'TODO') && ($attr->type ne 'Geography')) {
-        if ($attr->type eq 'Rank') {
+      if ( ( $attr->type ne 'TODO' ) && ( $attr->type ne 'Geography' ) ) {
+        if ( $attr->type eq 'Rank' ) {
           $eventCount++;
           push @events,
-            eventDetails( $person->sex, 'was ' . $attr->get_value, 'in', $attr );
+            eventDetails( $person->sex, 'was a ' . $attr->get_value,
+            'in', $attr );
         }
-        if ($attr->type eq 'Regiment') {
+        if ( $attr->type eq 'Regiment' ) {
           $eventCount++;
           push @events,
-            eventDetails( $person->sex, 'was in the  ' . $attr->get_value, 'in', $attr );
+            eventDetails( $person->sex, 'was in the  ' . $attr->get_value,
+            'in', $attr );
         }
       }
     }
@@ -396,7 +414,7 @@ if ($person->note) {
     my @cenevents = $person->record('census');
     foreach my $census (@cenevents) {
       $eventCount++;
-      push @censuses, censusDetails($census);
+      push @censuses, censusDetails($census,$person);
     }
     $vars = {
       censuses => \@censuses,
@@ -625,10 +643,11 @@ say "Skipped because No Flag      $skippedNoFlag";
 say "Added to web site            $addedPeople";
 
 sub createGEDCOM {
-  #-------------------------------------------------------------------------------
-  #  Get the GEDCOM and turn it into a local ASCII version, note that the input
-  #  file is UTF-16 little-endian
-  #-------------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------
+#  Get the GEDCOM and turn it into a local ASCII version, note that the input
+#  file is UTF-16 little-endian
+#-------------------------------------------------------------------------------
 
   my $IN_file_name =
     $onedrive . $fhbase . 'Family.fh_data/Family.ged';    # input file name
@@ -639,16 +658,17 @@ sub createGEDCOM {
   my $OUT_file_name = 'Family.ged';                       # output file name
 
   open my $OUT, '>:encoding(UTF-8)', $OUT_file_name
-    or $logger->logdie("$0 : failed to open  output file '$OUT_file_name' : $!");
+    or
+    $logger->logdie("$0 : failed to open  output file '$OUT_file_name' : $!");
 
   my $skipping = 0;
-  while (my $line = <$IN>) {
+  while ( my $line = <$IN> ) {
     chomp($line);
     chop($line);    # needed because UTF-16LE?
-    if ($line =~ m/^0 \@P\d+\@ _PLAC/) {
+    if ( $line =~ m/^0 \@P\d+\@ _PLAC/ ) {
       $skipping = 1;
     }
-    if ($line =~ m/^0 TRLR/) {
+    if ( $line =~ m/^0 TRLR/ ) {
       $skipping = 0;
     }
     say $OUT $line unless $skipping;
@@ -659,13 +679,15 @@ sub createGEDCOM {
     $logger->logerror("$0 : failed to close output file '$OUT_file_name' : $!");
 
   close $IN
-    or $logger->logerror("$0 : failed to close input file '$IN_file_name' : $!");
+    or
+    $logger->logerror("$0 : failed to close input file '$IN_file_name' : $!");
 }
 
 sub cleanOutput {
-  #-------------------------------------------------------------------------------
-  #  Clean up the output directory and move in the fixed files
-  #-------------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------
+#  Clean up the output directory and move in the fixed files
+#-------------------------------------------------------------------------------
 
   foreach my $htmFile ( glob qq("${outDir}*.htm") ) {
     unlink $htmFile;
@@ -684,7 +706,7 @@ sub cleanOutput {
 
   # currently dummy places for maps, and places
 
-  $RPT_file_name = $outDir . 'maps.htm';        # output file name
+  $RPT_file_name = $outDir . 'maps.htm';    # output file name
 
   open $RPT, '>', $RPT_file_name
     or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
@@ -695,7 +717,7 @@ sub cleanOutput {
     or
     $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
 
-  $RPT_file_name = $outDir . 'places.htm';        # output file name
+  $RPT_file_name = $outDir . 'places.htm';    # output file name
 
   open $RPT, '>', $RPT_file_name
     or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
@@ -706,7 +728,7 @@ sub cleanOutput {
     or
     $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
 
-  $RPT_file_name = $outDir . 'about.htm';       # output file name
+  $RPT_file_name = $outDir . 'about.htm';     # output file name
 
   open $RPT, '>', $RPT_file_name
     or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
@@ -721,11 +743,11 @@ sub cleanOutput {
 sub processCharts {
   my @charts = ();
   foreach my $pngFile ( glob qq("${chartDir}*.png") ) {
-    copy($pngFile,"$outDir/images")
+    copy( $pngFile, "$outDir/images" )
       or $logger->logdie("Copy of $pngFile failed: $!");
-      push @charts, terminalPart($pngFile);
+    push @charts, terminalPart($pngFile);
   }
-  $RPT_file_name = $outDir . 'charts.htm';        # output file name
+  $RPT_file_name = $outDir . 'charts.htm';    # output file name
 
   open $RPT, '>', $RPT_file_name
     or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
@@ -736,7 +758,10 @@ sub processCharts {
     or
     $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
 }
-#===  FUNCTION  ================================================================
+
+sub basicDetails {
+
+#===  FUNCTION  ==============================================================
 #         NAME: basicDetails
 #      PURPOSE:
 #   PARAMETERS: ????
@@ -745,9 +770,7 @@ sub processCharts {
 #       THROWS: no exceptions
 #     COMMENTS: none
 #     SEE ALSO: n/a
-#===============================================================================
-
-sub basicDetails {
+#=============================================================================
   my $person = shift;
   my %details;
   if ($person) {
@@ -758,8 +781,9 @@ sub basicDetails {
     } else {
       $page = undef;
     }
-    $details{page}       = $page;
+    $details{page}      = $page;
     $details{casedname} = $person->cased_name;
+
 #-------------------------------------------------------------------------------
 # Remove page for living persons to stop invalid links being produced, this is
 # needed because we might not have processed them and removed them from the index
@@ -773,9 +797,9 @@ sub basicDetails {
 #-------------------------------------------------------------------------------
 #  Check for unknowns and provide birth death details
 #-------------------------------------------------------------------------------
-    if ( !$details{casedname}  ) {
+    if ( !$details{casedname} ) {
       $details{casedname} = "Unknown";
-      $details{page}    = undef;
+      $details{page}      = undef;
     }
     if ( $person->birth ) {
       if ( $person->birth eq "Y" ) {
@@ -796,7 +820,7 @@ sub basicDetails {
 }
 
 #===  FUNCTION  ================================================================
-#         NAME: witnessDeatils
+#         NAME: witnessDetails
 #      PURPOSE: used for named witnesses
 #   PARAMETERS: ????
 #      RETURNS: a reference to a hash containing the details of the witness
@@ -809,10 +833,10 @@ sub basicDetails {
 sub witnessDetails {
   my $name = shift;
   my %details;
-  $details{page} = undef;
+  $details{page}      = undef;
   $details{casedname} = $name;
-  $details{born} = 'Unknown date';
-  $details{born} = 'Unknown date';
+  $details{born}      = 'Unknown date';
+  $details{died}      = 'Unknown date';
   return \%details;
 }
 
@@ -830,7 +854,7 @@ sub witnessDetails {
 sub indexDetails {
   my $person  = shift;
   my $details = '';
-  $details .= uc($person->surname) . ' ';
+  $details .= uc( $person->surname ) . ' ';
   $details .= $person->given_names . ' ';
   $details .= '#';
   if ( $person->birth ) {
@@ -896,7 +920,7 @@ sub eventDetails {
       my @witnesses = ();
       $eventDetails{place} = eventPlace($event);
       if ( $event->sharedref ) {
-        my @shared    = $event->record('sharedref');
+        my @shared = $event->record('sharedref');
         foreach my $witness (@shared) {
           $witness = $witness->get_value;
           $witness = $ged->get_individual($witness);
@@ -904,12 +928,12 @@ sub eventDetails {
         }
       }
       if ( $event->sharedname ) {
-         my @witnesses = ();
-          my @shared    = $event->record('sharedname');
-         foreach my $witness (@shared) {
-           $witness = $witness->get_value;
-           push @witnesses, witnessDetails($witness);
-         }
+        my @witnesses = ();
+        my @shared    = $event->record('sharedname');
+        foreach my $witness (@shared) {
+          $witness = $witness->get_value;
+          push @witnesses, witnessDetails($witness);
+        }
       }
       if (@witnesses) {
         $eventDetails{witnesses} = \@witnesses;
@@ -965,7 +989,7 @@ sub marriageDetails {
     my @witnesses = ();
     $marriage{place} = $place;
     if ( $family->marriage->sharedref ) {
-      my @shared    = $family->marriage->record('sharedref');
+      my @shared = $family->marriage->record('sharedref');
       foreach my $witness (@shared) {
         $witness = $witness->get_value;
         $witness = $ged->get_individual($witness);
@@ -973,7 +997,7 @@ sub marriageDetails {
       }
     }
     if ( $family->marriage->sharedname ) {
-      my @shared    = $family->marriage->record('sharedname');
+      my @shared = $family->marriage->record('sharedname');
       foreach my $witness (@shared) {
         $witness = $witness->get_value;
         push @witnesses, witnessDetails($witness);
@@ -986,6 +1010,7 @@ sub marriageDetails {
 
 sub censusDetails {
   my $census = shift;
+  my $person = shift;
   my %details;
   $details{date} = fixDate( $census->get_value('date') );
   my $place = '';
@@ -997,7 +1022,40 @@ sub censusDetails {
   }
   $details{place} = $place;
   $details{age}   = $census->get_value('age');
+
+  # now try to find a multiple witness residence that matches the census year
+  $details{witnesses} = residenceWitnesses( $census->get_value('date'), $person );
   return \%details;
+}
+
+sub residenceWitnesses {
+  my $date      = shift;
+  my $person    = shift;
+  my @witnesses = ();
+  my @resis     = $person->record('residence');
+  foreach my $resi (@resis) {
+    if ( $resi->sharedref || $resi->sharedname ) {
+      if ( $resi->get_value('date') eq $date ) {
+        if ( $resi->sharedref ) {
+          my @shared = $resi->record('sharedref');
+          foreach my $witness (@shared) {
+            $witness = $witness->get_value;
+            $witness = $ged->get_individual($witness);
+            push @witnesses, basicDetails($witness);
+          }
+        }
+        if ( $resi->sharedname ) {
+          my @witnesses = ();
+          my @shared    = $resi->record('sharedname');
+          foreach my $witness (@shared) {
+            $witness = $witness->get_value;
+            push @witnesses, witnessDetails($witness);
+          }
+        }
+      }
+    }
+  }
+  return \@witnesses;
 }
 
 sub fixDate {
@@ -1181,8 +1239,9 @@ sub nameRelationship {
     $prefix   = ORD( $maxDepth + $difference - 1 ) . ' ';
     $relation = 'Cousin ' . abs($difference) . ' times removed';
   }
+
   # fix n times to be better English
-  if ($relation =~ / times /) {
+  if ( $relation =~ / times / ) {
     $relation =~ s/1 times/once/;
     $relation =~ s/2 times/twice/;
     $relation =~ s/3 times/thrice/;
