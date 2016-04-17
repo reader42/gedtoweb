@@ -1,4 +1,5 @@
   <div>
+  <h4>Life Events</h4>
   [% FOREACH event = events %]
     [% IF event.sex == 'M' %]
       He&nbsp;
@@ -9,22 +10,23 @@
     [% IF event.witnesses %]
       [% SWITCH event.verb %]
         [% CASE "died" %], informant:
-        [% CASE "was baptised" %], sponsors:
+        [% CASE "was baptised" %], godparent(s)
+        [% CASE "was adopted" %], by
+        [% CASE "lived" %], with
         [% CASE %], witnesses:
       [% END %]
       [% FOREACH witness = event.witnesses %]
         [% IF loop.first %]
           [% IF witness.page %]
-            &nbsp;
             <a href="P[% witness.page %].htm#[% witness.ref %]">
-              [% witness.givennames %]&nbsp;[% witness.surname %]</a>
+              [% witness.casedname %]</a>
           [% ELSE %]
-            &nbsp;[% witness.givennames %]&nbsp;[% witness.surname %]
+            [% witness.casedname %]
           [% END %]
         [% ELSE %]
           [% IF witness.page %], <a href="P[% witness.page %].htm#[% witness.ref %]">
-              [% witness.givennames %]&nbsp;[% witness.surname %]</a>
-          [% ELSE %], [% witness.givennames %]&nbsp;[% witness.surname %]
+              [% witness.casedname %]</a>
+          [% ELSE %], [% witness.casedname %]
           [% END %]
         [% END %]
       [% END %]

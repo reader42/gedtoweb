@@ -1,29 +1,25 @@
-<div class="navbar navbar-default navbar-static-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a href="index.htm" class="navbar-brand">Some Wiggin Trees</a>
-      </div>
-      <div class="navbar-collapse collapse" id="navbar-main">
-        <ul class="nav navbar-nav">
-          <li>
-            <a href="index.htm">Main Page</a>
-          </li>
-          <li>
-            <a href="surname_index.htm">Surname Index</a>
-          </li>
-          <li>
-            <a href="charts.htm">Charts</a>
-          </li>
-          <li>
-            <a href="places.htm">Master Place Index</a>
-          </li>
-          <li>
-            <a href="maps.htm">Location Maps</a>
-          </li>
-          <li>
-            <a href="about.htm">About</a>
-          </li>
-        </ul>
-      </div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.htm">Some Wiggin Trees</a>
     </div>
-  </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="surname_index.htm">Surname Index</a></li>
+        <li><a href="charts.htm">Charts</a></li>
+        <li><a href="places.htm">Master Place Index</a></li>
+        <li><a href="maps.htm">Location Maps</a></li>
+        <li><a href="about.htm">About</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

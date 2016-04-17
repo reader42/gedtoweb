@@ -2,8 +2,8 @@
   <div class="panel panel-primary" id="[% person.ref %]">
     <div class="panel-heading clearfix">
       <div class="panel-title">
-        [% person.givennames %]&nbsp;[% person.surname %]
-        ([% notBlank('', person.born) %] - [% notBlank('', person.died) %])
+        [% person.casedname %]
+        ([% notblank('', person.born) %] - [% notblank('', person.died) %])
          [% IF relationship %]
          &nbsp;[% relationship %] of Peter Barlow
          [% END %]
@@ -18,21 +18,19 @@
         <tr>
           <td></i>Father</td>
           [% IF father.page %]
-            <td><a href="P[% father.page %].htm#[% father.ref %]">[% father.givennames %]&nbsp;
-            [% father.surname %]</a></td>
+            <td><a href="P[% father.page %].htm#[% father.ref %]">[% father.casedname %]</a></td>
           [% ELSE %]
-            <td>[% father.givennames %]&nbsp;[% father.surname %]</td>
+            <td>[% father.casedname %]</td>
           [% END %]
-          <td>[% notBlank('born ',father.born) %][% notBlank(', died ', father.died) %]</td>
+          <td>[% notblank('born ',father.born) %][% notblank(', died ', father.died) %]</td>
         </tr>
         <tr>
           <td></i>Mother</td>
           [% IF mother.page %]
-            <td><a href="P[% mother.page %].htm#[% mother.ref %]">[% mother.givennames %]&nbsp;
-            [% mother.surname %]</a></td>
+            <td><a href="P[% mother.page %].htm#[% mother.ref %]">[% mother.casedname %]</a></td>
           [% ELSE %]
             <td>[% mother.givennames %]&nbsp;[% mother.surname %]</td>
           [% END %]
-          <td>[% notBlank('born ',mother.born) %][% notBlank(', died ', mother.died) %]</td>
+          <td>[% notblank('born ',mother.born) %][% notblank(', died ', mother.died) %]</td>
         </tr>
       </table>

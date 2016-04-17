@@ -1,39 +1,28 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Some Wiggin Trees</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <link rel="stylesheet" href="css/bootstrap.css" media="screen">
-  <link rel="stylesheet" href="css/assets/css/custom.min.css">
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-    <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
-    <script src="../bower_components/respond/dest/respond.min.js"></script>
-  <![endif]-->
-  <script>
-
-   var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-23019901-1']);
-    _gaq.push(['_setDomainName', "bootswatch.com"]);
-      _gaq.push(['_setAllowLinker', true]);
-    _gaq.push(['_trackPageview']);
-
-   (function() {
-     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-   })();
-
-  </script>
-</head>
+<html lang="en">
+  [% INCLUDE header.tt
+    title = "Ancestor and Descendant Charts"
+  %]
 
 <body id="todo">
+  [% INCLUDE analytics.tt %]
   <div class="container">
     [% INCLUDE navbar.tt %]
     <div class="jumbotron">
-      <p>This page is under development, please check back later</p>
+      <p>These charts are very large, you will need to zoom in and scroll around
+      to be able to see them properly.</p>
+      [% FOREACH chart = charts %]
+        <p>
+          <a href="images/[% chart %]" target="_blank">
+            [% chart | remove("\.png") | replace("_", " ") %]
+            [% IF (matches = chart.match('Ancestors')) %]
+              <img src="images/ancestorssmall.png" attributes="#"\>
+            [% ELSE %]
+              <img src="images/descendantssmall.png" attributes="#"\>
+            [% END %]
+          </a>
+        </p>
+      [% END %]
     </div>
   </div>
   [% INCLUDE footer.tt %]

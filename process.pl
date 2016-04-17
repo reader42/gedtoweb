@@ -27,6 +27,7 @@ use Encode qw/encode decode/;
 use File::Copy;
 use Tie::IxHash;
 use Lingua::EN::Inflect qw(ORD);
+use HTML::Entities;
 
 #-------------------------------------------------------------------------------
 #  Stats counters
@@ -93,110 +94,14 @@ my $template = Template->new(
     POST_CHOMP   => 1
   }
 );
-my $outDir = $onedrive . $fhbase . 'Public/FH Website/';
+my $outDir   = $onedrive . $fhbase . 'Public/FH Website/';
+my $chartDir = 'Charts/';
 
-#-------------------------------------------------------------------------------
-#  Get the GEDCOM and turn it into a local ASCII version, note that the input
-#  file is UTF-16 little-endian
-#-------------------------------------------------------------------------------
-
-my $IN_file_name =
-  $onedrive . $fhbase . 'Family.fh_data/Family.ged';    # input file name
-
-open my $IN, '<encoding(UTF-16LE)', $IN_file_name
-  or $logger->logdie("$0 : failed to open  input file '$IN_file_name' : $!");
-
-my $OUT_file_name = 'Family.ged';                       # output file name
-
-open my $OUT, '>:encoding(UTF-8)', $OUT_file_name
-  or $logger->logdie("$0 : failed to open  output file '$OUT_file_name' : $!");
-
-my $skipping = 0;
-while (<$IN>) {
-  chomp;
-  chop;    # needed because UTF-16LE?
-  if (m/^0 \@P\d+\@ _PLAC/) {
-    $skipping = 1;
-  }
-  if (m/^0 TRLR/) {
-    $skipping = 0;
-  }
-  say $OUT $_ unless $skipping;
-}
-
-close $OUT
-  or
-  $logger->logerror("$0 : failed to close output file '$OUT_file_name' : $!");
-
-close $IN
-  or $logger->logerror("$0 : failed to close input file '$IN_file_name' : $!");
+createGEDCOM();
+cleanOutput();
+processCharts();
 
 my $ged = Gedcom->new( gedcom_file => 'Family.ged' );
-
-#-------------------------------------------------------------------------------
-#  Clean up the output directory and move in the fixed files
-#-------------------------------------------------------------------------------
-
-foreach my $htmFile ( glob qq("${outDir}*.htm") ) {
-  unlink $htmFile;
-}
-
-my $RPT_file_name = $outDir . 'index.htm';    # output file name
-
-open my $RPT, '>', $RPT_file_name
-  or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
-my $vars = {};
-$template->process( 'index.tt', $vars, $RPT )
-  || $logger->logdie( $template->error() );
-close $RPT
-  or
-  $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
-
-# currently dummy places for charts, maps, and places
-
-$RPT_file_name = $outDir . 'charts.htm';        # output file name
-
-open $RPT, '>', $RPT_file_name
-  or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
-$vars = {};
-$template->process( 'charts.tt', $vars, $RPT )
-  || $logger->logdie( $template->error() );
-close $RPT
-  or
-  $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
-
-$RPT_file_name = $outDir . 'maps.htm';        # output file name
-
-open $RPT, '>', $RPT_file_name
-  or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
-$vars = {};
-$template->process( 'maps.tt', $vars, $RPT )
-  || $logger->logdie( $template->error() );
-close $RPT
-  or
-  $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
-
-$RPT_file_name = $outDir . 'places.htm';        # output file name
-
-open $RPT, '>', $RPT_file_name
-  or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
-$vars = {};
-$template->process( 'places.tt', $vars, $RPT )
-  || $logger->logdie( $template->error() );
-close $RPT
-  or
-  $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
-
-$RPT_file_name = $outDir . 'about.htm';       # output file name
-
-open $RPT, '>', $RPT_file_name
-  or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
-$vars = {};
-$template->process( 'about.tt', $vars, $RPT )
-  || $logger->logdie( $template->error() );
-close $RPT
-  or
-  $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
 
 #-------------------------------------------------------------------------------
 #  Hash to store people and used to construct the index, page number and page
@@ -229,7 +134,7 @@ my $DEBUGGING         = 0;
 #  Build the list of people to be processed by adding their references to the
 #  list and also their details to the people index.
 #-------------------------------------------------------------------------------
-my @references = qw/I125 I129 I191 I1319 I277 I159 I192 I276 I170 I130 I58/;
+my @references = qw/I1924 I125 I129 I191 I1319 I277 I192 I276 I170 I130 I58/;
 
 #-----------------------------------------------------------------------------
 #  Turn on debugging for nominated person I???
@@ -257,9 +162,10 @@ while ( my $ref = shift @references ) {
     checkAdd($child);
   }
 
+  # TODO witness to death and other events
   if ( $person->baptism ) {
-    if ( $person->baptism->shared ) {
-      my @shared = $person->baptism->record('shared');
+    if ( $person->baptism->sharedref ) {
+      my @shared = $person->baptism->record('sharedref');
       foreach my $witness (@shared) {
         $witness = $witness->get_value;
         $witness = $ged->get_individual($witness);
@@ -279,12 +185,12 @@ while ( my $ref = shift @references ) {
 }
 
 my $currentPage = 1;
-$page          = 1;
-$RPT_file_name = $outDir . 'P0001.htm';    # output file name
+$page = 1;
+my $RPT_file_name = $outDir . 'P0001.htm';    # output file name
 
-open $RPT, '>', $RPT_file_name
+open my $RPT, '>', $RPT_file_name
   or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
-$vars = { page => $page, notBlank => \&notBlank };
+my $vars = { page => $page, notblank => \&notBlank };
 $template->process( 'personpagehead.tt', $vars, $RPT )
   || $logger->logdie( $template->error() );
 
@@ -320,7 +226,7 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
     open $RPT, '>', $RPT_file_name
       or
       $logger->logdie("$0 : failed to open  output file '$RPT_file_name' : $!");
-    my $vars = { page => $page, notBlank => \&notBlank };
+    my $vars = { page => $page, notblank => \&notBlank };
     $template->process( 'personpagehead.tt', $vars, $RPT )
       || $logger->logdie( $template->error() );
   }
@@ -356,18 +262,33 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
       person       => basicDetails($person),
       father       => basicDetails( $person->father ),
       mother       => basicDetails( $person->mother ),
-      notBlank     => \&notBlank,
+      notblank     => \&notBlank,
       indiref      => $ref,
       relationship => calculateRelationship($ref)
     };
 
-    if ($$vars{relationship} eq '') {
-      debugPrint('WARN', 'No relationship for',$$vars{indiref});
+    if ( $$vars{relationship} eq '' ) {
+      debugPrint( 'WARN', 'No relationship for', $$vars{indiref} )
+        if $DEBUGGING;
     }
 
     $template->process( 'indihead.tt', $vars, $RPT )
       || $logger->logdie( $template->error() );
     $addedPeople++;
+
+#-------------------------------------------------------------------------------
+#  Notes - N.B. commas in notes causing problems
+#------------------------------------------------------------------------------
+
+    if ( $person->note ) {
+      my $note = encode_entities( $person->note );
+      $vars = { notes => $note };
+      if ( length($note) > 255 ) {
+        say "Note length = ", length($note), " for ", $person->xref;
+      }
+      $template->process( 'notes.tt', $vars, $RPT )
+        || $logger->logdie( $template->error() );
+    }
 
 #-------------------------------------------------------------------------------
 #  Details of their events, eventCount also records marriages and censuses
@@ -395,6 +316,16 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
         'on', $person->christening );
     }
 
+ #------------------------------------------------------------------------------
+ #  Later life events
+ #------------------------------------------------------------------------------
+
+    if ( $person->adoption ) {
+      $eventCount++;
+      push @events,
+        eventDetails( $person->sex, 'was adopted', 'on', $person->adoption );
+    }
+
 #-------------------------------------------------------------------------------
 #  Later religious events
 #-------------------------------------------------------------------------------
@@ -412,12 +343,6 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
         'on',         $person->first_communion
         );
     }
-    if ( $person->marriage_bann ) {
-      $eventCount++;
-      push @events,
-        eventDetails( $person->sex, 'had banns read',
-        'on', $person->marriage_bann );
-    }
 
 #-------------------------------------------------------------------------------
 #  Occupations
@@ -427,6 +352,39 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
       $eventCount++;
       push @events,
         eventDetails( $person->sex, 'was ' . $occ->get_value, 'in', $occ );
+    }
+
+#-------------------------------------------------------------------------------
+#  Residences - not ones with witnesses though, as these should go with the
+#  census entries
+#-------------------------------------------------------------------------------
+    my @resis = $person->record('residence');
+    foreach my $resi (@resis) {
+      $eventCount++;
+      if ( !$resi->sharedref && !$resi->sharedname ) {
+        push @events, eventDetails( $person->sex, 'lived', 'in', $resi );
+      }
+    }
+
+#-------------------------------------------------------------------------------
+#  Attributes - e.g. Military Service
+#-------------------------------------------------------------------------------
+    my @attrs = $person->record('attributes');
+    foreach my $attr (@attrs) {
+      if ( ( $attr->type ne 'TODO' ) && ( $attr->type ne 'Geography' ) ) {
+        if ( $attr->type eq 'Rank' ) {
+          $eventCount++;
+          push @events,
+            eventDetails( $person->sex, 'was a ' . $attr->get_value,
+            'in', $attr );
+        }
+        if ( $attr->type eq 'Regiment' ) {
+          $eventCount++;
+          push @events,
+            eventDetails( $person->sex, 'was in the  ' . $attr->get_value,
+            'in', $attr );
+        }
+      }
     }
 
 #-------------------------------------------------------------------------------
@@ -444,7 +402,7 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
 
     $vars = {
       events   => \@events,
-      notBlank => \&notBlank
+      notblank => \&notBlank
     };
     $template->process( 'events.tt', $vars, $RPT )
       || $logger->logdie( $template->error() );
@@ -456,11 +414,11 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
     my @cenevents = $person->record('census');
     foreach my $census (@cenevents) {
       $eventCount++;
-      push @censuses, censusDetails($census);
+      push @censuses, censusDetails($census,$person);
     }
     $vars = {
       censuses => \@censuses,
-      notBlank => \&notBlank
+      notblank => \&notBlank
     };
     $template->process( 'censuses.tt', $vars, $RPT )
       || $logger->logdie( $template->error() );
@@ -476,7 +434,7 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
     }
     $vars = {
       marriages => \@marriages,
-      notBlank  => \&notBlank
+      notblank  => \&notBlank
     };
     $template->process( 'marriages.tt', $vars, $RPT )
       || $logger->logdie( $template->error() );
@@ -522,7 +480,7 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
       $vars = {
         spouse   => basicDetails($spouse),
         children => \@children,
-        notBlank => \&notBlank
+        notblank => \&notBlank
       };
       $template->process( 'children.tt', $vars, $RPT )
         || $logger->logdie( $template->error() );
@@ -532,7 +490,7 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
       $vars = {
         spouse   => { surname => 'Unknown', page => undef },
         children => \@bastards,
-        notBlank => \&notBlank
+        notblank => \&notBlank
       };
       $template->process( 'children.tt', $vars, $RPT )
         || $logger->logdie( $template->error() );
@@ -665,7 +623,7 @@ close $SURNAME
 #  Write the final surname and the count to the surname index
 #-------------------------------------------------------------------------------
 $vars = {
-  href      => $SURNAME_file_name,
+  href      => terminalPart($SURNAME_file_name),
   surname   => $lastName,
   namecount => $lastNameCount,
 };
@@ -684,7 +642,126 @@ say "Skipped because No Web Flag  $skippedNoWeb";
 say "Skipped because No Flag      $skippedNoFlag";
 say "Added to web site            $addedPeople";
 
-#===  FUNCTION  ================================================================
+sub createGEDCOM {
+
+#-------------------------------------------------------------------------------
+#  Get the GEDCOM and turn it into a local ASCII version, note that the input
+#  file is UTF-16 little-endian
+#-------------------------------------------------------------------------------
+
+  my $IN_file_name =
+    $onedrive . $fhbase . 'Family.fh_data/Family.ged';    # input file name
+
+  open my $IN, '<encoding(UTF-16LE)', $IN_file_name
+    or $logger->logdie("$0 : failed to open  input file '$IN_file_name' : $!");
+
+  my $OUT_file_name = 'Family.ged';                       # output file name
+
+  open my $OUT, '>:encoding(UTF-8)', $OUT_file_name
+    or
+    $logger->logdie("$0 : failed to open  output file '$OUT_file_name' : $!");
+
+  my $skipping = 0;
+  while ( my $line = <$IN> ) {
+    chomp($line);
+    chop($line);    # needed because UTF-16LE?
+    if ( $line =~ m/^0 \@P\d+\@ _PLAC/ ) {
+      $skipping = 1;
+    }
+    if ( $line =~ m/^0 TRLR/ ) {
+      $skipping = 0;
+    }
+    say $OUT $line unless $skipping;
+  }
+
+  close $OUT
+    or
+    $logger->logerror("$0 : failed to close output file '$OUT_file_name' : $!");
+
+  close $IN
+    or
+    $logger->logerror("$0 : failed to close input file '$IN_file_name' : $!");
+}
+
+sub cleanOutput {
+
+#-------------------------------------------------------------------------------
+#  Clean up the output directory and move in the fixed files
+#-------------------------------------------------------------------------------
+
+  foreach my $htmFile ( glob qq("${outDir}*.htm") ) {
+    unlink $htmFile;
+  }
+
+  my $RPT_file_name = $outDir . 'index.htm';    # output file name
+
+  open my $RPT, '>', $RPT_file_name
+    or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
+  my $vars = {};
+  $template->process( 'index.tt', $vars, $RPT )
+    || $logger->logdie( $template->error() );
+  close $RPT
+    or
+    $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
+
+  # currently dummy places for maps, and places
+
+  $RPT_file_name = $outDir . 'maps.htm';    # output file name
+
+  open $RPT, '>', $RPT_file_name
+    or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
+  $vars = {};
+  $template->process( 'maps.tt', $vars, $RPT )
+    || $logger->logdie( $template->error() );
+  close $RPT
+    or
+    $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
+
+  $RPT_file_name = $outDir . 'places.htm';    # output file name
+
+  open $RPT, '>', $RPT_file_name
+    or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
+  $vars = {};
+  $template->process( 'places.tt', $vars, $RPT )
+    || $logger->logdie( $template->error() );
+  close $RPT
+    or
+    $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
+
+  $RPT_file_name = $outDir . 'about.htm';     # output file name
+
+  open $RPT, '>', $RPT_file_name
+    or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
+  $vars = {};
+  $template->process( 'about.tt', $vars, $RPT )
+    || $logger->logdie( $template->error() );
+  close $RPT
+    or
+    $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
+}
+
+sub processCharts {
+  my @charts = ();
+  foreach my $pngFile ( glob qq("${chartDir}*.png") ) {
+    copy( $pngFile, "$outDir/images" )
+      or $logger->logdie("Copy of $pngFile failed: $!");
+    push @charts, terminalPart($pngFile);
+  }
+  $RPT_file_name = $outDir . 'charts.htm';    # output file name
+
+  open $RPT, '>', $RPT_file_name
+    or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
+  $vars = { charts => \@charts };
+  $template->process( 'charts.tt', $vars, $RPT )
+    || $logger->logdie( $template->error() );
+  close $RPT
+    or
+    $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
+}
+
+sub basicDetails {
+
+#===  FUNCTION  ==============================================================
 #         NAME: basicDetails
 #      PURPOSE:
 #   PARAMETERS: ????
@@ -693,9 +770,7 @@ say "Added to web site            $addedPeople";
 #       THROWS: no exceptions
 #     COMMENTS: none
 #     SEE ALSO: n/a
-#===============================================================================
-
-sub basicDetails {
+#=============================================================================
   my $person = shift;
   my %details;
   if ($person) {
@@ -706,9 +781,8 @@ sub basicDetails {
     } else {
       $page = undef;
     }
-    $details{page}       = $page;
-    $details{givennames} = $person->given_names;
-    $details{surname}    = $person->surname;
+    $details{page}      = $page;
+    $details{casedname} = $person->cased_name;
 
 #-------------------------------------------------------------------------------
 # Remove page for living persons to stop invalid links being produced, this is
@@ -723,9 +797,9 @@ sub basicDetails {
 #-------------------------------------------------------------------------------
 #  Check for unknowns and provide birth death details
 #-------------------------------------------------------------------------------
-    if ( ( !$details{surname} ) && ( !$details{givennames} ) ) {
-      $details{surname} = "Unknown";
-      $details{page}    = undef;
+    if ( !$details{casedname} ) {
+      $details{casedname} = "Unknown";
+      $details{page}      = undef;
     }
     if ( $person->birth ) {
       if ( $person->birth eq "Y" ) {
@@ -742,6 +816,27 @@ sub basicDetails {
       }
     }
   }
+  return \%details;
+}
+
+#===  FUNCTION  ================================================================
+#         NAME: witnessDetails
+#      PURPOSE: used for named witnesses
+#   PARAMETERS: ????
+#      RETURNS: a reference to a hash containing the details of the witness
+#  DESCRIPTION: ????
+#       THROWS: no exceptions
+#     COMMENTS: none
+#     SEE ALSO: n/a
+#===============================================================================
+
+sub witnessDetails {
+  my $name = shift;
+  my %details;
+  $details{page}      = undef;
+  $details{casedname} = $name;
+  $details{born}      = 'Unknown date';
+  $details{died}      = 'Unknown date';
   return \%details;
 }
 
@@ -822,15 +917,25 @@ sub eventDetails {
           }
         }
       }
+      my @witnesses = ();
       $eventDetails{place} = eventPlace($event);
-      if ( $event->shared ) {
-        my @witnesses = ();
-        my @shared    = $event->record('shared');
+      if ( $event->sharedref ) {
+        my @shared = $event->record('sharedref');
         foreach my $witness (@shared) {
           $witness = $witness->get_value;
           $witness = $ged->get_individual($witness);
           push @witnesses, basicDetails($witness);
         }
+      }
+      if ( $event->sharedname ) {
+        my @witnesses = ();
+        my @shared    = $event->record('sharedname');
+        foreach my $witness (@shared) {
+          $witness = $witness->get_value;
+          push @witnesses, witnessDetails($witness);
+        }
+      }
+      if (@witnesses) {
         $eventDetails{witnesses} = \@witnesses;
       }
     }
@@ -881,23 +986,31 @@ sub marriageDetails {
     if ( $family->marriage->get_value('place') ) {
       $place .= $family->marriage->get_value('place');
     }
+    my @witnesses = ();
     $marriage{place} = $place;
-    if ( $family->marriage->shared ) {
-      my @witnesses = ();
-      my @shared    = $family->marriage->record('shared');
+    if ( $family->marriage->sharedref ) {
+      my @shared = $family->marriage->record('sharedref');
       foreach my $witness (@shared) {
         $witness = $witness->get_value;
         $witness = $ged->get_individual($witness);
         push @witnesses, basicDetails($witness);
       }
-      $marriage{witnesses} = \@witnesses;
     }
+    if ( $family->marriage->sharedname ) {
+      my @shared = $family->marriage->record('sharedname');
+      foreach my $witness (@shared) {
+        $witness = $witness->get_value;
+        push @witnesses, witnessDetails($witness);
+      }
+    }
+    $marriage{witnesses} = \@witnesses;
   }
   return \%marriage;
 }
 
 sub censusDetails {
   my $census = shift;
+  my $person = shift;
   my %details;
   $details{date} = fixDate( $census->get_value('date') );
   my $place = '';
@@ -909,7 +1022,40 @@ sub censusDetails {
   }
   $details{place} = $place;
   $details{age}   = $census->get_value('age');
+
+  # now try to find a multiple witness residence that matches the census year
+  $details{witnesses} = residenceWitnesses( $census->get_value('date'), $person );
   return \%details;
+}
+
+sub residenceWitnesses {
+  my $date      = shift;
+  my $person    = shift;
+  my @witnesses = ();
+  my @resis     = $person->record('residence');
+  foreach my $resi (@resis) {
+    if ( $resi->sharedref || $resi->sharedname ) {
+      if ( $resi->get_value('date') eq $date ) {
+        if ( $resi->sharedref ) {
+          my @shared = $resi->record('sharedref');
+          foreach my $witness (@shared) {
+            $witness = $witness->get_value;
+            $witness = $ged->get_individual($witness);
+            push @witnesses, basicDetails($witness);
+          }
+        }
+        if ( $resi->sharedname ) {
+          my @witnesses = ();
+          my @shared    = $resi->record('sharedname');
+          foreach my $witness (@shared) {
+            $witness = $witness->get_value;
+            push @witnesses, witnessDetails($witness);
+          }
+        }
+      }
+    }
+  }
+  return \@witnesses;
 }
 
 sub fixDate {
@@ -959,8 +1105,6 @@ sub checkAdd {
   return;
 }
 
-sub indexSort {
-
 #===  FUNCTION  ================================================================
 #         NAME: indexSort
 #      PURPOSE: Just sort on names
@@ -971,6 +1115,7 @@ sub indexSort {
 #     COMMENTS: none
 #     SEE ALSO: n/a
 #===============================================================================
+sub indexSort {
   my $name1 = $people{$a};
   my $name2 = $people{$b};
   $name1 =~ s/\[\d+\] //;
@@ -979,8 +1124,6 @@ sub indexSort {
   $name2 =~ s/#.*#//;
   return $name1 cmp $name2;
 }
-
-sub notBlank {
 
 #===  FUNCTION  ================================================================
 #         NAME: notBlank
@@ -992,10 +1135,9 @@ sub notBlank {
 #     COMMENTS: Note that spacing is the responsibility of the caller
 #     SEE ALSO: n/a
 #===============================================================================
-
+sub notBlank {
   my $text = shift;
   my $item = shift;
-
   if ($item) {
     return $text . $item;
   }
@@ -1097,8 +1239,9 @@ sub nameRelationship {
     $prefix   = ORD( $maxDepth + $difference - 1 ) . ' ';
     $relation = 'Cousin ' . abs($difference) . ' times removed';
   }
+
   # fix n times to be better English
-  if ($relation =~ / times /) {
+  if ( $relation =~ / times / ) {
     $relation =~ s/1 times/once/;
     $relation =~ s/2 times/twice/;
     $relation =~ s/3 times/thrice/;
@@ -1291,7 +1434,7 @@ sub alreadySeenUp {
   my $ref    = shift;
   my $person = shift;
   if ( $seenHashUp{$ref} ) {
-    debug( $ref, "up skipped because already seen" ) if $DEBUGGING;
+    debugPrint( $ref, "up skipped because already seen" ) if $DEBUGGING;
     return 1;
   } else {
 
