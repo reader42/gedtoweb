@@ -14,7 +14,7 @@
       [% FOREACH chart = charts %]
         <p>
           <a href="images/[% chart %]" target="_blank">
-            [% chart FILTER remove("\.png") %]
+            [% chart | remove("\.png") | replace("_", " ") %]
             [% IF (matches = chart.match('Ancestors')) %]
               <img src="images/ancestorssmall.png" attributes="#"\>
             [% ELSE %]

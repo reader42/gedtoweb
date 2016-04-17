@@ -623,7 +623,7 @@ close $SURNAME
 #  Write the final surname and the count to the surname index
 #-------------------------------------------------------------------------------
 $vars = {
-  href      => $SURNAME_file_name,
+  href      => terminalPart($SURNAME_file_name),
   surname   => $lastName,
   namecount => $lastNameCount,
 };
