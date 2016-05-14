@@ -4,6 +4,7 @@
     title = "Surname Index Page"
   %]
 <body id="indexpages">
+  [% INCLUDE analytics.tt %]
   <div class="container">
     [% INCLUDE navbar.tt %]
     <div class="jumbotron">

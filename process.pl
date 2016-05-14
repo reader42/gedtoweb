@@ -91,7 +91,7 @@ my $template = Template->new(
   {
     INCLUDE_PATH => 'Templates',
     PRE_CHOMP    => 1,
-    POST_CHOMP   => 1
+    POST_CHOMP   => 2
   }
 );
 my $outDir   = $onedrive . $fhbase . 'Public/FH Website/';
@@ -1085,6 +1085,26 @@ sub checkAdd {
   if ( exists $people{$xref} ) {
     return;
   }
+
+#-------------------------------------------------------------------------------
+# check for missing Living flags for people born after 1920
+#-------------------------------------------------------------------------------
+
+if ( ($person->birth) && (!$person->death)) {
+  if ( $person->birth ne "Y" ) {
+    my $bday = fixDate( $person->birth->get_value('date') );
+
+    $bday =~ /(\d\d\d\d)/;
+    my $byear = $1;
+    if ($byear >= 1920) {
+      if ( $person->flags ) {
+        if ( !$person->flags->living ) {
+          $logger->warn( $person->cased_name . ' Living flag not set' );
+        }
+      }
+    }
+  }
+}
 
 #-------------------------------------------------------------------------------
 # Store details for index
