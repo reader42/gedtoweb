@@ -9,7 +9,6 @@
 #      OPTIONS: ---
 # REQUIREMENTS: ---
 #         BUGS: ---
-#        NOTES: ---
 #       AUTHOR: Pete Barlow (PB), langbard@gmail.com
 # ORGANIZATION:
 #      VERSION: 1.0
@@ -20,6 +19,15 @@
 
 use Modern::Perl;
 use Gedcom;
+
+#  N.B. The following lines need to be added to Gedcom.pm after WILL => "Will",
+#  if the module is reinstalled.
+# _SHAR => "SharedRef",
+# _FLGS => "Flags",
+# __WEB => "Web",
+# __LIVING => "Living",
+# _SHAN => "SharedName",
+# _ATTR => "Attributes",
 use Template;
 use Data::Dumper;
 use Log::Log4perl qw(get_logger :levels);
@@ -132,9 +140,28 @@ my $DEBUGGING         = 0;
 
 #-------------------------------------------------------------------------------
 #  Build the list of people to be processed by adding their references to the
-#  list and also their details to the people index.
+#  list and also their details to the people index. The current tops of the
+#  trees are as follows:
+
+# Margaret STEPHENSON I58
+# James BARLOW I125
+# Roger MORGAN I129
+# John McNAMARA I130
+# Thomas WOODCOCK I159
+# William OLLERTON I170
+# George HALL I191
+# Nicholas HEANEY I192
+# John WORRALL I276
+# John RATCLIFFE I277
+# Henry ANDREWS I1319
+# James UNSWORTH I1924
+
+# TODO Put these in a config file
+
 #-------------------------------------------------------------------------------
-my @references = qw/I1924 I125 I129 I191 I1319 I277 I192 I276 I170 I130 I58/;
+
+my @references =
+  qw/I58 I125 I129 I130 I159 I170 I191 I192 I276 I277 I1319 I1924/;
 
 #-----------------------------------------------------------------------------
 #  Turn on debugging for nominated person I???
@@ -224,8 +251,8 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
     my $RPT_file_name = $outDir . 'P' . $page . '.htm';    # output file name
 
     open $RPT, '>', $RPT_file_name
-      or
-      $logger->logdie("$0 : failed to open  output file '$RPT_file_name' : $!");
+      or $logger->logdie(
+      "$0 : failed to open  output file '$RPT_file_name' : $!");
     my $vars = { page => $page, notblank => \&notBlank };
     $template->process( 'personpagehead.tt', $vars, $RPT )
       || $logger->logdie( $template->error() );
@@ -316,9 +343,9 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
         'on', $person->christening );
     }
 
- #------------------------------------------------------------------------------
- #  Later life events
- #------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
+#  Later life events
+#------------------------------------------------------------------------------
 
     if ( $person->adoption ) {
       $eventCount++;
@@ -350,6 +377,16 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
     my @occs = $person->record('occupation');
     foreach my $occ (@occs) {
       $eventCount++;
+
+      # log occupations that have a no date or a full date for future
+      # editing
+      if ( $occ->get_value('date') ) {
+        if ( $occ->get_value('date') !~ /^\d+$/ ) {
+          say "Full date occupation for ", $person->xref;
+        }
+      } else {
+        say "No date occupation for ", $person->xref;
+      }
       push @events,
         eventDetails( $person->sex, 'was ' . $occ->get_value, 'in', $occ );
     }
@@ -392,12 +429,19 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
 #-------------------------------------------------------------------------------
     if ( $person->death ) {
       $eventCount++;
-      push @events, eventDetails( $person->sex, 'died', 'on', $person->death );
+      push @events,
+        eventDetails( $person->sex, 'died', 'on', $person->death );
     }
     if ( $person->burial ) {
       $eventCount++;
       push @events,
         eventDetails( $person->sex, 'was buried', 'on', $person->burial );
+    }
+
+    if ( $person->cremation ) {
+      $eventCount++;
+      push @events,
+        eventDetails( $person->sex, 'was cremated', 'on', $person->burial );
     }
 
     $vars = {
@@ -414,7 +458,7 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
     my @cenevents = $person->record('census');
     foreach my $census (@cenevents) {
       $eventCount++;
-      push @censuses, censusDetails($census,$person);
+      push @censuses, censusDetails( $census, $person );
     }
     $vars = {
       censuses => \@censuses,
@@ -424,13 +468,16 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
       || $logger->logdie( $template->error() );
 
 #-------------------------------------------------------------------------------
-#  Marriages
+#  Marriages, note that there may be multiple marriages for Catholics
 #-------------------------------------------------------------------------------
     my @marriages;
     my @families = $person->record('family_spouse');
     foreach my $family (@families) {
       $eventCount++;
-      push @marriages, marriageDetails($family);
+      my @famMarriages = $family->marriage;
+      foreach my $famMarriage (@famMarriages) {
+        push @marriages, marriageDetails( $family, $famMarriage );
+      }
     }
     $vars = {
       marriages => \@marriages,
@@ -504,7 +551,7 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
   } else {
     removeIndex($person);
 
- # $logger->info( $person->cased_name . ' not processed because no flags set' );
+# $logger->info( $person->cased_name . ' not processed because no flags set' );
     $skippedNoFlag++;
   }
 }
@@ -520,7 +567,8 @@ close $RPT
 my $INDEX_file_name = $outDir . 'surname_index.htm';    # output file name
 
 open my $INDEX, '>', $INDEX_file_name
-  or $logger->logdie("$0 : failed to open output file '$INDEX_file_name' : $!");
+  or
+  $logger->logdie("$0 : failed to open output file '$INDEX_file_name' : $!");
 $template->process( 'indexpagehead.tt', undef, $INDEX )
   || $logger->logdie( $template->error() );
 
@@ -533,8 +581,8 @@ my $lastNameCount = 0;
 my $SURNAME_file_name = $outDir . 'Unknown.htm';    # output file name
 
 open my $SURNAME, '>', $SURNAME_file_name
-  or
-  $logger->logdie("$0 : failed to open output file '$SURNAME_file_name' : $!");
+  or $logger->logdie(
+  "$0 : failed to open output file '$SURNAME_file_name' : $!");
 $vars = { surname => 'Unknown' };
 $template->process( 'surnamepagehead.tt', $vars, $SURNAME )
   || $logger->logdie( $template->error() );
@@ -633,8 +681,8 @@ $template->process( 'indexpagefoot.tt', undef, $INDEX )
   || $logger->logdie( $template->error() );
 
 close $INDEX
-  or
-  $logger->logerror("$0 : failed to close output file '$INDEX_file_name' : $!");
+  or $logger->logerror(
+  "$0 : failed to close output file '$INDEX_file_name' : $!");
 
 say "Total people processed       $totalPeople";
 say "Skipped because Living       $skippedLiving";
@@ -653,7 +701,8 @@ sub createGEDCOM {
     $onedrive . $fhbase . 'Family.fh_data/Family.ged';    # input file name
 
   open my $IN, '<encoding(UTF-16LE)', $IN_file_name
-    or $logger->logdie("$0 : failed to open  input file '$IN_file_name' : $!");
+    or
+    $logger->logdie("$0 : failed to open  input file '$IN_file_name' : $!");
 
   my $OUT_file_name = 'Family.ged';                       # output file name
 
@@ -675,12 +724,13 @@ sub createGEDCOM {
   }
 
   close $OUT
-    or
-    $logger->logerror("$0 : failed to close output file '$OUT_file_name' : $!");
+    or $logger->logerror(
+    "$0 : failed to close output file '$OUT_file_name' : $!");
 
   close $IN
     or
     $logger->logerror("$0 : failed to close input file '$IN_file_name' : $!");
+  return;
 }
 
 sub cleanOutput {
@@ -696,48 +746,53 @@ sub cleanOutput {
   my $RPT_file_name = $outDir . 'index.htm';    # output file name
 
   open my $RPT, '>', $RPT_file_name
-    or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
+    or
+    $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
   my $vars = {};
   $template->process( 'index.tt', $vars, $RPT )
     || $logger->logdie( $template->error() );
   close $RPT
-    or
-    $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
+    or $logger->logerror(
+    "$0 : failed to close output file '$RPT_file_name' : $!");
 
   # currently dummy places for maps, and places
 
   $RPT_file_name = $outDir . 'maps.htm';    # output file name
 
   open $RPT, '>', $RPT_file_name
-    or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
+    or
+    $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
   $vars = {};
   $template->process( 'maps.tt', $vars, $RPT )
     || $logger->logdie( $template->error() );
   close $RPT
-    or
-    $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
+    or $logger->logerror(
+    "$0 : failed to close output file '$RPT_file_name' : $!");
 
   $RPT_file_name = $outDir . 'places.htm';    # output file name
 
   open $RPT, '>', $RPT_file_name
-    or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
+    or
+    $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
   $vars = {};
   $template->process( 'places.tt', $vars, $RPT )
     || $logger->logdie( $template->error() );
   close $RPT
-    or
-    $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
+    or $logger->logerror(
+    "$0 : failed to close output file '$RPT_file_name' : $!");
 
   $RPT_file_name = $outDir . 'about.htm';     # output file name
 
   open $RPT, '>', $RPT_file_name
-    or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
+    or
+    $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
   $vars = {};
   $template->process( 'about.tt', $vars, $RPT )
     || $logger->logdie( $template->error() );
   close $RPT
-    or
-    $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
+    or $logger->logerror(
+    "$0 : failed to close output file '$RPT_file_name' : $!");
+  return;
 }
 
 sub processCharts {
@@ -750,13 +805,15 @@ sub processCharts {
   $RPT_file_name = $outDir . 'charts.htm';    # output file name
 
   open $RPT, '>', $RPT_file_name
-    or $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
+    or
+    $logger->logdie("$0 : failed to open output file '$RPT_file_name' : $!");
   $vars = { charts => \@charts };
   $template->process( 'charts.tt', $vars, $RPT )
     || $logger->logdie( $template->error() );
   close $RPT
-    or
-    $logger->logerror("$0 : failed to close output file '$RPT_file_name' : $!");
+    or $logger->logerror(
+    "$0 : failed to close output file '$RPT_file_name' : $!");
+  return;
 }
 
 sub basicDetails {
@@ -903,7 +960,8 @@ sub eventDetails {
     } else {
       if ( $event->get_value('date') ) {
         if ( $event->get_value('date') =~ /^BET|^ABT|^BEF|^AFT|^CAL/ ) {
-          $eventDetails{date} = fixDate( $event->get_value('date') );
+          $eventDetails{date} =
+            fixDate( $event->get_value('date') );
         } else {
 
           # a date like Oct 1886 or 1886 should be 'in'
@@ -965,7 +1023,8 @@ sub eventPlace {
 }
 
 sub marriageDetails {
-  my $family = shift;
+  my $family      = shift;
+  my $famMarriage = shift;
   my %marriage;
   if ( $family->husband ) {
     $marriage{husband} = basicDetails( $family->husband );
@@ -977,34 +1036,34 @@ sub marriageDetails {
   } else {
     return \%marriage;
   }
-  if ( $family->marriage ) {
-    $marriage{date} = fixDate( $family->marriage->get_value('date') );
-    my $place = '';
-    if ( $family->marriage->get_value('address') ) {
-      $place .= $family->marriage->get_value('address') . ', ';
-    }
-    if ( $family->marriage->get_value('place') ) {
-      $place .= $family->marriage->get_value('place');
-    }
-    my @witnesses = ();
-    $marriage{place} = $place;
-    if ( $family->marriage->sharedref ) {
-      my @shared = $family->marriage->record('sharedref');
-      foreach my $witness (@shared) {
-        $witness = $witness->get_value;
-        $witness = $ged->get_individual($witness);
-        push @witnesses, basicDetails($witness);
-      }
-    }
-    if ( $family->marriage->sharedname ) {
-      my @shared = $family->marriage->record('sharedname');
-      foreach my $witness (@shared) {
-        $witness = $witness->get_value;
-        push @witnesses, witnessDetails($witness);
-      }
-    }
-    $marriage{witnesses} = \@witnesses;
+
+  $marriage{date} = fixDate( $famMarriage->get_value('date') );
+  my $place = '';
+  if ( $famMarriage->get_value('address') ) {
+    $place .= $famMarriage->get_value('address') . ', ';
   }
+  if ( $famMarriage->get_value('place') ) {
+    $place .= $famMarriage->get_value('place');
+  }
+  my @witnesses = ();
+  $marriage{place} = $place;
+  if ( $famMarriage->sharedref ) {
+    my @shared = $famMarriage->record('sharedref');
+    foreach my $witness (@shared) {
+      $witness = $witness->get_value;
+      $witness = $ged->get_individual($witness);
+      push @witnesses, basicDetails($witness);
+    }
+  }
+  if ( $famMarriage->sharedname ) {
+    my @shared = $famMarriage->record('sharedname');
+    foreach my $witness (@shared) {
+      $witness = $witness->get_value;
+      push @witnesses, witnessDetails($witness);
+    }
+  }
+  $marriage{witnesses} = \@witnesses;
+
   return \%marriage;
 }
 
@@ -1024,7 +1083,8 @@ sub censusDetails {
   $details{age}   = $census->get_value('age');
 
   # now try to find a multiple witness residence that matches the census year
-  $details{witnesses} = residenceWitnesses( $census->get_value('date'), $person );
+  $details{witnesses} =
+    residenceWitnesses( $census->get_value('date'), $person );
   return \%details;
 }
 
@@ -1052,7 +1112,18 @@ sub residenceWitnesses {
             push @witnesses, witnessDetails($witness);
           }
         }
+
+        # safe to return here if we have some witnesses
+        return \@witnesses;
       }
+    }
+  }
+
+  # didn't find anything so search the father and mother
+  my @parentWitnesses = searchTargetsParents( $person, $date );
+  if (@parentWitnesses) {
+    foreach my $witness (@parentWitnesses) {
+      push @witnesses, basicDetails( $ged->get_individual($witness) );
     }
   }
   return \@witnesses;
@@ -1090,21 +1161,21 @@ sub checkAdd {
 # check for missing Living flags for people born after 1920
 #-------------------------------------------------------------------------------
 
-if ( ($person->birth) && (!$person->death)) {
-  if ( $person->birth ne "Y" ) {
-    my $bday = fixDate( $person->birth->get_value('date') );
+  if ( ( $person->birth ) && ( !$person->death ) ) {
+    if ( $person->birth ne "Y" ) {
+      my $bday = fixDate( $person->birth->get_value('date') );
 
-    $bday =~ /(\d\d\d\d)/;
-    my $byear = $1;
-    if ($byear >= 1920) {
-      if ( $person->flags ) {
-        if ( !$person->flags->living ) {
-          $logger->warn( $person->cased_name . ' Living flag not set' );
+      $bday =~ /(\d\d\d\d)/;
+      my $byear = $1;
+      if ( $byear >= 1920 ) {
+        if ( $person->flags ) {
+          if ( !$person->flags->living ) {
+            $logger->warn( $person->cased_name . ' Living flag not set' );
+          }
         }
       }
     }
   }
-}
 
 #-------------------------------------------------------------------------------
 # Store details for index
@@ -1204,7 +1275,8 @@ sub nameRelationship {
   my $prefix     = '';
   my $relation;
 
-  debugPrint( "Maxdepth", $maxDepth, 'Difference', $difference ) if $DEBUGGING;
+  debugPrint( "Maxdepth", $maxDepth, 'Difference', $difference )
+    if $DEBUGGING;
 
   if ( $maxDepth == 0 ) {
 
@@ -1281,24 +1353,24 @@ sub searchDown {
 
   my $person = $ged->get_individual($ref);
 
-  #----------------------------------------------------------------------------
-  # don't process people more than once otherwise we will never terminate
-  #----------------------------------------------------------------------------
+ #----------------------------------------------------------------------------
+ # don't process people more than once otherwise we will never terminate
+ #----------------------------------------------------------------------------
 
   if ( alreadySeenDown( $ref, $person ) ) {
     return;
   }
   $searchesPerformed++;
 
-  #----------------------------------------------------------------------------
-  # don't process if we have already found who we're looking fo
-  #----------------------------------------------------------------------------
+ #----------------------------------------------------------------------------
+ # don't process if we have already found who we're looking fo
+ #----------------------------------------------------------------------------
 
   return if $found;
 
-  #----------------------------------------------------------------------------
-  # record progress
-  #----------------------------------------------------------------------------
+ #----------------------------------------------------------------------------
+ # record progress
+ #----------------------------------------------------------------------------
   push @downTrace, $person->xref;
 
   debugPrint( "Searching down from", $person->cased_name, $person->xref )
@@ -1314,11 +1386,11 @@ sub searchDown {
     return;
   }
 
-  #----------------------------------------------------------------------------
-  # is this not a leaf node? i.e. the person has children or a spouse, if so
-  # process the children and spouse, otherwise just pop the node off the down
-  # trace
-  #----------------------------------------------------------------------------
+ #----------------------------------------------------------------------------
+ # is this not a leaf node? i.e. the person has children or a spouse, if so
+ # process the children and spouse, otherwise just pop the node off the down
+ # trace
+ #----------------------------------------------------------------------------
   if ( $person->children || $person->spouse ) {
     if ( $person->children ) {
       foreach my $child ( $person->children ) {
@@ -1337,24 +1409,25 @@ sub searchDown {
       }
     }
 
-    #--------------------------------------------------------------------------
-    # we've now searched the tree rooted at this person and not found who we are
-    # looking for in any of their children (and etc.) so we pop them off the
-    # trace
-    #--------------------------------------------------------------------------
+  #--------------------------------------------------------------------------
+  # we've now searched the tree rooted at this person and not found who we are
+  # looking for in any of their children (and etc.) so we pop them off the
+  # trace
+  #--------------------------------------------------------------------------
   } else {
     my $dummy = pop @downTrace;
     debugPrint( "Leaf Node $dummy popped", join( ',', @downTrace ) )
       if $DEBUGGING;
   }
+  return;
 }
 
 sub nextLevelUp {
 
-  #----------------------------------------------------------------------------
-  # from a person, add their father and mother - from a father and mother add
-  # their fathers and mothers, etc.
-  #----------------------------------------------------------------------------
+ #----------------------------------------------------------------------------
+ # from a person, add their father and mother - from a father and mother add
+ # their fathers and mothers, etc.
+ #----------------------------------------------------------------------------
 
   foreach my $indi ( keys %currentList ) {
     my $depth = $currentList{$indi}{depth};
@@ -1386,6 +1459,7 @@ sub initLevel {
   %currentList                         = ();
   $currentList{ $person->xref }{name}  = $person->cased_name;
   $currentList{ $person->xref }{depth} = 0;
+  return;
 }
 
 sub printLevel {
@@ -1398,6 +1472,7 @@ sub printLevel {
     say ' ' x ( $depth + $adjust ), $name . " ($indi)";
   }
   say ' ';
+  return;
 }
 
 sub addFound {
@@ -1419,22 +1494,22 @@ sub addFound {
   foreach my $indi (@foundDownTrace) {
     if ( !defined $depth ) {
 
-      # the first person we process should always be in %currentList already and
-      # so we pick up the depth from here
+    # the first person we process should always be in %currentList already and
+    # so we pick up the depth from here
 
       if ( exists $currentList{$indi} ) {
         $depth = $currentList{$indi}{depth};
       } else {
 
-        # for multiple spouses this happens so try to use the depth of the last
-        # person in the list
+       # for multiple spouses this happens so try to use the depth of the last
+       # person in the list
         foreach my $hope ( keys %currentList ) {
           $depth = $currentList{$hope}{depth};
         }
         $depth++;
         $weird = 1;
-        debugPrint( 'Warning', $indi, 'not in current list, depth set to',
-          $depth );
+        debugPrint( 'Warning', $indi,
+          'not in current list, depth set to', $depth );
       }
     }
 
@@ -1496,4 +1571,70 @@ sub terminalPart {
 sub debugPrint {
   my @data = @_;
   say join( ' ', @data );
+  return;
+}
+
+# scan a person to locate a correctly dated residence record that has the target
+# person as a witness, if found return the person and the other witnesses
+sub findTargetAsWitness {
+
+  my $person = shift;
+  my $target = shift;
+  my $date   = shift;
+
+  my @resis = $person->record('residence');
+  foreach my $resi (@resis) {
+    if ( $resi->get_value('date') && $resi->get_value('date') eq $date ) {
+
+      # say "Found residence for $date";
+      my @witnesses = ();
+      my $found     = 0;
+      if ( $resi->sharedref ) {
+        my @shared = $resi->record('sharedref');
+        foreach my $witness (@shared) {
+          $witness = $witness->get_value;
+          if ( $witness eq $target ) {
+
+            $found = 1;
+          } else {
+            push @witnesses, $witness;
+          }
+        }
+      }
+      if ($found) {
+        unshift @witnesses, $person->xref;
+
+        return @witnesses;
+      }
+    }
+  }
+  return;
+}
+
+# search the parents to find a witnessed residence that contains the target to
+# match the census date
+
+sub searchTargetsParents {
+  my $target    = shift;
+  my $date      = shift;
+  my @witnesses = ();
+  my $father    = $target->father();
+  my $mother    = $target->mother();
+  if ($father) {
+    @witnesses = findTargetAsWitness( $father, $target->xref, $date );
+    if (@witnesses) {
+
+      return @witnesses;
+    }
+  }
+  if ($mother) {
+    @witnesses = findTargetAsWitness( $mother, $target->xref, $date );
+    if (@witnesses) {
+
+      return @witnesses;
+    }
+  }
+
+  # say "Not found with either parent";
+  return;
 }
