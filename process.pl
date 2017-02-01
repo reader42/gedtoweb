@@ -119,7 +119,7 @@ my %people;
 
 my $page      = 1;
 my $pageCount = 0;
-my $pageLimit = 40;
+my $pageLimit = 20;
 
 # Global variables for relationship calculations
 
@@ -381,7 +381,7 @@ foreach my $key ( sort { $people{$a} cmp $people{$b} } keys %people ) {
       # log occupations that have a no date or a full date for future
       # editing
       if ( $occ->get_value('date') ) {
-        if ( $occ->get_value('date') !~ /^\d+$/ ) {
+        if ( $occ->get_value('date') =~ /^\d+\s\w+\s\d+$/ ) {
           say "Full date occupation for ", $person->xref;
         }
       } else {

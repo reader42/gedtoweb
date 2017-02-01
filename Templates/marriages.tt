@@ -4,10 +4,8 @@
   <tr>
     <th>Husband</th>
     <th>Wife</th>
-    <th>Date</th>
-    <th>Place</th>
-    <th>Witnesses</th>
   </tr>
+
   [% FOREACH marriage = marriages %]
   <tr>
     <td>
@@ -26,6 +24,13 @@
         [% marriage.wife.casedname %]
       [% END %]
     </td>
+  </tr>
+  <tr>
+    <th>Date</th>
+    <th>Place</th>
+    <th>Witnesses</th>
+  </tr>
+  <tr>
     <td>
       [% marriage.date %]
     </td>
